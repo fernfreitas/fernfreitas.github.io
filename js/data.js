@@ -157,6 +157,8 @@ window.FF_DATA = {
         { type: 'file', src: 'assets/ailab/vitoria_relight.mp4', poster: 'assets/ailab/vitoria_relight.jpg', loop: true, label: 'Relight · midday to golden hour', sub: 'Left: phone take · right: relit with AI · silent demo', dur: '0:05' },
         { type: 'file', src: 'assets/ailab/vitoria_roses.mp4', poster: 'assets/ailab/vitoria_roses.jpg', loop: true, label: 'A column that blooms', sub: 'Left: phone take · right: roses added with AI · silent demo', dur: '0:04' },
         { type: 'file', src: 'assets/ailab/onetake_original_x_ai.mp4', poster: 'assets/ailab/onetake_original_x_ai_poster.jpg', loop: true, label: 'Original × new cameras', sub: 'Left: phone take · right: AI camera · silent demo', dur: '0:22' },
+        { type: 'file', src: 'assets/ailab/onetake_9shots.mp4', poster: 'assets/ailab/onetake_9shots.jpg', loop: true, label: 'One take, nine new shots', sub: '4 phone takes became 9 new camera angles · silent demo', dur: '0:22' },
+        { type: 'image', src: 'assets/ailab/onetake_resumo.jpg', label: '4 phone takes · 9 new angles', sub: 'Before and after, all takes' },
         { type: 'image', src: 'assets/ailab/onetake_take_1.jpg', label: 'Take 1 · Garden walk', sub: 'Original, then 3 new angles' },
         { type: 'image', src: 'assets/ailab/onetake_take_2.jpg', label: 'Take 2 · Running', sub: 'Original, then 2 new angles' },
         { type: 'image', src: 'assets/ailab/onetake_take_3.jpg', label: 'Take 3 · Crosswalk', sub: 'Original, then 2 new angles' },
@@ -343,6 +345,26 @@ window.FF_DATA = {
       buy: '',
       desc: ['Official music video for Família 7 Velas, “Clack Bum!”.'],
       credits: 'Direction & edit: Fernando Freitas',
+      links: []
+    },
+    {
+      n: 17, cat: 'cases', cover: 'assets/covers/17_folle_de_toi_ai.jpg',
+      title: 'Folle de Toi — Paintings & Statues Come Alive',
+      kind: 'AI on real footage', role: 'Editor & AI director', with: 'Vitória Maldonado', year: '2026',
+      award: '',
+      items: [
+        { type: 'file', src: 'assets/ailab/folle_statues.mp4', poster: 'assets/ailab/folle_statues.jpg', loop: true, label: 'Museum pieces come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:14' },
+        { type: 'file', src: 'assets/ailab/folle_dance.mp4', poster: 'assets/ailab/folle_dance.jpg', loop: true, label: 'The painted couple dances', sub: 'Painting → dance · silent demo', dur: '0:04' },
+        { type: 'file', src: 'assets/ailab/folle_neptune.mp4', poster: 'assets/ailab/folle_neptune.jpg', loop: true, label: 'The marble god moves', sub: 'Statue → motion · silent demo', dur: '0:02' },
+        { type: 'file', src: 'assets/ailab/folle_youth.mp4', poster: 'assets/ailab/folle_youth.jpg', loop: true, label: 'The seated youth looks up', sub: 'Statue → motion · silent demo', dur: '0:03' },
+        { type: 'file', src: 'assets/ailab/folle_bust.mp4', poster: 'assets/ailab/folle_bust.jpg', loop: true, label: 'She opens her eyes', sub: 'Statue → motion · silent demo', dur: '0:04' }
+      ],
+      buy: '',
+      desc: [
+        'For Vitória Maldonado’s music video “Folle de Toi”, shot on a phone in the museums of Paris, the art on the walls was meant to come alive.',
+        'A painted couple starts to dance, marble gods move, a seated youth looks up and a bust opens her eyes and turns to the camera. The museum stays exactly as filmed; only the artworks move.'
+      ],
+      credits: 'Artist: Vitória Maldonado · Edit & AI direction: Fernando Freitas',
       links: []
     }
   ]

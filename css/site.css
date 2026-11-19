@@ -511,3 +511,8 @@ html.intro-on .intro.is-waiting .intro-hint { display: block; position: absolute
 .stage-pages-wrap.is-full { position: fixed !important; inset: 0 !important; z-index: 9999; background: #000; width: 100vw !important; height: 100vh !important; height: 100dvh !important; }
 .stage-pages-wrap.is-full .stage-pages { position: absolute; inset: 0; }
 .stage-pages-wrap.is-full .stage-pages img { height: 100%; width: auto; }
+
+/* 20/11: Folle de Toi — 4 planos verticais lado a lado */
+.lab-stack--4 { grid-template-columns: repeat(4, 1fr); }
+.lab-fig--tall { aspect-ratio: 3 / 4; }
+@media (max-width: 720px) { .lab-stack--4 { grid-template-columns: 1fr 1fr; } }
