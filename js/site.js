@@ -607,7 +607,7 @@
   (() => {
     const el = document.querySelector('.brand-skill'); if (!el) return;
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const SK = ['AI Director', 'Motion', 'Design', 'Finishing', 'Post-production', 'Senior Editor', 'Trailers', 'Color', 'Sound design', 'Illustration', 'Creative Director'];
+    const SK = ['AI Director', 'Motion', 'Color grading', 'Design', 'Finishing', 'Post-production', 'Senior Editor', 'Trailers', 'Sound design', 'Illustration', 'Creative Director'];
     let i = 0, t = 0;
     const run = () => { clearInterval(t); if (!document.hidden) t = setInterval(() => { i = (i + 1) % SK.length; el.textContent = SK[i]; }, 1500); };
     document.addEventListener('visibilitychange', run); run();

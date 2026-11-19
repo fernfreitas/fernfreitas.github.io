@@ -277,7 +277,7 @@ window.FF_DATA = {
         { type: 'vimeo', id: '296058871', label: 'Xenia França — Pra Que Me Chamas?', sub: '', dur: '6:14' },
         { type: 'vimeo', id: '1152083262', label: 'Garena Free Fire — T.R.A.P.: I’m on Fire', sub: 'feat. BJRNCK, Awich, Krawk, Faruz Feet · Vetor Zero · 2026', dur: '2:48' },
         { type: 'file', id: 'velas', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
-        { type: 'file', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' },
+        { type: 'file', id: 'malokero', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' },
         { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' }
       ],
       desc: [
@@ -377,7 +377,7 @@ window.FF_DATA = {
     {
       n: 16, cat: 'direction', cover: 'assets/covers/13_familia_7_velas.jpg',
       title: 'Família 7 Velas — Clack Bum!',
-      kind: 'Music video', role: 'Director & editor', with: '', year: '',
+      kind: 'Music video', role: 'Director, editor & colorist', with: '', year: '',
       award: '',
       items: [{ type: 'file', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' }],
       buy: '',
@@ -387,20 +387,20 @@ window.FF_DATA = {
     },
     {
       n: 17, cat: 'cases', cover: 'assets/covers/17_folle_de_toi_ai.jpg',
-      title: 'Folle de Toi — Paintings & Statues Come Alive',
+      title: 'Folle de Toi — Statues Come Alive',
       kind: 'AI on real footage', role: 'Editor & AI director', with: 'Vitória Maldonado', year: '2026',
       award: '',
       items: [
-        { type: 'file', src: 'assets/ailab/folle_statues.mp4', poster: 'assets/ailab/folle_statues.jpg', loop: true, label: 'Museum pieces come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:14' },
-        { type: 'file', src: 'assets/ailab/folle_dance.mp4', poster: 'assets/ailab/folle_dance.jpg', loop: true, label: 'The painted couple dances', sub: 'Painting → dance · silent demo', dur: '0:04' },
+        { type: 'file', src: 'assets/ailab/folle_marble.mp4', poster: 'assets/ailab/folle_marble.jpg', loop: true, label: 'The statues come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:10' },
+        { type: 'file', src: 'assets/ailab/folle_torso.mp4', poster: 'assets/ailab/folle_torso.jpg', loop: true, label: 'The marble breathes', sub: 'Statue → motion · silent demo', dur: '0:02' },
         { type: 'file', src: 'assets/ailab/folle_neptune.mp4', poster: 'assets/ailab/folle_neptune.jpg', loop: true, label: 'The marble god moves', sub: 'Statue → motion · silent demo', dur: '0:02' },
         { type: 'file', src: 'assets/ailab/folle_youth.mp4', poster: 'assets/ailab/folle_youth.jpg', loop: true, label: 'The seated youth looks up', sub: 'Statue → motion · silent demo', dur: '0:03' },
         { type: 'file', src: 'assets/ailab/folle_bust.mp4', poster: 'assets/ailab/folle_bust.jpg', loop: true, label: 'She opens her eyes', sub: 'Statue → motion · silent demo', dur: '0:04' }
       ],
       buy: '',
       desc: [
-        'For Vitória Maldonado’s music video “Folle de Toi”, shot on a phone in the museums of Paris, the art on the walls was meant to come alive.',
-        'A painted couple starts to dance, marble gods move, a seated youth looks up and a bust opens her eyes and turns to the camera. The museum stays exactly as filmed; only the artworks move.'
+        'For Vitória Maldonado’s music video “Folle de Toi”, shot on a phone in the museums of Paris, the statues were meant to come alive.',
+        'Marble breathes, a god turns, a seated youth looks up and a bust opens her eyes and turns to the camera. The museum stays exactly as filmed; only the statues move.'
       ],
       credits: 'Artist: Vitória Maldonado · Edit & AI direction: Fernando Freitas',
       links: []
