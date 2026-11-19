@@ -449,3 +449,8 @@ html.intro-on .intro.is-out { opacity: 0; visibility: hidden; }
 .intro-v { display: block; width: 100vw; height: 100vh; height: 100dvh; object-fit: cover; background: #111113; }
 html.intro-on .intro.is-cut { opacity: 0; visibility: hidden; transition: none; }
 .foot-links { display: inline-flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+
+/* Som (19/11): o navegador barrou o som; o botão pisca de leve até o primeiro gesto do visitante */
+#heroSound.is-waiting{animation:ffSoundWait 1.6s ease-in-out infinite}
+@keyframes ffSoundWait{0%,100%{opacity:1}50%{opacity:.55}}
+@media (prefers-reduced-motion: reduce){#heroSound.is-waiting{animation:none}}

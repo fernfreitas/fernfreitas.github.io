@@ -185,10 +185,15 @@
   });
   setInterval(keepHero, 2000);
 
-  /* Som: o filme abre mudo (regra dos navegadores); o visitante liga. Trilha de base opcional em FF_DATA.heroMusic. */
+  /* Som (19/11, pedido dele): o site abre COM som e o visitante escolhe desligar.
+     Se o navegador barrar som antes de qualquer gesto, o filme segue mudo só até o primeiro clique, toque ou tecla
+     em qualquer lugar da página, e aí o som liga sozinho. Quem desligou fica desligado (lembrado no navegador).
+     Trilha de base opcional em FF_DATA.heroMusic. */
   const heroSound = $('#heroSound');
   const music = D.heroMusic ? new Audio(D.heroMusic) : null;
   if (music) { music.loop = true; music.volume = .55; music.preload = 'none'; }
+  let soundWanted = true;
+  try { soundWanted = localStorage.getItem('ff-sound') !== 'off'; } catch (e) { /* sem armazenamento: segue com som */ }
   function syncMusic() {
     if (!music) return;
     if (!heroVideo.muted && !heroVideo.paused) {
@@ -197,19 +202,41 @@
     }
     else music.pause();
   }
-  function setSound(on) {
-    heroVideo.muted = !on;
-    heroVideo.volume = music ? .7 : 1;
-    heroSound.textContent = on ? 'Sound on' : 'Sound off';
+  function showSound() {
+    const on = !heroVideo.muted;
+    const waiting = soundWanted && !on;                 // quer som, o navegador ainda não deixou
+    heroSound.textContent = on ? 'Sound on' : (waiting ? 'Tap for sound' : 'Sound off');
     heroSound.setAttribute('aria-pressed', String(on));
     heroSound.setAttribute('aria-label', on ? 'Turn the film sound off' : 'Turn the film sound on');
-    if (on && heroVideo.paused) { heroWanted = true; playHero(); }
-    syncMusic();
+    heroSound.classList.toggle('is-waiting', waiting);
   }
+  function setSound(on) {
+    heroVideo.volume = music ? .7 : 1;
+    if (!on) { heroVideo.muted = true; showSound(); syncMusic(); return; }
+    heroVideo.muted = false;
+    heroWanted = true;
+    const p = heroVideo.play();
+    if (p && p.catch) p.catch(() => { heroVideo.muted = true; playHero(); showSound(); syncMusic(); });   // barrado: volta mudo
+    showSound(); syncMusic();
+  }
+  function remember(on) { try { localStorage.setItem('ff-sound', on ? 'on' : 'off'); } catch (e) { /* tudo bem */ } }
   heroSound.addEventListener('click', () => {
-    setSound(heroVideo.muted);
-    if (window.ffTrack) window.ffTrack('hero_sound', { on: !heroVideo.muted, film: $('#heroTitle').textContent });
+    const on = heroVideo.muted;
+    soundWanted = on; remember(on); setSound(on);
+    if (window.ffTrack) window.ffTrack('hero_sound', { on, film: $('#heroTitle').textContent });
   });
+  /* Primeiro gesto na página (inclusive o que pula a abertura) liga o som que o visitante ainda não recusou. */
+  const GESTOS = ['pointerdown', 'keydown', 'touchend'];
+  function primeiroGesto(ev) {
+    if (ev.target && ev.target.closest && ev.target.closest('#heroSound')) return;   // o botão decide sozinho
+    if (soundWanted && heroVideo.muted && !heroDucked) setSound(true);
+    if (!heroVideo.muted || !soundWanted) GESTOS.forEach(t => window.removeEventListener(t, primeiroGesto, true));
+  }
+  GESTOS.forEach(t => window.addEventListener(t, primeiroGesto, { capture: true, passive: true }));
+  function abrirComSom() { if (soundWanted) setSound(true); else showSound(); }
+  if (window.ffIntroDone || !document.documentElement.classList.contains('intro-on')) abrirComSom();
+  else document.addEventListener('ff:intro-done', abrirComSom, { once: true });
+  showSound();
   heroVideo.addEventListener('play', syncMusic);
   heroVideo.addEventListener('pause', syncMusic);
   heroVideo.addEventListener('seeked', syncMusic);   // o filme voltou ao início: a trilha volta junto
