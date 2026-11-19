@@ -41,16 +41,15 @@
 <!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1119g">
+<link rel="stylesheet" href="css/site.css?v=1119j">
 </head>
 <body>
 <div class="intro" id="intro" aria-hidden="true">
   <video class="intro-v" id="introV" playsinline preload="auto"></video>
-  <button type="button" class="intro-gate" id="introGate" hidden><span class="intro-gate-k">Enter</span><span class="intro-gate-s">Sound on ♪</span></button>
 </div>
 <script>
 /* Abertura (19/11): a assinatura pintada em macro, com som de pincel, termina num glitch que corta para o site.
-   Se o navegador barrar o som, vira porta: "Enter · Sound on"; o clique libera o som da abertura e do filme.
+   Se o navegador barrar o som, segue muda (sem botão); o primeiro clique, toque ou tecla liga o som do site.
    Clique, tecla, rolagem ou toque pulam. Rede lenta: desiste e mostra o site. */
 (function () {
   var root = document.documentElement;
@@ -93,30 +92,10 @@
   v.src = base + '.mp4';
   v.muted = false;                                       // tenta com som
   var p = v.play();
-  if (p && p.catch) p.catch(function (err) {
+  if (p && p.catch) p.catch(function () {
     if (done) return;
-    if (!err || err.name !== 'NotAllowedError') { skip(); return; }
-    /* Navegador barrou o som (19/11, pedido dele: o site tem que abrir com som e a abertura tem que ser ouvida).
-       A abertura vira uma porta: o primeiro quadro parado + "Enter · Sound on". O clique libera o som e a abertura toca. */
-    timers.forEach(clearTimeout); timers = [];
-    EVTS.forEach(function (t) { window.removeEventListener(t, skip, true); });
-    var gate = document.getElementById('introGate');
-    box.classList.add('is-gate'); gate.hidden = false; box.setAttribute('aria-hidden', 'false');
-    try { gate.focus({ preventScroll: true }); } catch (e) {}
-    function enter(ev) {
-      if (ev && ev.type === 'keydown' && !/^(Enter| |Spacebar|Escape)$/.test(ev.key)) return;
-      box.removeEventListener('click', enter); window.removeEventListener('keydown', enter, true);
-      gate.hidden = true; box.classList.remove('is-gate'); box.setAttribute('aria-hidden', 'true');
-      if (window.ffSoundGesture) window.ffSoundGesture();   // destrava o som do filme e da trilha no mesmo clique (Safari)
-      v.muted = false;
-      var q = v.play();
-      if (q && q.catch) q.catch(function () { v.muted = true; var r = v.play(); if (r && r.catch) r.catch(skip); });
-      EVTS.forEach(function (t) { window.addEventListener(t, skip, { capture: true, passive: true }); });
-      later(function () { if (!started) skip(); }, 3000);
-      later(skip, 7000);
-    }
-    box.addEventListener('click', enter);
-    window.addEventListener('keydown', enter, true);
+    v.muted = true;                                      // navegador barrou o som: a abertura segue muda, sem botão (19/11);
+    var q = v.play(); if (q && q.catch) q.catch(skip);   // o primeiro clique, toque ou tecla liga o som do site (js/site.js)
   });
   later(function () { if (!started) skip(); }, 3000);
   later(skip, 7000);
@@ -143,6 +122,7 @@
     <a href="#reel">Reel</a>
     <a href="#works">Works</a>
     <a href="#ailab">AI Lab</a>
+    <a href="#apps">Apps</a>
     <a href="#info">Info</a>
   </nav>
 </header>
@@ -256,6 +236,48 @@
     </article>
   </section>
 
+  <!-- APPS & SISTEMA (19/11): o que ele construiu com IA; nada pessoal -->
+  <section class="sec apps" id="apps" aria-labelledby="appsTitle">
+    <div class="sec-head">
+      <h2 id="appsTitle">Apps &amp; System</h2>
+      <p>Besides directing AI on footage, I build my own tools with it. One you can try right now, free, and the system that runs my edit room.</p>
+    </div>
+    <div class="apps-grid">
+      <article class="app-card app-card--live">
+        <span class="tag">Try it free · web app · in Portuguese</span>
+        <h3>Traço a Traço</h3>
+        <p>A drawing course disguised as a game, made for kids. Missions go from big shapes to details, shadow and colour; you earn points and stars as you go.</p>
+        <p class="fine">Runs in the browser, on phone or computer. No sign-up, nothing is sent anywhere: progress stays on your device.</p>
+        <a class="btn btn-solid" href="apps/traco-a-traco/" target="_blank" rel="noopener" data-track="app_traco">Open the app ↗</a>
+      </article>
+      <article class="app-card">
+        <span class="tag">In-house tool · runs offline</span>
+        <h3>Local Transcriber</h3>
+        <p>Drop an interview, get timed text back. Whisper runs on my own machine, so client footage never leaves the studio and there is no per-minute bill.</p>
+      </article>
+      <article class="app-card">
+        <span class="tag">In-house tool · Premiere / Resolve</span>
+        <h3>ILHA</h3>
+        <p>Finds every cut in a finished film and rebuilds it as an editable timeline (XML / OTIO), so a reference or an old master opens shot by shot in the edit.</p>
+      </article>
+    </div>
+    <article class="lab system">
+      <div class="lab-text">
+        <span class="tag">How I work · the system</span>
+        <h3>An edit room run by agents</h3>
+        <p>Behind the work there is a system I built: a set of AI agents, each with one job, coordinated by one orchestrator. One reads the Premiere timeline shot by shot; one rebuilds takes with new angles or new light; one opens and organises every job folder; others handle sound, upscale and research.</p>
+        <p>The rule is the cheapest route that does the job well. Drafts and batch work run on open models on my own computer, at zero cost; paid cloud models only come in for the final piece, and every generation is priced before it runs.</p>
+        <ul class="sys-list">
+          <li><b>Footage</b> new angles, relight, clean plates, upscale that keeps the film grain</li>
+          <li><b>Sound</b> voice and music split from any mix, mastering, sound design</li>
+          <li><b>Edit</b> timeline review, contact sheets, versions and handoff, all inside Premiere</li>
+          <li><b>Cost</b> local first, every paid call estimated and logged</li>
+        </ul>
+        <p class="fine">Built with Claude, open-source models (Whisper, Demucs, Real-ESRGAN, Qwen) and Seedance · Fernando Freitas</p>
+      </div>
+    </article>
+  </section>
+
   <!-- INFO: sem retrato de propósito (foto oficial em aberto) -->
   <section class="sec info" id="info" aria-labelledby="infoTitle">
     <div class="info-top">
@@ -350,7 +372,7 @@
 </svg>
 
 <script src="js/analytics.js?v=1119d" defer></script>
-<script src="js/data.js?v=1119d" defer></script>
-<script src="js/site.js?v=1119g" defer></script>
+<script src="js/data.js?v=1119j" defer></script>
+<script src="js/site.js?v=1119j" defer></script>
 </body>
 </html>

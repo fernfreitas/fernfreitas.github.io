@@ -243,6 +243,7 @@
   /* Sem a abertura (link com #, "reduzir movimento") e com o som barrado: a mesma porta "Enter · Sound on", por cima do site. */
   let porta = null;
   function portaDeSom() {
+    return;   // sem botão de entrar (pedido dele, 19/11): o som liga no primeiro gesto, ver primeiroGesto
     if (porta || !soundWanted || document.documentElement.classList.contains('intro-on')) return;
     porta = document.createElement('div');
     porta.className = 'sound-gate';
@@ -274,6 +275,7 @@
     b.textContent = c.cta;
     b.dataset.open = c.n;
     b.dataset.item = c.item || 0;
+    b.hidden = !c.n;   // trecho sem página no site
   });
 
   /* Pele B: o raio é a agulha da timeline e anda com o filme. */
@@ -321,10 +323,19 @@
     labVids.forEach(v => labIO.observe(v));
   }
 
+  /* ---------- Idioma da HQ: francês para quem tem o navegador em francês, espanhol em espanhol, senão inglês ---------- */
+  let hqLang = (() => { const n = (navigator.language || '').toLowerCase(); return n.startsWith('fr') ? 'fr' : n.startsWith('es') ? 'es' : 'en'; })();
+  function setHqLang(l) {
+    if (!['en', 'es', 'fr'].includes(l)) return;
+    hqLang = l;
+    $$('.is-hq').forEach(w => w.dispatchEvent(new Event('ff-hq-lang')));
+  }
+
   /* ---------- Sobre: EN / ES ---------- */
   function setLang(lang) {
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     $$('[data-lang-panel]').forEach(p => { p.hidden = p.dataset.langPanel !== lang; });
+    setHqLang(lang);   // a HQ acompanha o idioma escolhido no Sobre
   }
   $$('[data-lang]').forEach(b => b.addEventListener('click', () => {
     setLang(b.dataset.lang);
@@ -368,18 +379,43 @@
       if (it.poster) node.poster = it.poster;
       node.src = it.src;
     } else if (it.type === 'pages') {
-      node = h('div', 'stage-pages');
-      node.tabIndex = 0;
-      node.setAttribute('aria-label', it.label + ', ' + it.count + ' pages. Scroll sideways to read.');
-      node.addEventListener('contextmenu', e => e.preventDefault());
+      /* HQ (19/11): páginas no idioma do visitante (inglês, espanhol ou francês), com troca ali mesmo. */
+      const wrap = h('div', 'stage-pages-wrap');
+      const pages = h('div', 'stage-pages');
+      pages.tabIndex = 0;
+      pages.setAttribute('aria-label', it.label + ', ' + it.count + ' pages. Scroll sideways to read.');
+      pages.addEventListener('contextmenu', e => e.preventDefault());
+      const dirFor = l => (it.langs && it.langs[l]) || it.dir;
       for (let k = 1; k <= it.count; k++) {
         const pg = new Image();
         pg.alt = 'Page ' + k; pg.draggable = false; pg.decoding = 'async';
         pg.loading = k > 3 ? 'lazy' : 'eager';
         pg.width = 960; pg.height = 1280;
-        pg.src = it.dir + 'p' + pad2(k) + '.jpg';
-        node.append(pg);
+        pg.dataset.k = pad2(k);
+        pg.src = dirFor(hqLang) + 'p' + pad2(k) + '.jpg';
+        pages.append(pg);
       }
+      wrap.append(pages);
+      if (it.langs) {
+        const bar = h('div', 'hq-langs');
+        bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Comic language');
+        const NAMES = { en: 'English', es: 'Español', fr: 'Français' };
+        Object.keys(it.langs).forEach(l => {
+          const b = h('button', '', NAMES[l] || l.toUpperCase());
+          b.type = 'button'; b.dataset.hqLang = l; b.lang = l;
+          b.addEventListener('click', () => { setHqLang(l); if (window.ffTrack) window.ffTrack('hq_lang', { lang: l }); });
+          bar.append(b);
+        });
+        wrap.append(bar);
+      }
+      wrap.addEventListener('ff-hq-lang', () => {
+        pages.querySelectorAll('img').forEach(pg => { pg.src = dirFor(hqLang) + 'p' + pg.dataset.k + '.jpg'; });
+        wrap.querySelectorAll('[data-hq-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.hqLang === hqLang)));
+        pages.lang = hqLang;
+      });
+      wrap.classList.add('is-hq');
+      node = wrap;
+      setTimeout(() => wrap.dispatchEvent(new Event('ff-hq-lang')), 0);
     } else if (it.type === 'link') {
       node = h('div', 'stage-link');
       const bg = new Image();

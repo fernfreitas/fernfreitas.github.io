@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Traço a Traço" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#7c4dff" />
+  <title>Traço a Traço — aprenda a desenhar</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✏️</text></svg>" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ============ TELA: MAPA DE MISSÕES ============ -->
+    <section id="screen-home" class="screen active">
+      <header class="home-top">
+        <div class="brand">
+          <span class="brand-logo">✏️</span>
+          <div>
+            <h1>Traço a Traço</h1>
+            <p class="tagline">Formas grandes → detalhes → sombra → cor</p>
+          </div>
+        </div>
+        <div class="stats-pills">
+          <div class="pill pill-points" title="Seus pontos">
+            <span class="pill-ico">💎</span>
+            <span id="hud-points">0</span>
+          </div>
+          <div class="pill pill-stars" title="Estrelas conquistadas">
+            <span class="pill-ico">⭐</span>
+            <span id="hud-stars">0</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="progress-wrap">
+        <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+        <span id="progress-label" class="progress-label">0 de 0 missões concluídas</span>
+      </div>
+
+      <div class="map-scroll">
+        <div id="mission-trail" class="mission-trail"></div>
+      </div>
+
+      <nav class="bottom-nav">
+        <button class="nav-btn active" data-go="home"><span>🗺️</span>Missões</button>
+        <button class="nav-btn" data-go="gallery"><span>🖼️</span>Galeria</button>
+      </nav>
+    </section>
+
+    <!-- ============ TELA: DESENHO ============ -->
+    <section id="screen-draw" class="screen">
+      <header class="draw-top">
+        <button class="icon-btn" id="btn-back">‹</button>
+        <div class="draw-title">
+          <h2 id="draw-mission-name">Missão</h2>
+          <div id="step-dots" class="step-dots"></div>
+        </div>
+        <div class="pill pill-points small"><span class="pill-ico">💎</span><span id="draw-points">0</span></div>
+      </header>
+
+      <div class="instruction-bar">
+        <span id="step-emoji" class="step-emoji">✏️</span>
+        <div class="instruction-text">
+          <div class="instr-head">
+            <span id="phase-chip" class="phase-chip">Formas grandes</span>
+            <span id="step-counter" class="step-counter">Passo 1</span>
+          </div>
+          <p id="step-instruction">Vamos começar!</p>
+        </div>
+      </div>
+
+      <div class="canvas-stage">
+        <canvas id="board" width="600" height="600"></canvas>
+        <div id="confetti-layer" class="confetti-layer"></div>
+      </div>
+
+      <div class="tools">
+        <div class="colors" id="color-row"></div>
+        <div class="tool-actions">
+          <button class="tool-btn" id="tool-brush" title="Pincel">🖌️</button>
+          <button class="tool-btn" id="tool-eraser" title="Borracha">🧽</button>
+          <div class="size-picker">
+            <input type="range" id="brush-size" min="2" max="26" value="7" />
+          </div>
+          <button class="tool-btn" id="tool-undo" title="Desfazer">↩️</button>
+          <button class="tool-btn" id="tool-clear" title="Limpar">🗑️</button>
+        </div>
+      </div>
+
+      <div class="draw-footer">
+        <button class="ghost-btn" id="btn-toggle-guide">👁️ Guia</button>
+        <button class="primary-btn" id="btn-next-step">Próximo passo →</button>
+      </div>
+    </section>
+
+    <!-- ============ TELA: GALERIA ============ -->
+    <section id="screen-gallery" class="screen">
+      <header class="home-top">
+        <div class="brand">
+          <span class="brand-logo">🖼️</span>
+          <div>
+            <h1>Minha Galeria</h1>
+            <p class="tagline">Todos os seus desenhos publicados</p>
+          </div>
+        </div>
+      </header>
+      <div id="gallery-grid" class="gallery-grid"></div>
+      <div id="gallery-empty" class="gallery-empty">
+        <span class="big-emoji">🎨</span>
+        <p>Sua galeria está vazia.<br/>Conclua uma missão e publique seu primeiro desenho!</p>
+        <button class="primary-btn" data-go="home">Ver missões</button>
+      </div>
+      <nav class="bottom-nav">
+        <button class="nav-btn" data-go="home"><span>🗺️</span>Missões</button>
+        <button class="nav-btn active" data-go="gallery"><span>🖼️</span>Galeria</button>
+      </nav>
+    </section>
+
+    <!-- ============ MODAL: RECOMPENSA ============ -->
+    <div id="reward-modal" class="modal">
+      <div class="modal-card reward-card">
+        <div id="reward-confetti" class="confetti-layer"></div>
+        <div class="reward-badge" id="reward-badge">🏆</div>
+        <h2 id="reward-title">Missão concluída!</h2>
+        <div class="reward-stars" id="reward-stars">⭐⭐⭐</div>
+        <p class="reward-points">+<span id="reward-points">0</span> <span class="ico">💎</span> pontos</p>
+        <canvas id="reward-canvas" class="reward-thumb" width="600" height="600"></canvas>
+        <div class="reward-actions">
+          <button class="ghost-btn" id="reward-gallery">Ver na galeria</button>
+          <button class="primary-btn" id="reward-continue">Continuar →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ MODAL: PREVIEW GALERIA ============ -->
+    <div id="view-modal" class="modal">
+      <div class="modal-card view-card">
+        <button class="icon-btn close-x" id="view-close">✕</button>
+        <img id="view-image" class="view-image" alt="Desenho" />
+        <canvas id="view-canvas" class="view-image" width="600" height="600" style="display:none"></canvas>
+        <div class="view-meta">
+          <h3 id="view-title">Desenho</h3>
+          <p id="view-date"></p>
+        </div>
+        <button class="danger-link" id="view-delete">Apagar desenho</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="missions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
