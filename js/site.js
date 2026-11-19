@@ -229,6 +229,10 @@
   const GESTOS = ['pointerdown', 'keydown', 'touchend'];
   function primeiroGesto(ev) {
     if (ev.target && ev.target.closest && ev.target.closest('#heroSound')) return;   // o botão decide sozinho
+    if (document.documentElement.classList.contains('intro-on') && !window.ffIntroDone) {   // clique que solta a abertura com som:
+      if (window.ffSoundGesture) window.ffSoundGesture();                                   // só destrava o filme, que liga no fim dela
+      return;
+    }
     if (soundWanted && heroVideo.muted && !heroDucked) setSound(true);
     if (!heroVideo.muted || !soundWanted) GESTOS.forEach(t => window.removeEventListener(t, primeiroGesto, true));
   }
