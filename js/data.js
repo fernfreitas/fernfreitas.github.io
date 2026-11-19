@@ -85,9 +85,9 @@ window.FF_DATA = {
       kind: 'Case films', role: 'Edit, motion, sound, color & AI', with: 'Volt · Natura', year: '2025–2026',
       award: 'Cannes Lions 2025 & 2026',
       items: [
-        { type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI skill', dur: '0:12' },
         { type: 'file', src: 'assets/local-only/airsilva_case_720.mp4', poster: 'assets/ailab/airsilva_2.jpg', label: 'Volt — Air_Silva', sub: 'Case film', dur: '2:13' },
-        { type: 'vimeo', id: '1115603278', label: 'Natura — The Amazon Greenventory', sub: 'Case film · Grand Prix SDG', dur: '2:15' }
+        { type: 'vimeo', id: '1115603278', label: 'Natura — The Amazon Greenventory', sub: 'Case film · Grand Prix SDG', dur: '2:15' },
+        { type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI · silent', dur: '0:12' }   // item 0 tem de ser o case film: o "Watch the case film" do hero abre o item 0
       ],
       desc: [
         'Two case films for Cannes Lions, made with Africa Creative.',
@@ -237,11 +237,12 @@ window.FF_DATA = {
       kind: 'Comics', role: 'Script & art', with: 'After Afonso Arinos · adapted by Daniela Prado', year: '2026',
       award: '',
       items: [{ type: 'pages', dir: 'assets/hq/', count: 14, label: 'ASSOMBRAMENTO', sub: 'Preview · first 14 of 67 pages · PT / EN / ES / FR' }],
-      buy: '',   // link da Amazon (Kindle): preencher quando o livro estiver no ar; o botão só aparece com link
+      buy: 'https://www.amazon.com.br/dp/B0HS2WDVT1',   // Kindle (PT), na Amazon desde 17/11/2026 (ASIN B0HS2WDVT1)
       desc: [
         'A 67-page black-and-white graphic novel adapting “Assombramento”, a short story by Afonso Arinos (1868–1916). Born in Paracatu, Minas Gerais, Arinos was a precursor of Guimarães Rosa and a pioneer of sertanejo writing in Brazil. The story is set among cattle drovers in the sertão, the Brazilian backcountry.',
         'The book was launched in February 2026 in Paracatu, Arinos’s hometown, funded by the city and distributed in its schools.',
-        'I wrote the comic script and drew every page in Photoshop, first on a Huion H320M tablet and, from the middle of the book on, on an iPad Pro 2026. The text adaptation is by Daniela Prado, president of the Academia de Letras do Noroeste de Minas, who conceived and directed the project.'
+        'I wrote the comic script and drew every page in Photoshop, first on a Huion H320M tablet and, from the middle of the book on, on an iPad Pro 2026. The text adaptation is by Daniela Prado, president of the Academia de Letras do Noroeste de Minas, who conceived and directed the project.',
+        'Since November 2026 the book is also out as a Kindle ebook, in Portuguese, on Amazon.'
       ],
       credits: 'Concept, direction & text adaptation: Daniela Prado, President of the Academia de Letras do Noroeste de Minas · Script & art: Fernando Freitas · Cover design & graphic project: Samuel Sousa Lopes · Proofreading: Ana Carolina Campos de Carvalho · Launched in Paracatu (MG), February 2026, with support from the City of Paracatu',
       links: [{ label: 'See the project on Behance', href: 'https://www.behance.net/gallery/258404677/ASSOMBRAMENTO-Graphic-Novel' }]
@@ -251,14 +252,14 @@ window.FF_DATA = {
       title: 'Leônidas Silva — AI motion (Air_Silva)',
       kind: 'Documentary · motion & AI', role: 'Motion, AI & editing', with: 'Volt · Africa Creative', year: '2026',
       award: '',
-      items: [{ type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI skill', dur: '0:12' }],
+      items: [{ type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI · silent', dur: '0:12' }],
       buy: '',
       desc: ['Motion and AI-generated sequence from the Air_Silva documentary work.'],
       credits: '',
       links: []
     },
     {
-      n: 14, cat: 'direction', cover: 'https://i.ytimg.com/vi/U7MI1iaNMG0/hqdefault.jpg',
+      n: 14, cat: 'direction', cover: 'assets/covers/14_shawlin_coracao.jpg',
       title: 'Shawlin — Coração',
       kind: 'Music video', role: 'Director & editor', with: 'Shawlin', year: '2011',
       award: '',

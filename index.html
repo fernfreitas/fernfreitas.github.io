@@ -17,12 +17,72 @@
   } catch (e) {}
 })();
 </script>
+<link rel="canonical" href="https://mag-love.github.io/fern-portfolio/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fernando Freitas">
+<meta property="og:title" content="Fernando Freitas — Senior Editor &amp; Creative Director">
+<meta property="og:description" content="Senior editor and creative director based in València. Advertising, documentary and music for Netflix, Natura and Emicida, with an own generative-AI video pipeline.">
+<meta property="og:url" content="https://mag-love.github.io/fern-portfolio/">
+<meta property="og:image" content="https://mag-love.github.io/fern-portfolio/assets/og/og_fernando_freitas.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fernando Freitas — Senior film editor, creative director, AI director">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+/* Abertura com a marca animada: só quando se entra pela página inicial (sem link direto para um projeto)
+   e sem "reduzir movimento" ligado. Sem JavaScript, nada aparece. Nada é guardado no navegador. */
+(function () {
+  try {
+    if (location.hash || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.documentElement.classList.add('intro-on');
+  } catch (e) {}
+})();
+</script>
 <!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1119a">
+<link rel="stylesheet" href="css/site.css?v=1119c">
 </head>
 <body>
+<div class="intro" id="intro" aria-hidden="true">
+  <video class="intro-v" id="introV" muted playsinline preload="none" poster="assets/intro/marca_start.jpg" width="720" height="720"></video>
+</div>
+<script>
+/* Abertura: a marca pintada (identidade "tela escura", 17/11) toca uma vez e some. Clique, tecla, rolagem ou toque pulam.
+   Se o vídeo não começa logo (rede lenta, modo economia de energia), mostra a marca parada um instante e segue. */
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains('intro-on')) return;
+  var box = document.getElementById('intro'), v = document.getElementById('introV');
+  var done = false, started = false, timers = [];
+  var EVTS = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
+  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
+  function finish() {
+    if (done) return;
+    done = true;
+    timers.forEach(clearTimeout);
+    EVTS.forEach(function (t) { window.removeEventListener(t, finish, true); });
+    box.classList.add('is-out');
+    window.ffIntroDone = true;
+    try { document.dispatchEvent(new CustomEvent('ff:intro-done')); } catch (e) {}
+    setTimeout(function () {
+      root.classList.remove('intro-on');
+      try { v.pause(); v.removeAttribute('src'); v.load(); box.parentNode.removeChild(box); } catch (e) {}
+    }, 700);
+  }
+  function still() { if (done) return; v.poster = 'assets/intro/marca_end.jpg'; later(function () { if (!started) finish(); }, 1300); }   // se o vídeo começar nesse meio-tempo, deixa tocar até o fim
+  EVTS.forEach(function (t) { window.addEventListener(t, finish, { capture: true, passive: true }); });
+  v.addEventListener('playing', function () { started = true; });
+  v.addEventListener('timeupdate', function () { if (v.duration && v.currentTime >= v.duration - 0.5) finish(); });
+  v.addEventListener('ended', finish);
+  v.addEventListener('error', finish);
+  v.src = 'assets/intro/marca.mp4';
+  var p = v.play();
+  if (p && p.catch) p.catch(still);
+  later(function () { if (!started) still(); }, 2500);
+  later(finish, 7000);
+})();
+</script>
 <a class="skip" href="#works">Skip to works</a>
 
 <header class="top" id="top">
@@ -209,7 +269,10 @@
 
 <footer class="foot">
   <span>© 2026 Fernando Freitas · València</span>
-  <button type="button" class="foot-link" id="cookieSettings" hidden>Cookie settings</button>
+  <span class="foot-links">
+    <a class="foot-link" href="privacy.html">Privacy &amp; cookies</a>
+    <button type="button" class="foot-link" id="cookieSettings" hidden>Cookie settings</button>
+  </span>
 </footer>
 
 <!-- Player: abre o vídeo (Vimeo, YouTube ou arquivo local) ou as imagens de cada projeto -->
@@ -247,8 +310,8 @@
   </symbol>
 </svg>
 
-<script src="js/analytics.js?v=1119a" defer></script>
-<script src="js/data.js?v=1119a" defer></script>
-<script src="js/site.js?v=1119a" defer></script>
+<script src="js/analytics.js?v=1119c" defer></script>
+<script src="js/data.js?v=1119c" defer></script>
+<script src="js/site.js?v=1119c" defer></script>
 </body>
 </html>

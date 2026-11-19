@@ -90,7 +90,7 @@
     img.src = p.cover;
     const hasVideo = p.items.some(i => i.type !== 'image' && i.type !== 'pages');
     fig.append(img);
-    if (p.n !== 12) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + '.mp4'));
+    if (p.n !== 12 && p.n !== 14) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + '.mp4'));   // 12 (HQ) e 14 (só YouTube) não têm prévia em vídeo
     fig.append(h('span', 'card-play', hasVideo ? '▶ Play' : 'View'));
 
     const cap = h('span', 'card-cap');
@@ -178,6 +178,11 @@
   heroVideo.addEventListener('pause', () => setTimeout(keepHero, 250));
   heroVideo.addEventListener('ended', () => { heroVideo.currentTime = 0; keepHero(); });
   document.addEventListener('visibilitychange', keepHero);
+  /* Depois da abertura com a marca (index.html), o filme recomeça do início, com o título certo. */
+  document.addEventListener('ff:intro-done', () => {
+    try { heroVideo.currentTime = 0; } catch (e) { /* ainda sem metadados */ }
+    if (heroWanted) playHero();
+  });
   setInterval(keepHero, 2000);
 
   /* Som: o filme abre mudo (regra dos navegadores); o visitante liga. Trilha de base opcional em FF_DATA.heroMusic. */

@@ -36,7 +36,7 @@
       window.gtag = function () { window.dataLayer.push(arguments); };
       window.gtag('consent', 'default', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
       window.gtag('js', new Date());
-      window.gtag('config', CFG.ga4);
+      window.gtag('config', CFG.ga4, { cookie_expires: 34128000, allow_google_signals: false, allow_ad_personalization_signals: false });   // cookies de 13 meses, sem sinais de anúncio
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(CFG.ga4);
@@ -62,12 +62,25 @@
 
   /* ---------- Aviso de cookies ---------- */
   var bar = null;
+  var ES = (navigator.language || '').toLowerCase().indexOf('es') === 0;   // mesmo critério do "About" (site.js)
 
   function closeBar() { if (bar) { bar.remove(); bar = null; } }
+
+  /* Retirou o consentimento: apaga os cookies de medição deste site (os de terceiros ficam com o navegador). */
+  function clearCookies() {
+    document.cookie.split(';').forEach(function (c) {
+      var name = c.split('=')[0].trim();
+      if (!/^(_ga|_gid|_gat|_cl)/.test(name)) return;
+      ['', location.hostname, '.' + location.hostname].forEach(function (d) {
+        document.cookie = name + '=; Max-Age=0; path=/' + (d ? '; domain=' + d : '');
+      });
+    });
+  }
 
   function choose(v) {
     setChoice(v);
     closeBar();
+    if (v === 'no') clearCookies();
     if (v === 'yes') load();
     else if (loaded) location.reload();   // retirou o consentimento: recarrega sem as ferramentas
   }
@@ -78,14 +91,24 @@
     bar.className = 'consent';
     bar.setAttribute('role', 'dialog');
     bar.setAttribute('aria-label', 'Cookies');
-    bar.innerHTML =
-      '<p><strong>Cookies?</strong> I’d like to use analytics cookies (Google Analytics and Microsoft Clarity) to see which work gets watched and how people move around the site. Nothing loads unless you accept.</p>' +
-      '<details><summary>Details</summary>' +
-      '<p>Who: Fernando Freitas, València (<a href="mailto:frn.freit@gmail.com">frn.freit@gmail.com</a>). What: pages and projects viewed, videos played, clicks, scroll, device, approximate location, and anonymised session recordings with masked text fields. Tools: Google Analytics 4 (Google Ireland) and Microsoft Clarity (Microsoft Ireland); cookies last up to 13 months. Embedded Vimeo videos run with “do not track” and YouTube in privacy-enhanced mode. Change your mind any time with “Cookie settings” at the bottom of the page.</p>' +
-      '<p lang="es">Uso cookies de análisis (Google Analytics y Microsoft Clarity) solo si aceptas. Puedes cambiar de opinión en “Cookie settings”, al pie de la página.</p>' +
+    bar.setAttribute('lang', ES ? 'es' : 'en');
+    bar.innerHTML = ES ?
+      '<p><strong>¿Cookies?</strong> Soy Fernando Freitas y me gustaría usar cookies de análisis (Google Analytics y Microsoft Clarity) para saber qué trabajos se ven y cómo se recorre el sitio. Solo se cargan si aceptas. <a href="privacy.html#es">Privacidad y cookies</a></p>' +
+      '<details><summary>Detalles</summary>' +
+      '<p>Quién: Fernando Freitas, València (<a href="mailto:frn.freit@gmail.com">frn.freit@gmail.com</a>). Qué: páginas y proyectos vistos, vídeos reproducidos, clics, desplazamiento, dispositivo, ubicación aproximada y grabaciones de sesión con los campos de texto ocultos. Herramientas: Google Analytics 4 (Google Ireland) y Microsoft Clarity (Microsoft Ireland); las cookies duran hasta 13 meses y los datos pueden tratarse en EE. UU. bajo el Marco de Privacidad de Datos UE–EE. UU. Sin tu consentimiento no se mide nada: las tipografías vienen de Bunny Fonts (UE) sin cookies, y el reproductor de Vimeo o YouTube solo se carga cuando abres una película alojada allí (Vimeo con “do not track”, YouTube en modo de privacidad mejorada). Puedes cambiar de opinión cuando quieras en “Cookie settings”, al pie de la página.</p>' +
       '</details>' +
       '<div class="consent-actions">' +
-      '<button type="button" class="btn btn-ghost" data-consent="no">Reject</button>' +
+      '<button type="button" class="btn btn-solid" data-consent="no">Rechazar</button>' +
+      '<button type="button" class="btn btn-solid" data-consent="yes">Aceptar</button>' +
+      '</div>'
+    :
+      '<p><strong>Cookies?</strong> I’m Fernando Freitas and I’d like to use analytics cookies (Google Analytics and Microsoft Clarity) to see which work gets watched and how people move around the site. They only load if you accept. <a href="privacy.html">Privacy &amp; cookies</a></p>' +
+      '<details><summary>Details</summary>' +
+      '<p>Who: Fernando Freitas, València (<a href="mailto:frn.freit@gmail.com">frn.freit@gmail.com</a>). What: pages and projects viewed, videos played, clicks, scroll, device, approximate location, and session recordings with text fields masked. Tools: Google Analytics 4 (Google Ireland) and Microsoft Clarity (Microsoft Ireland); cookies last up to 13 months, and data may be processed in the US under the EU–US Data Privacy Framework. Without your consent nothing is measured: fonts come from Bunny Fonts (EU) without cookies, and the Vimeo or YouTube player only loads when you open a film hosted there (Vimeo with “do not track”, YouTube in privacy-enhanced mode). Change your mind any time with “Cookie settings” at the bottom of the page.</p>' +
+      '<p lang="es">Uso cookies de análisis (Google Analytics y Microsoft Clarity) solo si aceptas. Puedes cambiar de opinión en “Cookie settings”, al pie de la página. Más información en <a href="privacy.html#es">Privacidad y cookies</a>.</p>' +
+      '</details>' +
+      '<div class="consent-actions">' +
+      '<button type="button" class="btn btn-solid" data-consent="no">Reject</button>' +   // mesmo peso visual que o Accept (guia da AEPD)
       '<button type="button" class="btn btn-solid" data-consent="yes">Accept</button>' +
       '</div>';
     bar.addEventListener('click', function (e) {
@@ -103,7 +126,8 @@
     }
     var c = getChoice();
     if (c === 'yes') load();
-    else if (c !== 'no') showBar();
+    else if (c === 'no') clearCookies();   // de novo após recarregar: um envio atrasado pode ter regravado algum
+    else showBar();
 
     /* Cliques para fora (e-mail, LinkedIn, Vimeo, Behance, Instagram, links de projeto). */
     document.addEventListener('click', function (e) {
