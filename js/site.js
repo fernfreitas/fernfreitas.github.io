@@ -422,7 +422,14 @@
     if (lau) {
       lau.textContent = '';
       lau.hidden = !it.laurels;
-      if (it.laurels) (D.laurels || []).forEach(src => { const im = new Image(); im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; im.width = 640; im.height = 430; im.src = src; lau.append(im); });
+      clearInterval(window.ffLauT);
+      if (it.laurels) {
+        /* um por vez, em corte seco, como os logos dos clientes (pedido dele) */
+        const ims = (D.laurels || []).map(src => { const im = new Image(); im.alt = ''; im.decoding = 'async'; im.width = 640; im.height = 430; im.src = src; lau.append(im); return im; });
+        let k = 0;
+        if (ims[0]) ims[0].classList.add('on');
+        if (!reduceMotion && ims.length > 1) window.ffLauT = setInterval(() => { ims[k].classList.remove('on'); k = (k + 1) % ims.length; ims[k].classList.add('on'); }, 8000 / 24);
+      }
     }
     let node;
     if (it.type === 'vimeo') {
@@ -591,6 +598,7 @@
   dlg.addEventListener('close', () => {
     if (dlg.open) return;            // o evento chega atrasado: se já reabriu, não limpa o que acabou de montar
     stage.textContent = '';          // tira o iframe/vídeo: para o som
+    clearInterval(window.ffLauT);
     cur = null;
     if (heroDucked) { heroVideo.muted = false; heroDucked = false; }
     if (heroWanted) playHero();
