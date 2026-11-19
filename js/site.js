@@ -280,6 +280,31 @@
   heroVideo.addEventListener('pause', syncMusic);
   heroVideo.addEventListener('seeked', syncMusic);   // o filme voltou ao início: a trilha volta junto
 
+  /* 20/11: no trecho do Xondaro, os louros dos festivais passam em corte seco, como os logos dos clientes. */
+  const laurelBox = h('div', 'hero-laurels');
+  laurelBox.setAttribute('role', 'img');
+  laurelBox.setAttribute('aria-label', 'Festival selections and awards for the Xondaro Ka\u2019aguy Reguá music video');
+  laurelBox.hidden = true;
+  const laurelImgs = (D.laurels || []).map(src => { const im = new Image(); im.decoding = 'async'; im.alt = ''; im.dataset.src = src; laurelBox.append(im); return im; });
+  const heroNow = $('.hero-now');
+  if (heroNow) heroNow.prepend(laurelBox);
+  let laurelK = -1, laurelT = 0;
+  function laurelStep() {
+    if (!laurelImgs.length) return;
+    if (laurelK >= 0) laurelImgs[laurelK].classList.remove('on');
+    laurelK = (laurelK + 1) % laurelImgs.length;
+    laurelImgs[laurelK].classList.add('on');
+  }
+  function laurelsOn(on) {
+    if (!laurelImgs.length || on === !laurelBox.hidden) return;
+    laurelBox.hidden = !on;
+    clearInterval(laurelT);
+    if (!on) return;
+    laurelImgs.forEach(im => { if (!im.src) im.src = im.dataset.src; });
+    laurelStep();
+    if (!reduceMotion) laurelT = setInterval(laurelStep, 8000 / 24);   // 8 quadros cada: dá para ler o nome
+  }
+
   /* O select da abertura passa por vários filmes: título, crédito e botão acompanham o trecho. */
   let heroCue = null;
   heroVideo.addEventListener('timeupdate', () => {
@@ -294,6 +319,7 @@
     b.dataset.open = c.n;
     b.dataset.item = c.item || 0;
     b.hidden = !c.n;   // trecho sem página no site
+    laurelsOn(!!c.laurels);
   });
 
   /* 20/11: a cor de destaque também troca a cada seleção (passar o mouse, focar ou tocar num item): azul, vermelho, amarelo. */

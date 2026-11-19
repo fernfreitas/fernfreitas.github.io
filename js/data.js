@@ -15,6 +15,7 @@ window.FF_DATA = {
   /* item.type: vimeo | youtube | file (vídeo local) | image | link (capa + botão que abre em outra aba) */
   heroMusic: '',   // 19/11: o export novo já traz a mix (Five to One); 'assets/hero/hero_music.mp3' era a trilha da versão anterior
     // trilha de base da abertura (arquivo próprio ou licenciado); vazio = só o som dos filmes
+  laurels: ["assets/laurels/dreamachine.png", "assets/laurels/tristate.png", "assets/laurels/asia.png", "assets/laurels/bogota.png", "assets/laurels/lamvf.png", "assets/laurels/madriff.png", "assets/laurels/copenhagen.png", "assets/laurels/mvf.png", "assets/laurels/buenosaires.png", "assets/laurels/liftoff.png", "assets/laurels/cyrus.png", "assets/laurels/nukhu.png", "assets/laurels/vindhya.png"],
   hero: [   // montagem V01 exportada em 19/11 22h37 (4:42), mapeada pela timeline do Premiere em 20/11; n: 0 = sem página no site, botão some
     {"until":6.88,"n":7,"item":0,"title":"O Menino e o Mundo","credit":"Soundtrack video · film nominated for the Academy Awards 2016","cta":"▶ Watch"},
     {"until":12.05,"n":1,"item":0,"title":"Natura — The Amazon Greenventory","credit":"Case film · Cannes Lions 2025, Grand Prix SDG · Editor","cta":"▶ Watch the case film"},
@@ -68,16 +69,16 @@ window.FF_DATA = {
     {"until":184.69,"n":3,"item":0,"title":"Volt — Air_Silva","credit":"Case film & documentary · Cannes Lions 2026 · Edit, motion, sound, color & AI","cta":"▶ Watch the case film"},
     {"until":186.19,"n":10,"item":4,"title":"Brastemp — Certezas","credit":"Commercial · Editor","cta":"▶ Watch the spot"},
     {"until":191.65,"n":0,"item":0,"title":"Lurdez da Luz — Ziriguidum","credit":"Music video","cta":""},
-    {"until":192.61,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video","cta":""},
+    {"until":192.61,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
     {"until":193.44,"n":10,"item":8,"title":"Riachuelo","credit":"Commercial · Editor","cta":"▶ Watch the spot"},
     {"until":194.65,"n":0,"item":0,"title":"Outback — Brasilidades","credit":"Commercial","cta":""},
     {"until":195.44,"n":5,"item":0,"title":"Emicida — Então Toma","credit":"Music video · MTV VMB 2011, Video of the Year","cta":"▶ Watch"},
     {"until":196.45,"n":11,"item":4,"title":"Família 7 Velas — Clack Bum!","credit":"Music video (official)","cta":"▶ Watch"},
-    {"until":197.91,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video","cta":""},
+    {"until":197.91,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
     {"until":203.16,"n":0,"item":0,"title":"Carlos Motta","credit":"Documentary","cta":""},
-    {"until":204.37,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video","cta":""},
+    {"until":204.37,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
     {"until":208.42,"n":11,"item":4,"title":"Família 7 Velas — Clack Bum!","credit":"Music video (official)","cta":"▶ Watch"},
-    {"until":209.17,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video","cta":""},
+    {"until":209.17,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
     {"until":214.42,"n":0,"item":0,"title":"Lurdez da Luz — Ziriguidum","credit":"Music video","cta":""},
     {"until":215.67,"n":10,"item":10,"title":"Olympikus — Libere a Brincadeira","credit":"Commercial · Editor","cta":"▶ Watch the spot"},
     {"until":220.64,"n":0,"item":0,"title":"Lurdez da Luz — Ziriguidum","credit":"Music video","cta":""},
