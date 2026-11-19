@@ -462,3 +462,4 @@ html.intro-on .intro.is-cut { opacity: 0; visibility: hidden; transition: none; 
 .intro-gate:focus-visible { outline: 3px solid #EAE5DA; outline-offset: 4px; }
 @keyframes ffGate { 0%,100% { opacity: 1 } 50% { opacity: .7 } }
 @media (prefers-reduced-motion: reduce) { .intro-gate { animation: none; } }
+.sound-gate { position: fixed; inset: 0; z-index: 210; background: rgba(17,17,19,.72); cursor: pointer; }

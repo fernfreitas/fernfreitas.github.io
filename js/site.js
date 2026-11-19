@@ -216,7 +216,7 @@
     heroVideo.muted = false;
     heroWanted = true;
     const p = heroVideo.play();
-    if (p && p.catch) p.catch(() => { heroVideo.muted = true; playHero(); showSound(); syncMusic(); });   // barrado: volta mudo
+    if (p && p.catch) p.catch(() => { heroVideo.muted = true; playHero(); showSound(); syncMusic(); portaDeSom(); });   // barrado: volta mudo e abre a porta
     showSound(); syncMusic();
   }
   function remember(on) { try { localStorage.setItem('ff-sound', on ? 'on' : 'off'); } catch (e) { /* tudo bem */ } }
@@ -233,6 +233,26 @@
     if (!heroVideo.muted || !soundWanted) GESTOS.forEach(t => window.removeEventListener(t, primeiroGesto, true));
   }
   GESTOS.forEach(t => window.addEventListener(t, primeiroGesto, { capture: true, passive: true }));
+  /* Destrava o som DENTRO do gesto do visitante (Safari exige que cada vídeo/áudio receba o play no próprio clique).
+     Chamado pela porta da abertura (index.html) e pela porta abaixo. */
+  window.ffSoundGesture = function () {
+    if (!soundWanted) return;
+    try { heroVideo.muted = false; const p = heroVideo.play(); heroVideo.muted = true; if (p && p.catch) p.catch(() => {}); } catch (e) {}
+    if (music) { try { const q = music.play(); music.pause(); if (q && q.catch) q.catch(() => {}); } catch (e) {} }
+  };
+  /* Sem a abertura (link com #, "reduzir movimento") e com o som barrado: a mesma porta "Enter · Sound on", por cima do site. */
+  let porta = null;
+  function portaDeSom() {
+    if (porta || !soundWanted || document.documentElement.classList.contains('intro-on')) return;
+    porta = document.createElement('div');
+    porta.className = 'sound-gate';
+    porta.innerHTML = '<button type="button" class="intro-gate"><span class="intro-gate-k">Enter</span><span class="intro-gate-s">Sound on ♪</span></button>';
+    const entrar = () => { if (!porta) return; porta.remove(); porta = null; setSound(true); };
+    porta.addEventListener('click', entrar);
+    porta.addEventListener('keydown', ev => { if (/^(Enter| |Escape)$/.test(ev.key)) entrar(); });
+    document.body.appendChild(porta);
+    try { porta.querySelector('button').focus({ preventScroll: true }); } catch (e) {}
+  }
   function abrirComSom() { if (soundWanted) setSound(true); else showSound(); }
   if (window.ffIntroDone || !document.documentElement.classList.contains('intro-on')) abrirComSom();
   else document.addEventListener('ff:intro-done', abrirComSom, { once: true });

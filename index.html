@@ -41,7 +41,7 @@
 <!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1119f">
+<link rel="stylesheet" href="css/site.css?v=1119g">
 </head>
 <body>
 <div class="intro" id="intro" aria-hidden="true">
@@ -107,6 +107,7 @@
       if (ev && ev.type === 'keydown' && !/^(Enter| |Spacebar|Escape)$/.test(ev.key)) return;
       box.removeEventListener('click', enter); window.removeEventListener('keydown', enter, true);
       gate.hidden = true; box.classList.remove('is-gate'); box.setAttribute('aria-hidden', 'true');
+      if (window.ffSoundGesture) window.ffSoundGesture();   // destrava o som do filme e da trilha no mesmo clique (Safari)
       v.muted = false;
       var q = v.play();
       if (q && q.catch) q.catch(function () { v.muted = true; var r = v.play(); if (r && r.catch) r.catch(skip); });
@@ -350,6 +351,6 @@
 
 <script src="js/analytics.js?v=1119d" defer></script>
 <script src="js/data.js?v=1119d" defer></script>
-<script src="js/site.js?v=1119f" defer></script>
+<script src="js/site.js?v=1119g" defer></script>
 </body>
 </html>
