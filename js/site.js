@@ -174,7 +174,9 @@
   syncHeroBtn();
   /* O filme nunca para: se o navegador pausar (troca de aba, economia de energia, fim do arquivo), volta a tocar. */
   let heroDucked = false;
-  function keepHero() { if (heroWanted && heroVideo.paused && !document.hidden) playHero(); }
+  const introRodando = () => document.documentElement.classList.contains('intro-on') && !window.ffIntroDone;
+  function keepHero() { if (introRodando() && !heroVideo.muted) return;   // destravado com som no clique da abertura: espera ela acabar
+    if (heroWanted && heroVideo.paused && !document.hidden) playHero(); }
   heroVideo.addEventListener('pause', () => setTimeout(keepHero, 250));
   heroVideo.addEventListener('ended', () => { heroVideo.currentTime = 0; keepHero(); });
   document.addEventListener('visibilitychange', keepHero);
@@ -187,13 +189,13 @@
 
   /* Som (19/11, pedido dele): o site abre COM som e o visitante escolhe desligar.
      Se o navegador barrar som antes de qualquer gesto, o filme segue mudo só até o primeiro clique, toque ou tecla
-     em qualquer lugar da página, e aí o som liga sozinho. Quem desligou fica desligado (lembrado no navegador).
+     em qualquer lugar da página, e aí o som liga sozinho. Quem desligou fica desligado só nesta visita (20/11).
      Trilha de base opcional em FF_DATA.heroMusic. */
   const heroSound = $('#heroSound');
   const music = D.heroMusic ? new Audio(D.heroMusic) : null;
   if (music) { music.loop = true; music.volume = .55; music.preload = 'none'; }
   let soundWanted = true;
-  try { soundWanted = localStorage.getItem('ff-sound') !== 'off'; } catch (e) { /* sem armazenamento: segue com som */ }
+  try { soundWanted = sessionStorage.getItem('ff-sound') !== 'off'; } catch (e) { /* sem armazenamento: segue com som */ }   // 20/11: só vale nesta visita; toda visita nova abre com som
   function syncMusic() {
     if (!music) return;
     if (!heroVideo.muted && !heroVideo.paused) {
@@ -219,7 +221,7 @@
     if (p && p.catch) p.catch(() => { heroVideo.muted = true; playHero(); showSound(); syncMusic(); portaDeSom(); });   // barrado: volta mudo e abre a porta
     showSound(); syncMusic();
   }
-  function remember(on) { try { localStorage.setItem('ff-sound', on ? 'on' : 'off'); } catch (e) { /* tudo bem */ } }
+  function remember(on) { try { sessionStorage.setItem('ff-sound', on ? 'on' : 'off'); localStorage.removeItem('ff-sound'); } catch (e) { /* tudo bem */ } }
   heroSound.addEventListener('click', () => {
     const on = heroVideo.muted;
     soundWanted = on; remember(on); setSound(on);
@@ -241,7 +243,9 @@
      Chamado pela porta da abertura (index.html) e pela porta abaixo. */
   window.ffSoundGesture = function () {
     if (!soundWanted) return;
-    try { heroVideo.muted = false; const p = heroVideo.play(); heroVideo.muted = true; if (p && p.catch) p.catch(() => {}); } catch (e) {}
+    /* 20/11: o filme recebe o play COM som dentro do clique e fica parado atrás da abertura (não volta a ser mudo:
+       no Safari/iPhone, tirar o mudo fora do clique pausa o vídeo). No fim da abertura ele começa já com som. */
+    try { heroVideo.muted = false; const p = heroVideo.play(); if (p && p.catch) p.catch(() => {}); if (introRodando()) heroVideo.pause(); } catch (e) {}
     if (music) { try { const q = music.play(); music.pause(); if (q && q.catch) q.catch(() => {}); } catch (e) {} }
   };
   /* Sem a abertura (link com #, "reduzir movimento") e com o som barrado: a mesma porta "Enter · Sound on", por cima do site. */

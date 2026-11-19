@@ -41,7 +41,7 @@
 <!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1120a">
+<link rel="stylesheet" href="css/site.css?v=1120c">
 </head>
 <body>
 <div class="intro" id="intro" aria-hidden="true">
@@ -93,7 +93,7 @@
     var q = v.play();
     if (q && q.catch) q.catch(function () { if (done) return; v.muted = true; var r = v.play(); if (r && r.catch) r.catch(skip); });
   }
-  function soltar() { if (waiting && !done) tocar(true); }
+  function soltar() { if (waiting && !done) { tocar(true); if (window.ffSoundGesture) window.ffSoundGesture(); } }
   function tick() {
     if (done) return;
     if (v.currentTime >= CUT) finish(true); else requestAnimationFrame(tick);
@@ -136,6 +136,9 @@
       </span>
     </span>
   </a>
+  <div class="clients" role="region" aria-label="Brands and agencies I have worked with">
+    <div class="clients-track"><div class="clients-set"><img src="assets/logos/netflix.png" alt="Netflix" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/disney.png" alt="Disney+" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/prime.png" alt="Prime Video" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/globo.png" alt="Globo" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/mtv.png" alt="MTV" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/itau.png" alt="Itaú" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/africa-creative.png" alt="Africa Creative" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/galeria.png" alt="Galeria" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/gut.png" alt="GUT" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/labfantasma.png" alt="Lab Fantasma" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/casa-de-clipes.png" alt="Casa de Clipes" width="400" height="160" loading="lazy" decoding="async"></div><div class="clients-set" aria-hidden="true"><img src="assets/logos/netflix.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/disney.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/prime.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/globo.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/mtv.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/itau.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/africa-creative.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/galeria.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/gut.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/labfantasma.png" alt="" width="400" height="160" loading="lazy" decoding="async"><img src="assets/logos/casa-de-clipes.png" alt="" width="400" height="160" loading="lazy" decoding="async"></div></div>
+  </div>
   <nav class="nav" aria-label="Sections">
     <a href="#reel">Reel</a>
     <a href="#works">Works</a>
@@ -391,7 +394,7 @@
 </svg>
 
 <script src="js/analytics.js?v=1119d" defer></script>
-<script src="js/data.js?v=1120a" defer></script>
-<script src="js/site.js?v=1120a" defer></script>
+<script src="js/data.js?v=1120c" defer></script>
+<script src="js/site.js?v=1120c" defer></script>
 </body>
 </html>
