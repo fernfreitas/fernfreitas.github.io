@@ -547,13 +547,13 @@
   const deep = /^#work-(\d+)$/.exec(location.hash);
   if (deep && byN(deep[1])) openProject(deep[1], 0);
 
-  /* 20/11: logos parados ao lado do FFF, corte seco a cada 10 quadros a 24 fps (~417 ms), em loop. */
+  /* 20/11: logos parados ao lado do FFF, corte seco a cada 5 quadros a 24 fps (~208 ms), em loop. */
   (() => {
     const logos = document.querySelectorAll('.clients-slot img'); if (logos.length < 2) return;
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let i = 0, t = 0;
     const step = () => { logos[i].classList.remove('on'); i = (i + 1) % logos.length; logos[i].classList.add('on'); };
-    const run = () => { clearInterval(t); if (!document.hidden) t = setInterval(step, 10000 / 24); };
+    const run = () => { clearInterval(t); if (!document.hidden) t = setInterval(step, 5000 / 24); };
     document.addEventListener('visibilitychange', run); run();
   })();
 
