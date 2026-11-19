@@ -296,6 +296,21 @@
     b.hidden = !c.n;   // trecho sem página no site
   });
 
+  /* 20/11: a cor de destaque também troca a cada seleção (passar o mouse, focar ou tocar num item): azul, vermelho, amarelo. */
+  (() => {
+    const SEQ = ['0', '2', '1'], SEL = '.card, .awards button, .nav a, .lab-fig, .lab-boards button, .chip, .p-list button, .contact a';
+    let last = null, k = SEQ.indexOf(root.dataset.tone || '0');
+    const pick = e => {
+      const t = e.target.closest && e.target.closest(SEL);
+      if (!t || t === last) return;
+      last = t;
+      k = (k + 1) % SEQ.length;
+      root.dataset.tone = SEQ[k];
+    };
+    document.addEventListener('pointerover', pick, { passive: true });
+    document.addEventListener('focusin', pick);
+  })();
+
   /* Pele B: o raio é a agulha da timeline e anda com o filme. */
   function needle() {
     if (heroVisible && root.dataset.skin === 'storm' && heroVideo.duration) {
@@ -347,6 +362,7 @@
     if (!['en', 'es', 'fr', 'pt'].includes(l)) return;
     hqLang = l;
     $$('.is-hq').forEach(w => w.dispatchEvent(new Event('ff-hq-lang')));
+    if (cur && cur.i18n && dlg.open) fillText(cur);
   }
 
   /* ---------- Sobre: EN / ES ---------- */
@@ -469,15 +485,33 @@
     $$('button', list).forEach((b, k) => b.setAttribute('aria-current', String(k === i)));
   }
 
+  /* Textos do projeto. 20/11: projeto com `i18n` (a HQ) troca o texto junto com o idioma escolhido nas páginas. */
+  function fillText(p) {
+    const tr = (p.i18n && p.i18n[hqLang]) || null;
+    const T = Object.assign({}, p, tr || {});
+    $('#pKind').textContent = T.kind;
+    $('#pTitle').textContent = T.title;
+    $('#pMeta').textContent = [T.role, T.with, T.year].filter(Boolean).join(' · ');
+    const desc = $('#pDesc');
+    desc.textContent = '';
+    T.desc.forEach(t => desc.append(h('p', '', t)));
+    $('#pCredits').textContent = T.credits || '';
+    const linksBox = $('#pLinks');
+    linksBox.textContent = '';
+    (T.buy ? [{ label: T.buyLabel || 'Buy on Amazon', href: T.buy, solid: true }] : []).concat(T.links || []).forEach(l => {
+      const a = h('a', 'btn ' + (l.solid ? 'btn-solid' : 'btn-ghost'), l.label + ' ↗');
+      a.href = l.href; a.target = '_blank'; a.rel = 'noopener';
+      linksBox.append(a);
+    });
+    [$('#pKind'), $('#pTitle'), $('#pMeta'), desc, $('#pCredits'), linksBox].forEach(el => { if (tr) el.lang = hqLang; else el.removeAttribute('lang'); });
+  }
+
   function openProject(n, item) {
     const p = byN(n);
     if (!p) return;
     cur = p;
     if (window.ffTrack) window.ffTrack('open_work', { work: pad2(p.n), title: p.title });
     $('#pCount').textContent = pad2(p.n) + ' / ' + pad2(D.projects.length);
-    $('#pKind').textContent = p.kind;
-    $('#pTitle').textContent = p.title;
-    $('#pMeta').textContent = [p.role, p.with, p.year].filter(Boolean).join(' · ');
     $('#pAward').textContent = p.award || '';
 
     list.textContent = '';
@@ -495,18 +529,7 @@
       });
     }
 
-    const desc = $('#pDesc');
-    desc.textContent = '';
-    p.desc.forEach(t => desc.append(h('p', '', t)));
-    $('#pCredits').textContent = p.credits || '';
-
-    const linksBox = $('#pLinks');
-    linksBox.textContent = '';
-    (p.buy ? [{ label: 'Buy on Amazon', href: p.buy, solid: true }] : []).concat(p.links || []).forEach(l => {
-      const a = h('a', 'btn ' + (l.solid ? 'btn-solid' : 'btn-ghost'), l.label + ' ↗');
-      a.href = l.href; a.target = '_blank'; a.rel = 'noopener';
-      linksBox.append(a);
-    });
+    fillText(p);
 
     if (!dlg.open) {
       opener = document.activeElement;

@@ -155,7 +155,7 @@ window.FF_DATA = {
       award: '',
       items: [
         { type: 'file', src: 'assets/ailab/vitoria_relight.mp4', poster: 'assets/ailab/vitoria_relight.jpg', loop: true, label: 'Relight · midday to golden hour', sub: 'Left: phone take · right: relit with AI · silent demo', dur: '0:05' },
-        { type: 'file', src: 'assets/ailab/vitoria_roses.mp4', poster: 'assets/ailab/vitoria_roses.jpg', loop: true, label: 'A column that blooms', sub: 'Left: phone take · right: roses added with AI · silent demo', dur: '0:04' },
+        { type: 'file', src: 'assets/ailab/vitoria_butterflies.mp4', poster: 'assets/ailab/vitoria_butterflies.jpg', loop: true, label: 'A column bursts into butterflies', sub: 'From the final cut · butterflies added with AI · silent demo', dur: '0:02' },
         { type: 'file', src: 'assets/ailab/onetake_original_x_ai.mp4', poster: 'assets/ailab/onetake_original_x_ai_poster.jpg', loop: true, label: 'Original × new cameras', sub: 'Left: phone take · right: AI camera · silent demo', dur: '0:22' },
         { type: 'file', src: 'assets/ailab/onetake_9shots.mp4', poster: 'assets/ailab/onetake_9shots.jpg', loop: true, label: 'One take, nine new shots', sub: '4 phone takes became 9 new camera angles · silent demo', dur: '0:22' },
         { type: 'image', src: 'assets/ailab/onetake_resumo.jpg', label: '4 phone takes · 9 new angles', sub: 'Before and after, all takes' },
@@ -276,7 +276,7 @@ window.FF_DATA = {
         { type: 'vimeo', id: '826274696', label: 'Don L — Na Batida da Procura Perfeita', sub: 'dir. Aisha Mbikila', dur: '4:27' },
         { type: 'vimeo', id: '296058871', label: 'Xenia França — Pra Que Me Chamas?', sub: '', dur: '6:14' },
         { type: 'vimeo', id: '1152083262', label: 'Garena Free Fire — T.R.A.P.: I’m on Fire', sub: 'feat. BJRNCK, Awich, Krawk, Faruz Feet · Vetor Zero · 2026', dur: '2:48' },
-        { type: 'file', src: 'assets/local-only/familia_7_velas_clack_bum.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
+        { type: 'file', id: 'velas', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
         { type: 'file', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' },
         { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' }
       ],
@@ -301,7 +301,45 @@ window.FF_DATA = {
         'Since November 2026 the book is also out as a Kindle ebook, in Portuguese, on Amazon.'
       ],
       credits: 'Concept, direction & text adaptation: Daniela Prado, President of the Academia de Letras do Noroeste de Minas · Script & art: Fernando Freitas · Cover design & graphic project: Samuel Sousa Lopes · Proofreading: Ana Carolina Campos de Carvalho · Launched in Paracatu (MG), February 2026, with support from the City of Paracatu',
-      links: [{ label: 'See the project on Behance', href: 'https://www.behance.net/gallery/258404677/ASSOMBRAMENTO-Graphic-Novel' }]
+      links: [{ label: 'See the project on Behance', href: 'https://www.behance.net/gallery/258404677/ASSOMBRAMENTO-Graphic-Novel' }],
+      i18n: {
+        pt: {
+          title: 'ASSOMBRAMENTO — História em Quadrinhos', kind: 'Quadrinhos', role: 'Roteiro e arte', with: 'De Afonso Arinos · adaptação de Daniela Prado',
+          buyLabel: 'Comprar na Amazon',
+          desc: [
+            'Uma HQ de 67 páginas em preto e branco que adapta “Assombramento”, conto de Afonso Arinos (1868–1916). Nascido em Paracatu, Minas Gerais, Arinos foi precursor de Guimarães Rosa e pioneiro da literatura sertaneja no Brasil. A história se passa entre tropeiros, no sertão.',
+            'O livro foi lançado em fevereiro de 2026 em Paracatu, terra de Arinos, com recursos do município, e distribuído nas escolas da cidade.',
+            'Escrevi o roteiro e desenhei todas as páginas no Photoshop, primeiro numa mesa Huion H320M e, da metade do livro em diante, num iPad Pro 2026. A adaptação do texto é de Daniela Prado, presidente da Academia de Letras do Noroeste de Minas, que idealizou e dirigiu o projeto.',
+            'Desde novembro de 2026 o livro também está na Amazon, em ebook Kindle, em português.'
+          ],
+          credits: 'Idealização, direção e adaptação do texto: Daniela Prado, presidente da Academia de Letras do Noroeste de Minas · Roteiro e arte: Fernando Freitas · Capa e projeto gráfico: Samuel Sousa Lopes · Revisão: Ana Carolina Campos de Carvalho · Lançado em Paracatu (MG), fevereiro de 2026, com apoio da Prefeitura de Paracatu',
+          links: [{ label: 'Ver o projeto no Behance', href: 'https://www.behance.net/gallery/258404677/ASSOMBRAMENTO-Graphic-Novel' }]
+        },
+        es: {
+          title: 'ASSOMBRAMENTO — Novela gráfica', kind: 'Cómic', role: 'Guion y dibujo', with: 'De Afonso Arinos · adaptación de Daniela Prado',
+          buyLabel: 'Comprar en Amazon',
+          desc: [
+            'Una novela gráfica de 67 páginas en blanco y negro que adapta “Assombramento”, un cuento de Afonso Arinos (1868–1916). Nacido en Paracatu, Minas Gerais, Arinos fue precursor de Guimarães Rosa y pionero de la literatura del sertón en Brasil. La historia transcurre entre arrieros, en el sertón, el interior profundo de Brasil.',
+            'El libro se presentó en febrero de 2026 en Paracatu, la ciudad natal de Arinos, financiado por el ayuntamiento y distribuido en sus escuelas.',
+            'Escribí el guion y dibujé todas las páginas en Photoshop, primero con una tableta Huion H320M y, desde la mitad del libro, con un iPad Pro 2026. La adaptación del texto es de Daniela Prado, presidenta de la Academia de Letras do Noroeste de Minas, que ideó y dirigió el proyecto.',
+            'Desde noviembre de 2026 el libro también está en Amazon como ebook Kindle, en portugués.'
+          ],
+          credits: 'Idea, dirección y adaptación del texto: Daniela Prado, presidenta de la Academia de Letras do Noroeste de Minas · Guion y dibujo: Fernando Freitas · Cubierta y diseño gráfico: Samuel Sousa Lopes · Corrección: Ana Carolina Campos de Carvalho · Presentado en Paracatu (MG), febrero de 2026, con el apoyo del Ayuntamiento de Paracatu',
+          links: [{ label: 'Ver el proyecto en Behance', href: 'https://www.behance.net/gallery/258404677/ASSOMBRAMENTO-Graphic-Novel' }]
+        },
+        fr: {
+          title: 'ASSOMBRAMENTO — Roman graphique', kind: 'Bande dessinée', role: 'Scénario et dessin', with: 'D’après Afonso Arinos · adaptation de Daniela Prado',
+          buyLabel: 'Acheter sur Amazon',
+          desc: [
+            'Un roman graphique de 67 pages en noir et blanc qui adapte « Assombramento », une nouvelle d’Afonso Arinos (1868–1916). Né à Paracatu, dans le Minas Gerais, Arinos fut un précurseur de Guimarães Rosa et un pionnier de la littérature du sertão au Brésil. L’histoire se déroule parmi des muletiers, dans le sertão, l’arrière-pays brésilien.',
+            'Le livre a été lancé en février 2026 à Paracatu, la ville natale d’Arinos, financé par la municipalité et distribué dans ses écoles.',
+            'J’ai écrit le scénario et dessiné toutes les pages dans Photoshop, d’abord sur une tablette Huion H320M puis, à partir du milieu du livre, sur un iPad Pro 2026. L’adaptation du texte est de Daniela Prado, présidente de l’Academia de Letras do Noroeste de Minas, qui a conçu et dirigé le projet.',
+            'Depuis novembre 2026, le livre est aussi disponible sur Amazon en ebook Kindle, en portugais.'
+          ],
+          credits: 'Conception, direction et adaptation du texte : Daniela Prado, présidente de l’Academia de Letras do Noroeste de Minas · Scénario et dessin : Fernando Freitas · Couverture et conception graphique : Samuel Sousa Lopes · Relecture : Ana Carolina Campos de Carvalho · Lancé à Paracatu (MG), février 2026, avec le soutien de la Ville de Paracatu',
+          links: [{ label: 'Voir le projet sur Behance', href: 'https://www.behance.net/gallery/258404677/ASSOMBRAMENTO-Graphic-Novel' }]
+        }
+      }
     },
     {
       n: 13, cat: 'documentaries', cover: 'assets/ailab/motion_silva_ai_poster.jpg',
@@ -341,7 +379,7 @@ window.FF_DATA = {
       title: 'Família 7 Velas — Clack Bum!',
       kind: 'Music video', role: 'Director & editor', with: '', year: '',
       award: '',
-      items: [{ type: 'file', src: 'assets/local-only/familia_7_velas_clack_bum.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' }],
+      items: [{ type: 'file', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' }],
       buy: '',
       desc: ['Official music video for Família 7 Velas, “Clack Bum!”.'],
       credits: 'Direction & edit: Fernando Freitas',
