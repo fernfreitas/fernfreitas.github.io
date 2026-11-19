@@ -522,3 +522,7 @@ html.intro-on .intro.is-waiting .intro-hint { display: block; position: absolute
 .hero-laurels[hidden] { display: none; }
 .hero-laurels img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; opacity: 0; filter: drop-shadow(0 1px 8px rgba(0,0,0,.6)); }
 .hero-laurels img.on { opacity: 1; }
+
+.p-laurels { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 6px 4px; margin: 12px 0 4px; }
+.p-laurels[hidden] { display: none; }
+.p-laurels img { width: 100%; height: auto; opacity: .92; }

@@ -417,6 +417,13 @@
     const it = cur.items[i];
     if (window.ffTrack) window.ffTrack('play_item', { work: pad2(cur.n), item: it.label || '', kind: it.type });
     stage.textContent = '';
+    /* 20/11: filme com louros de festival mostra todos eles na ficha. */
+    const lau = $('#pLaurels');
+    if (lau) {
+      lau.textContent = '';
+      lau.hidden = !it.laurels;
+      if (it.laurels) (D.laurels || []).forEach(src => { const im = new Image(); im.alt = ''; im.loading = 'lazy'; im.decoding = 'async'; im.width = 640; im.height = 430; im.src = src; lau.append(im); });
+    }
     let node;
     if (it.type === 'vimeo') {
       node = h('iframe');

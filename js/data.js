@@ -69,16 +69,16 @@ window.FF_DATA = {
     {"until":184.69,"n":3,"item":0,"title":"Volt — Air_Silva","credit":"Case film & documentary · Cannes Lions 2026 · Edit, motion, sound, color & AI","cta":"▶ Watch the case film"},
     {"until":186.19,"n":10,"item":4,"title":"Brastemp — Certezas","credit":"Commercial · Editor","cta":"▶ Watch the spot"},
     {"until":191.65,"n":0,"item":0,"title":"Lurdez da Luz — Ziriguidum","credit":"Music video","cta":""},
-    {"until":192.61,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
+    {"until":192.61,"n":11,"item":7,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · Editor · 13 festival selections & awards","cta":"▶ Watch","laurels":true},
     {"until":193.44,"n":10,"item":8,"title":"Riachuelo","credit":"Commercial · Editor","cta":"▶ Watch the spot"},
     {"until":194.65,"n":0,"item":0,"title":"Outback — Brasilidades","credit":"Commercial","cta":""},
     {"until":195.44,"n":5,"item":0,"title":"Emicida — Então Toma","credit":"Music video · MTV VMB 2011, Video of the Year","cta":"▶ Watch"},
     {"until":196.45,"n":11,"item":4,"title":"Família 7 Velas — Clack Bum!","credit":"Music video (official)","cta":"▶ Watch"},
-    {"until":197.91,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
+    {"until":197.91,"n":11,"item":7,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · Editor · 13 festival selections & awards","cta":"▶ Watch","laurels":true},
     {"until":203.16,"n":0,"item":0,"title":"Carlos Motta","credit":"Documentary","cta":""},
-    {"until":204.37,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
+    {"until":204.37,"n":11,"item":7,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · Editor · 13 festival selections & awards","cta":"▶ Watch","laurels":true},
     {"until":208.42,"n":11,"item":4,"title":"Família 7 Velas — Clack Bum!","credit":"Music video (official)","cta":"▶ Watch"},
-    {"until":209.17,"n":0,"item":0,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · 13 festival selections & awards","cta":"","laurels":true},
+    {"until":209.17,"n":11,"item":7,"title":"OWERÁ — Xondaro Ka'aguy Reguá","credit":"Music video · Editor · 13 festival selections & awards","cta":"▶ Watch","laurels":true},
     {"until":214.42,"n":0,"item":0,"title":"Lurdez da Luz — Ziriguidum","credit":"Music video","cta":""},
     {"until":215.67,"n":10,"item":10,"title":"Olympikus — Libere a Brincadeira","credit":"Commercial · Editor","cta":"▶ Watch the spot"},
     {"until":220.64,"n":0,"item":0,"title":"Lurdez da Luz — Ziriguidum","credit":"Music video","cta":""},
@@ -270,7 +270,7 @@ window.FF_DATA = {
     {
       n: 11, cat: 'music-videos', cover: 'assets/covers/11_music_video_selects.jpg',
       title: 'Music Videos — Selected Work',
-      kind: 'Music videos', role: 'Editor', with: 'MC Guimê & Emicida · Don L · Xenia França · T.R.A.P.', year: '2013–2026',
+      kind: 'Music videos', role: 'Editor', with: 'MC Guimê & Emicida · Don L · Xenia França · T.R.A.P. · OWERÁ', year: '2013–2026',
       award: '',
       items: [
         { type: 'vimeo', id: '89919818', label: 'MC Guimê & Emicida — País do Futebol', sub: '2013', dur: '4:26' },
@@ -279,7 +279,8 @@ window.FF_DATA = {
         { type: 'vimeo', id: '1152083262', label: 'Garena Free Fire — T.R.A.P.: I’m on Fire', sub: 'feat. BJRNCK, Awich, Krawk, Faruz Feet · Vetor Zero · 2026', dur: '2:48' },
         { type: 'file', id: 'velas', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
         { type: 'file', id: 'malokero', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' },
-        { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' }
+        { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' },
+        { type: 'file', id: 'xondaro', src: 'assets/local-only/owera_xondaro.mp4', poster: 'assets/thumbs/xondaro.jpg', label: 'OWERÁ — Xondaro Ka’aguy Reguá', sub: 'dir. ANGRY · 13 festival selections & awards', dur: '3:09', laurels: true }
       ],
       desc: [
         'Music videos that helped shape Brazilian pop culture.',
