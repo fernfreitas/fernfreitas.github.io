@@ -5,8 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fernando Freitas — Senior Editor &amp; Creative Director</title>
 <meta name="description" content="Fernando Freitas, senior editor and creative director based in València. Advertising, documentary and music for Netflix, Natura and Emicida, with an own generative-AI video pipeline.">
-<!-- Protótipo local: tirar o noindex quando for publicar -->
-<meta name="robots" content="noindex">
 <meta name="theme-color" content="#020202">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230C0D10'/%3E%3Cpath d='M20 12h28v10H31v9h13v10H31v11H20z' fill='%23F3EEE4'/%3E%3C/svg%3E">
 <script>
@@ -19,10 +17,10 @@
   } catch (e) {}
 })();
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Hanken+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1113f">
+<!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
+<link rel="preconnect" href="https://fonts.bunny.net">
+<link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
+<link rel="stylesheet" href="css/site.css?v=1119a">
 </head>
 <body>
 <a class="skip" href="#works">Skip to works</a>
@@ -48,11 +46,6 @@
     <a href="#ailab">AI Lab</a>
     <a href="#info">Info</a>
   </nav>
-  <div class="skin" role="group" aria-label="Pele do protótipo">
-    <span class="skin-label" aria-hidden="true">Pele</span>
-    <button type="button" data-set-skin="fff" title="Pele A · FFF" aria-label="Pele A, FFF">A</button>
-    <button type="button" data-set-skin="storm" title="Pele B · Tempestade" aria-label="Pele B, Tempestade">B</button>
-  </div>
 </header>
 
 <main>
@@ -215,7 +208,7 @@
 
 <footer class="foot">
   <span>© 2026 Fernando Freitas · València</span>
-  <span class="proto-note">Protótipo local v3 · não publicado</span>
+  <button type="button" class="foot-link" id="cookieSettings" hidden>Cookie settings</button>
 </footer>
 
 <!-- Player: abre o vídeo (Vimeo, YouTube ou arquivo local) ou as imagens de cada projeto -->
@@ -253,7 +246,8 @@
   </symbol>
 </svg>
 
-<script src="js/data.js?v=1113f" defer></script>
-<script src="js/site.js?v=1113f" defer></script>
+<script src="js/analytics.js?v=1119a" defer></script>
+<script src="js/data.js?v=1119a" defer></script>
+<script src="js/site.js?v=1119a" defer></script>
 </body>
 </html>

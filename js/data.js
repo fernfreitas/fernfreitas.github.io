@@ -47,7 +47,7 @@ window.FF_DATA = {
   ],
   projects: [
     {
-      n: 1, cover: 'assets/covers/01_greenventory.jpg',
+      n: 1, cat: 'cases', cover: 'assets/covers/01_greenventory.jpg',
       title: 'Natura — The Amazon Greenventory',
       kind: 'Case film', role: 'Editor', with: 'Africa Creative (DDB)', year: '2025',
       award: 'Cannes Lions 2025 · Grand Prix, SDG',
@@ -60,7 +60,7 @@ window.FF_DATA = {
       links: [{ label: 'Vimeo', href: 'https://vimeo.com/1115603278' }]
     },
     {
-      n: 2, cover: 'assets/covers/02_amarelo_netflix.jpg',
+      n: 2, cat: 'documentaries', cover: 'assets/covers/02_amarelo_netflix.jpg',
       title: 'Netflix — AmarElo: É Tudo Pra Ontem',
       kind: 'Documentary', role: 'Editor · structure, archive & finishing', with: 'LabFantasma · dir. Fred Ouro Preto', year: '2020',
       award: 'International Emmy 2021 · Nominee',
@@ -80,13 +80,13 @@ window.FF_DATA = {
       ]
     },
     {
-      n: 3, cover: 'assets/covers/03_case_films_africa.jpg',
+      n: 3, cat: 'cases', cover: 'assets/covers/03_case_films_africa.jpg',
       title: 'Africa Creative — Case Films (Air_Silva · Greenventory)',
       kind: 'Case films', role: 'Edit, motion, sound, color & AI', with: 'Volt · Natura', year: '2025–2026',
       award: 'Cannes Lions 2025 & 2026',
       items: [
-        { type: 'file', src: 'assets/local-only/airsilva_case_720.mp4', poster: 'assets/ailab/airsilva_2.jpg', label: 'Volt — Air_Silva', sub: 'Case film', dur: '2:13',
-          proto: 'Protótipo: este filme toca de um arquivo local (assets/local-only). Ainda não está no Vimeo.' },
+        { type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI skill', dur: '0:12' },
+        { type: 'file', src: 'assets/local-only/airsilva_case_720.mp4', poster: 'assets/ailab/airsilva_2.jpg', label: 'Volt — Air_Silva', sub: 'Case film', dur: '2:13' },
         { type: 'vimeo', id: '1115603278', label: 'Natura — The Amazon Greenventory', sub: 'Case film · Grand Prix SDG', dur: '2:15' }
       ],
       desc: [
@@ -98,7 +98,7 @@ window.FF_DATA = {
       links: [{ label: 'Greenventory on Vimeo', href: 'https://vimeo.com/1115603278' }]
     },
     {
-      n: 4, cover: 'assets/covers/04_um_take_novos_planos_ia.jpg',
+      n: 4, cat: 'cases', cover: 'assets/covers/04_um_take_novos_planos_ia.jpg',
       title: 'One Take, New Cameras — AI on Real Footage',
       kind: 'AI on real footage', role: 'Editor & AI director', with: 'Unreleased music video', year: '2026',
       award: '',
@@ -121,7 +121,7 @@ window.FF_DATA = {
       links: []
     },
     {
-      n: 5, cover: 'assets/covers/05_emicida_entao_toma.jpg',
+      n: 5, cat: 'music-videos', cover: 'assets/covers/05_emicida_entao_toma.jpg',
       title: 'Emicida — Então Toma',
       kind: 'Music video', role: 'Sound design & additional editing', with: 'dir. Fred Ouro Preto', year: '2011',
       award: 'MTV VMB 2011 · Video of the Year',
@@ -135,7 +135,7 @@ window.FF_DATA = {
       links: [{ label: 'YouTube', href: 'https://www.youtube.com/watch?v=7QnXzVjck6M' }]
     },
     {
-      n: 6, cover: 'assets/covers/06_negredo_linha_do_tiro.jpg',
+      n: 6, cat: 'direction', cover: 'assets/covers/06_negredo_linha_do_tiro.jpg',
       title: 'Negredo feat. Mano Brown — Linha do Tiro',
       kind: 'Music video', role: 'Director, editor & post-production', with: '', year: '2017',
       award: '',
@@ -148,7 +148,7 @@ window.FF_DATA = {
       links: [{ label: 'YouTube', href: 'https://www.youtube.com/watch?v=7Dc5cKI9Sqo' }]
     },
     {
-      n: 7, cover: 'assets/covers/07_menino_e_o_mundo.jpg',
+      n: 7, cat: 'music-videos', cover: 'assets/covers/07_menino_e_o_mundo.jpg',
       title: 'Emicida — Aos Olhos de uma Criança (O Menino e o Mundo)',
       kind: 'Soundtrack video', role: 'Editor', with: 'Film by Alê Abreu', year: '2014',
       award: 'Film nominated · Academy Awards 2016',
@@ -162,7 +162,7 @@ window.FF_DATA = {
       links: [{ label: 'Vimeo', href: 'https://vimeo.com/230524152' }]
     },
     {
-      n: 8, cover: 'assets/covers/08_seu_estilo_seu_impacto.jpg',
+      n: 8, cat: 'documentaries', cover: 'assets/covers/08_seu_estilo_seu_impacto.jpg',
       title: 'Seu Estilo, Seu Impacto — Documentary & Trailer',
       kind: 'Fashion documentary', role: 'Documentary & trailer editor', with: '', year: '2024',
       award: 'KAIA IFF Türkiye 2025 · Best Documentary Direction',
@@ -176,7 +176,7 @@ window.FF_DATA = {
       links: [{ label: 'Vimeo', href: 'https://vimeo.com/1121859316' }]
     },
     {
-      n: 9, cover: 'assets/covers/09_vivo_game_changers.jpg',
+      n: 9, cat: 'documentaries', cover: 'assets/covers/09_vivo_game_changers.jpg',
       title: 'Vivo — Game Changers',
       kind: 'Branded documentary', role: 'Editor', with: 'Ginga · VICE', year: '2017',
       award: 'Wave Festival · Bronze, Branded Content',
@@ -190,7 +190,7 @@ window.FF_DATA = {
       links: [{ label: 'Vimeo', href: 'https://vimeo.com/228494574' }]
     },
     {
-      n: 10, cover: 'assets/covers/10_commercial_selects.jpg',
+      n: 10, cat: 'advertising', cover: 'assets/covers/10_commercial_selects.jpg',
       title: 'Commercials — Selected Spots',
       kind: 'Advertising', role: 'Editor', with: 'Honda · Kia · Avon · Brastemp · Olympikus +', year: '2018–2023',
       award: '',
@@ -212,7 +212,7 @@ window.FF_DATA = {
       links: [{ label: 'All on Vimeo', href: 'https://vimeo.com/fernstorm' }]
     },
     {
-      n: 11, cover: 'assets/covers/11_music_video_selects.jpg',
+      n: 11, cat: 'music-videos', cover: 'assets/covers/11_music_video_selects.jpg',
       title: 'Music Videos — Selected Work',
       kind: 'Music videos', role: 'Editor', with: 'MC Guimê & Emicida · Don L · Xenia França · T.R.A.P.', year: '2013–2026',
       award: '',
@@ -220,7 +220,9 @@ window.FF_DATA = {
         { type: 'vimeo', id: '89919818', label: 'MC Guimê & Emicida — País do Futebol', sub: '2013', dur: '4:26' },
         { type: 'vimeo', id: '826274696', label: 'Don L — Na Batida da Procura Perfeita', sub: 'dir. Aisha Mbikila', dur: '4:27' },
         { type: 'vimeo', id: '296058871', label: 'Xenia França — Pra Que Me Chamas?', sub: '', dur: '6:14' },
-        { type: 'vimeo', id: '1152083262', label: 'Garena Free Fire — T.R.A.P.: I’m on Fire', sub: 'feat. BJRNCK, Awich, Krawk, Faruz Feet · Vetor Zero · 2026', dur: '2:48' }
+        { type: 'vimeo', id: '1152083262', label: 'Garena Free Fire — T.R.A.P.: I’m on Fire', sub: 'feat. BJRNCK, Awich, Krawk, Faruz Feet · Vetor Zero · 2026', dur: '2:48' },
+        { type: 'file', src: 'assets/local-only/familia_7_velas_clack_bum.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
+        { type: 'file', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' }
       ],
       desc: [
         'Music videos that helped shape Brazilian pop culture.',
@@ -230,7 +232,7 @@ window.FF_DATA = {
       links: [{ label: 'All on Vimeo', href: 'https://vimeo.com/fernstorm' }]
     },
     {
-      n: 12, cover: 'assets/covers/12_assombramento_hq.jpg',
+      n: 12, cat: 'other', cover: 'assets/covers/12_assombramento_hq.jpg',
       title: 'ASSOMBRAMENTO — Graphic Novel',
       kind: 'Comics', role: 'Script & art', with: 'After Afonso Arinos · adapted by Daniela Prado', year: '2026',
       award: '',
@@ -243,6 +245,28 @@ window.FF_DATA = {
       ],
       credits: 'Concept, direction & text adaptation: Daniela Prado, President of the Academia de Letras do Noroeste de Minas · Script & art: Fernando Freitas · Cover design & graphic project: Samuel Sousa Lopes · Proofreading: Ana Carolina Campos de Carvalho · Launched in Paracatu (MG), February 2026, with support from the City of Paracatu',
       links: [{ label: 'See the project on Behance', href: 'https://www.behance.net/gallery/258404677/ASSOMBRAMENTO-Graphic-Novel' }]
+    },
+    {
+      n: 13, cat: 'documentaries', cover: 'assets/ailab/motion_silva_ai_poster.jpg',
+      title: 'Leônidas Silva — AI motion (Air_Silva)',
+      kind: 'Documentary · motion & AI', role: 'Motion, AI & editing', with: 'Volt · Africa Creative', year: '2026',
+      award: '',
+      items: [{ type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI skill', dur: '0:12' }],
+      buy: '',
+      desc: ['Motion and AI-generated sequence from the Air_Silva documentary work.'],
+      credits: '',
+      links: []
+    },
+    {
+      n: 14, cat: 'direction', cover: 'https://i.ytimg.com/vi/U7MI1iaNMG0/hqdefault.jpg',
+      title: 'Shawlin — Coração',
+      kind: 'Music video', role: 'Director & editor', with: 'Shawlin', year: '2011',
+      award: '',
+      items: [{ type: 'youtube', id: 'U7MI1iaNMG0', label: 'Shawlin — Coração', sub: 'Official video · YouTube' }],
+      buy: '',
+      desc: [],
+      credits: '',
+      links: [{ label: 'YouTube', href: 'https://www.youtube.com/watch?v=U7MI1iaNMG0' }]
     }
   ]
 };

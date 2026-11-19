@@ -64,7 +64,18 @@
 
   /* ---------- Grade de projetos ---------- */
   const grid = $('#grid');
+  const CATS = [['cases', 'Cases'], ['documentaries', 'Documentaries'], ['advertising', 'Advertising'], ['music-videos', 'Music videos'], ['direction', 'Direction'], ['other', 'Other']];
+  const catIdx = c => { const i = CATS.findIndex(x => x[0] === c); return i < 0 ? 99 : i; };
+  D.projects.sort((a, b) => catIdx(a.cat) - catIdx(b.cat));
+  let lastCat = null;
   D.projects.forEach(p => {
+    if (p.cat !== lastCat) {
+      lastCat = p.cat;
+      const sec = document.createElement('li');
+      sec.className = 'grid-sec';
+      sec.textContent = (CATS.find(x => x[0] === p.cat) || [0, 'Other'])[1];
+      grid.append(sec);
+    }
     const li = h('li');
     const b = h('button', 'card');
     b.type = 'button';
@@ -190,7 +201,10 @@
     if (on && heroVideo.paused) { heroWanted = true; playHero(); }
     syncMusic();
   }
-  heroSound.addEventListener('click', () => setSound(heroVideo.muted));
+  heroSound.addEventListener('click', () => {
+    setSound(heroVideo.muted);
+    if (window.ffTrack) window.ffTrack('hero_sound', { on: !heroVideo.muted, film: $('#heroTitle').textContent });
+  });
   heroVideo.addEventListener('play', syncMusic);
   heroVideo.addEventListener('pause', syncMusic);
   heroVideo.addEventListener('seeked', syncMusic);   // o filme voltou ao início: a trilha volta junto
@@ -260,7 +274,10 @@
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     $$('[data-lang-panel]').forEach(p => { p.hidden = p.dataset.langPanel !== lang; });
   }
-  $$('[data-lang]').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  $$('[data-lang]').forEach(b => b.addEventListener('click', () => {
+    setLang(b.dataset.lang);
+    if (window.ffTrack) window.ffTrack('about_lang', { lang: b.dataset.lang });
+  }));
   if ((navigator.language || '').toLowerCase().startsWith('es')) setLang('es');
 
   /* ---------- Player ---------- */
@@ -275,6 +292,7 @@
   function mount(i) {
     curItem = i;
     const it = cur.items[i];
+    if (window.ffTrack) window.ffTrack('play_item', { work: pad2(cur.n), item: it.label || '', kind: it.type });
     stage.textContent = '';
     let node;
     if (it.type === 'vimeo') {
@@ -332,6 +350,7 @@
     const p = byN(n);
     if (!p) return;
     cur = p;
+    if (window.ffTrack) window.ffTrack('open_work', { work: pad2(p.n), title: p.title });
     $('#pCount').textContent = pad2(p.n) + ' / ' + pad2(D.projects.length);
     $('#pKind').textContent = p.kind;
     $('#pTitle').textContent = p.title;
