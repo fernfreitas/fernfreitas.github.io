@@ -491,18 +491,16 @@ html.intro-on .intro.is-waiting .intro-hint { display: block; position: absolute
 
 /* ---------- 20/11: faixa de logos ao lado do FFF (pedido dele: "em frente o fff no canto, logos de grandes marcas e agências") ---------- */
 .top { grid-template-columns: auto minmax(0, 1fr) auto auto; grid-template-areas: "brand logos nav skin"; }
-/* 20/11: logo parado ao lado do FFF, corte seco a cada 10 quadros (24 fps) — pedido dele */
-.clients { grid-area: logos; align-self: center; justify-self: start; min-width: 0; height: 46px; margin-inline: 14px 20px; }
-.clients-slot { position: relative; width: 115px; height: 100%; }
-.clients-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: left center; opacity: 0; filter: drop-shadow(0 1px 6px rgba(0,0,0,.45)); }
+/* 20/11: logo parado em cima do "Corte Seco · AI Director", ao lado do FFF; corte seco a cada 10 quadros (24 fps).
+   Posição medida no JS (--cl-x/--cl-y/--cl-h/--cl-w) a partir do logo FFF e do subtítulo. */
+.clients { position: absolute; left: var(--cl-x, 180px); top: var(--cl-y, 20px); height: var(--cl-h, 46px); width: var(--cl-w, 115px); margin: 0; pointer-events: none; }
+.clients-slot { position: relative; width: 100%; height: 100%; }
+.clients-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: left bottom; opacity: 0; filter: drop-shadow(0 1px 6px rgba(0,0,0,.45)); }
 .clients-slot img.on { opacity: .92; }
-.top.is-solid .clients { height: 30px; }
-.top.is-solid .clients-slot { width: 75px; }
+.brand-skill { color: #F6C81C; }
 [data-skin="storm"] .clients { display: none; }
 @media (max-width: 720px) {
   .top { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "brand logos skin" "nav nav nav"; }
-  .clients { height: 32px; margin-inline: 10px 0; }
-  .clients-slot { width: 80px; }
 }
 
 /* 20/11: HQ em tela cheia */

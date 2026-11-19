@@ -556,4 +556,37 @@
     const run = () => { clearInterval(t); if (!document.hidden) t = setInterval(step, 10000 / 24); };
     document.addEventListener('visibilitychange', run); run();
   })();
+
+  /* 20/11: o logo fica em cima do "Corte Seco · AI Director", colado à direita do FFF. */
+  (() => {
+    const top = document.querySelector('.top'), cl = document.querySelector('.clients');
+    const logo = document.querySelector('.brand-fff .fff-logo'), sub = document.querySelector('.brand-fff .brand-sub');
+    if (!top || !cl || !logo) return;
+    const place = () => {
+      const t = top.getBoundingClientRect(), l = logo.getBoundingClientRect();
+      if (!l.width) return;
+      const s = sub && sub.offsetParent ? sub.getBoundingClientRect() : null;
+      const x = l.right - t.left + 14;
+      const h = Math.round(l.height * .78);
+      const w = s ? Math.max(70, Math.min(150, s.right - l.right - 14)) : Math.round(h * 2.5);
+      cl.style.setProperty('--cl-x', x + 'px');
+      cl.style.setProperty('--cl-y', (l.bottom - t.top - h) + 'px');
+      cl.style.setProperty('--cl-h', h + 'px');
+      cl.style.setProperty('--cl-w', w + 'px');
+    };
+    place();
+    if (window.ResizeObserver) new ResizeObserver(place).observe(logo);
+    addEventListener('resize', place);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(place);
+  })();
+
+  /* 20/11: "Fernando Freitas · Corte Seco" fica; a última palavra troca em corte seco (habilidades). */
+  (() => {
+    const el = document.querySelector('.brand-skill'); if (!el) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const SK = ['AI Director', 'Motion', 'Design', 'Finishing', 'Post-production', 'Senior Editor', 'Trailers', 'Color', 'Sound design', 'Illustration', 'Creative Director'];
+    let i = 0, t = 0;
+    const run = () => { clearInterval(t); if (!document.hidden) t = setInterval(() => { i = (i + 1) % SK.length; el.textContent = SK[i]; }, 1500); };
+    document.addEventListener('visibilitychange', run); run();
+  })();
 })();
