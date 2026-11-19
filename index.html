@@ -41,15 +41,16 @@
 <!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1119e">
+<link rel="stylesheet" href="css/site.css?v=1119f">
 </head>
 <body>
 <div class="intro" id="intro" aria-hidden="true">
   <video class="intro-v" id="introV" playsinline preload="auto"></video>
+  <button type="button" class="intro-gate" id="introGate" hidden><span class="intro-gate-k">Enter</span><span class="intro-gate-s">Sound on ♪</span></button>
 </div>
 <script>
 /* Abertura (19/11): a assinatura pintada em macro, com som de pincel, termina num glitch que corta para o site.
-   Som só toca se o navegador deixar (sem clique antes, quase sempre fica mudo); aí segue muda.
+   Se o navegador barrar o som, vira porta: "Enter · Sound on"; o clique libera o som da abertura e do filme.
    Clique, tecla, rolagem ou toque pulam. Rede lenta: desiste e mostra o site. */
 (function () {
   var root = document.documentElement;
@@ -92,10 +93,29 @@
   v.src = base + '.mp4';
   v.muted = false;                                       // tenta com som
   var p = v.play();
-  if (p && p.catch) p.catch(function () {
+  if (p && p.catch) p.catch(function (err) {
     if (done) return;
-    v.muted = true;                                      // navegador bloqueou o som: vai mudo
-    var q = v.play(); if (q && q.catch) q.catch(skip);
+    if (!err || err.name !== 'NotAllowedError') { skip(); return; }
+    /* Navegador barrou o som (19/11, pedido dele: o site tem que abrir com som e a abertura tem que ser ouvida).
+       A abertura vira uma porta: o primeiro quadro parado + "Enter · Sound on". O clique libera o som e a abertura toca. */
+    timers.forEach(clearTimeout); timers = [];
+    EVTS.forEach(function (t) { window.removeEventListener(t, skip, true); });
+    var gate = document.getElementById('introGate');
+    box.classList.add('is-gate'); gate.hidden = false; box.setAttribute('aria-hidden', 'false');
+    try { gate.focus({ preventScroll: true }); } catch (e) {}
+    function enter(ev) {
+      if (ev && ev.type === 'keydown' && !/^(Enter| |Spacebar|Escape)$/.test(ev.key)) return;
+      box.removeEventListener('click', enter); window.removeEventListener('keydown', enter, true);
+      gate.hidden = true; box.classList.remove('is-gate'); box.setAttribute('aria-hidden', 'true');
+      v.muted = false;
+      var q = v.play();
+      if (q && q.catch) q.catch(function () { v.muted = true; var r = v.play(); if (r && r.catch) r.catch(skip); });
+      EVTS.forEach(function (t) { window.addEventListener(t, skip, { capture: true, passive: true }); });
+      later(function () { if (!started) skip(); }, 3000);
+      later(skip, 7000);
+    }
+    box.addEventListener('click', enter);
+    window.addEventListener('keydown', enter, true);
   });
   later(function () { if (!started) skip(); }, 3000);
   later(skip, 7000);
@@ -330,6 +350,6 @@
 
 <script src="js/analytics.js?v=1119d" defer></script>
 <script src="js/data.js?v=1119d" defer></script>
-<script src="js/site.js?v=1119e" defer></script>
+<script src="js/site.js?v=1119f" defer></script>
 </body>
 </html>
