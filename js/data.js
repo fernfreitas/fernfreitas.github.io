@@ -319,6 +319,28 @@ window.FF_DATA = {
       desc: [],
       credits: '',
       links: [{ label: 'YouTube', href: 'https://www.youtube.com/watch?v=U7MI1iaNMG0' }]
+    },
+    {
+      n: 15, cat: 'documentaries', cover: 'assets/covers/15_carlos_motta.jpg',
+      title: 'Carlos Motta — Nas Ondas da Vida',
+      kind: 'Documentary', role: 'Editor', with: '', year: '',
+      award: '',
+      items: [{ type: 'file', src: 'assets/docs/carlos_motta_doc.mp4', poster: 'assets/covers/15_carlos_motta.jpg', label: 'Carlos Motta — Nas Ondas da Vida', sub: 'Documentary · full film', dur: '31:15' }],
+      buy: '',
+      desc: ['A documentary about Carlos Motta, the Brazilian furniture designer, and the two lives that shaped his work: surfing and wood.'],
+      credits: 'Editor: Fernando Freitas',
+      links: []
+    },
+    {
+      n: 16, cat: 'direction', cover: 'assets/covers/13_familia_7_velas.jpg',
+      title: 'Família 7 Velas — Clack Bum!',
+      kind: 'Music video', role: 'Director & editor', with: '', year: '',
+      award: '',
+      items: [{ type: 'file', src: 'assets/local-only/familia_7_velas_clack_bum.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' }],
+      buy: '',
+      desc: ['Official music video for Família 7 Velas, “Clack Bum!”.'],
+      credits: 'Direction & edit: Fernando Freitas',
+      links: []
     }
   ]
 };

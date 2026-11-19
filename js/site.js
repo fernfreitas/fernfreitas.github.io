@@ -67,8 +67,15 @@
   const CATS = [['cases', 'Cases'], ['documentaries', 'Documentaries'], ['advertising', 'Advertising'], ['music-videos', 'Music videos'], ['direction', 'Direction'], ['other', 'Other']];
   const catIdx = c => { const i = CATS.findIndex(x => x[0] === c); return i < 0 ? 99 : i; };
   D.projects.sort((a, b) => catIdx(a.cat) - catIdx(b.cat));
-  let lastCat = null;
+  /* 20/11: em Advertising cada spot é um card próprio (antes era uma janela só com tudo dentro). */
+  const gridList = [];
   D.projects.forEach(p => {
+    if (p.n === 10) p.items.forEach((it, i) => gridList.push({ n: 10, item: i, spot: true, cat: p.cat, cover: 'assets/thumbs/' + it.id + '.jpg',
+      prev: 'assets/prev/' + it.id + '.mp4', title: it.label, kind: 'Commercial', role: 'Editor', with: it.sub, year: '', award: '', items: [it] }));
+    else gridList.push(p);
+  });
+  let lastCat = null;
+  gridList.forEach(p => {
     if (p.cat !== lastCat) {
       lastCat = p.cat;
       const sec = document.createElement('li');
@@ -80,6 +87,7 @@
     const b = h('button', 'card');
     b.type = 'button';
     b.dataset.open = p.n;
+    if (p.spot) { b.dataset.item = p.item; b.classList.add('card--spot'); }
 
     const fig = h('span', 'card-img');
     const img = new Image();
@@ -90,12 +98,14 @@
     img.src = p.cover;
     const hasVideo = p.items.some(i => i.type !== 'image' && i.type !== 'pages');
     fig.append(img);
-    if (p.n !== 12 && p.n !== 14) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + '.mp4'));   // 12 (HQ) e 14 (só YouTube) não têm prévia em vídeo
+    if (p.spot) fig.append(prevVideo(p.prev));
+    else if (p.n !== 12 && p.n !== 14) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + '.mp4'));   // 12 (HQ) e 14 (só YouTube) não têm prévia em vídeo
     fig.append(h('span', 'card-play', hasVideo ? '▶ Play' : 'View'));
 
     const cap = h('span', 'card-cap');
     const title = h('span', 'card-title');
-    title.append(h('span', 'card-n', pad2(p.n)), document.createTextNode(p.title));
+    if (!p.spot) title.append(h('span', 'card-n', pad2(p.n)));
+    title.append(document.createTextNode(p.title));
     cap.append(title, h('span', 'card-meta', [p.kind, p.role, p.with, p.year].filter(Boolean).join(' · ')));
     if (p.award) cap.append(h('span', 'card-award', p.award));
 
@@ -519,4 +529,14 @@
   /* Link direto para um projeto: index.html#work-3 abre o projeto 03. */
   const deep = /^#work-(\d+)$/.exec(location.hash);
   if (deep && byN(deep[1])) openProject(deep[1], 0);
+
+  /* 20/11: logos parados ao lado do FFF, corte seco a cada 10 quadros a 24 fps (~417 ms), em loop. */
+  (() => {
+    const logos = document.querySelectorAll('.clients-slot img'); if (logos.length < 2) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let i = 0, t = 0;
+    const step = () => { logos[i].classList.remove('on'); i = (i + 1) % logos.length; logos[i].classList.add('on'); };
+    const run = () => { clearInterval(t); if (!document.hidden) t = setInterval(step, 10000 / 24); };
+    document.addEventListener('visibilitychange', run); run();
+  })();
 })();
