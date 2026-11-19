@@ -342,9 +342,9 @@
   }
 
   /* ---------- Idioma da HQ: francês para quem tem o navegador em francês, espanhol em espanhol, senão inglês ---------- */
-  let hqLang = (() => { const n = (navigator.language || '').toLowerCase(); return n.startsWith('fr') ? 'fr' : n.startsWith('es') ? 'es' : 'en'; })();
+  let hqLang = (() => { const n = (navigator.language || '').toLowerCase(); return n.startsWith('pt') ? 'pt' : n.startsWith('fr') ? 'fr' : n.startsWith('es') ? 'es' : 'en'; })();
   function setHqLang(l) {
-    if (!['en', 'es', 'fr'].includes(l)) return;
+    if (!['en', 'es', 'fr', 'pt'].includes(l)) return;
     hqLang = l;
     $$('.is-hq').forEach(w => w.dispatchEvent(new Event('ff-hq-lang')));
   }
@@ -417,13 +417,30 @@
       if (it.langs) {
         const bar = h('div', 'hq-langs');
         bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', 'Comic language');
-        const NAMES = { en: 'English', es: 'Español', fr: 'Français' };
+        const NAMES = { en: 'English', es: 'Español', fr: 'Français', pt: 'Português' };
         Object.keys(it.langs).forEach(l => {
           const b = h('button', '', NAMES[l] || l.toUpperCase());
           b.type = 'button'; b.dataset.hqLang = l; b.lang = l;
           b.addEventListener('click', () => { setHqLang(l); if (window.ffTrack) window.ffTrack('hq_lang', { lang: l }); });
           bar.append(b);
         });
+        /* 20/11: tela cheia (pedido dele). iPhone não tem fullscreen de elemento: cai num modo que cobre a tela. */
+        const fs = h('button', 'hq-fs', '⛶ Full screen');
+        fs.type = 'button';
+        fs.addEventListener('click', () => {
+          const on = document.fullscreenElement || document.webkitFullscreenElement || wrap.classList.contains('is-full');
+          if (on) {
+            if (document.fullscreenElement) document.exitFullscreen(); else if (document.webkitFullscreenElement) document.webkitExitFullscreen();
+            wrap.classList.remove('is-full');
+          } else if (wrap.requestFullscreen) wrap.requestFullscreen().catch(() => wrap.classList.add('is-full'));
+          else if (wrap.webkitRequestFullscreen) wrap.webkitRequestFullscreen();
+          else wrap.classList.add('is-full');
+          if (window.ffTrack) window.ffTrack('hq_fullscreen', {});
+          setTimeout(label, 300);
+        });
+        const label = () => { fs.textContent = (document.fullscreenElement || document.webkitFullscreenElement || wrap.classList.contains('is-full')) ? '✕ Exit full screen' : '⛶ Full screen'; };
+        document.addEventListener('fullscreenchange', label); document.addEventListener('webkitfullscreenchange', label);
+        bar.append(fs);
         wrap.append(bar);
       }
       wrap.addEventListener('ff-hq-lang', () => {
