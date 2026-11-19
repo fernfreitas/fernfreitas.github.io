@@ -41,7 +41,7 @@
 <!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1120c">
+<link rel="stylesheet" href="css/site.css?v=1120d">
 </head>
 <body>
 <div class="intro" id="intro" aria-hidden="true">
@@ -79,9 +79,10 @@
       setTimeout(function () { root.classList.remove('intro-on'); bye(); }, 700);
     }
   }
-  /* Som barrado (1ª visita: o navegador só deixa tocar som depois de um gesto). A abertura segura no 1º quadro e o
-     primeiro clique ou tecla solta ela COM som (19/11, "o som do F da intro não tá rolando"). Rolar a página pula.
-     Não cai mais pra muda sozinha (20/11): espera o gesto. */
+  /* Som barrado (navegador só deixa som depois de um gesto). 20/11 ("não tá funcionando o logo de abertura": a tela ficava
+     preta esperando): a assinatura se pinta MUDA na hora e para no FFF pronto, antes do glitch, com "Click anywhere · sound on".
+     O clique (ou tecla) toca a assinatura de novo, do começo, COM som, e o site segue com som. Rolar a página pula. */
+  var HOLD = 1.25;                                    // F completo; o glitch começa em 1,367 s (assets/intro/marca.json)
   function skip(ev) {
     if (waiting && ev && /^(pointerdown|touchstart|keydown)$/.test(ev.type)) return;   // quem solta é o clique (soltar)
     finish(false);
@@ -92,28 +93,34 @@
     try { v.currentTime = 0; } catch (e) {}
     var q = v.play();
     if (q && q.catch) q.catch(function () { if (done) return; v.muted = true; var r = v.play(); if (r && r.catch) r.catch(skip); });
+    later(function () { if (!done) finish(true); }, 4000);   // reserva: a assinatura dura 2 s
   }
   function soltar() { if (waiting && !done) { tocar(true); if (window.ffSoundGesture) window.ffSoundGesture(); } }
-  function tick() {
-    if (done) return;
-    if (v.currentTime >= CUT) finish(true); else requestAnimationFrame(tick);
+  function chegou() {                                  // fim da assinatura: corta para o site, ou segura no FFF esperando o clique
+    if (done) return true;
+    if (waiting) { if (v.currentTime >= HOLD - .08) { if (!v.paused) { v.pause(); try { v.currentTime = HOLD; } catch (e) {} } return true; } return false; }
+    if (v.currentTime >= CUT) { finish(true); return true; }
+    return false;
   }
+  function tick() { if (done) return; if (!chegou() || waiting) requestAnimationFrame(tick); }
   EVTS.forEach(function (t) { window.addEventListener(t, skip, { capture: true, passive: true }); });
   window.addEventListener('click', soltar, true);
   window.addEventListener('keydown', soltar, true);
-  v.addEventListener('playing', function () { if (!started) { started = true; requestAnimationFrame(tick); later(skip, 4000); } });
-  v.addEventListener('timeupdate', function () { if (v.currentTime >= CUT) finish(true); });   // reserva, se a aba não desenha quadros
-  v.addEventListener('ended', function () { finish(true); });
-  v.addEventListener('error', skip);
+  v.addEventListener('playing', function () { if (!started) { started = true; requestAnimationFrame(tick); if (!waiting) later(function () { if (!waiting) finish(true); }, 4000); } });
+  v.addEventListener('timeupdate', chegou);            // reserva, se a aba não desenha quadros
+  v.addEventListener('ended', function () { if (!waiting) finish(true); });
+  v.addEventListener('error', function () { finish(false); });
   v.poster = base + '_start.jpg';
   v.src = base + '.mp4';
   v.muted = false;                                       // tenta com som
   var p = v.play();
   if (p && p.catch) p.catch(function () {
     if (done) return;
-    waiting = true;                                      // navegador barrou o som: espera o primeiro clique (ver skip)
+    waiting = true;                                      // barrado: pinta muda e segura no FFF até o clique
     try { if (window.matchMedia('(pointer: coarse)').matches) document.getElementById('introHint').textContent = 'Tap anywhere · sound on ♪'; } catch (e) {}
-    box.classList.add('is-waiting');                     // 20/11 (pedido dele): a assinatura SEMPRE com som — espera o clique, sem cair pra muda
+    box.classList.add('is-waiting');
+    v.muted = true;
+    var r = v.play(); if (r && r.catch) r.catch(function () { /* nem muda: fica o pôster, o clique ainda solta */ });
   });
   later(function () { if (!started && !waiting) skip(); }, 3000);
   later(function () { if (!started && !waiting) skip(); }, 9000);    // rede lenta: desiste e mostra o site
@@ -394,7 +401,7 @@
 </svg>
 
 <script src="js/analytics.js?v=1119d" defer></script>
-<script src="js/data.js?v=1120c" defer></script>
-<script src="js/site.js?v=1120c" defer></script>
+<script src="js/data.js?v=1120d" defer></script>
+<script src="js/site.js?v=1120d" defer></script>
 </body>
 </html>
