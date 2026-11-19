@@ -41,46 +41,64 @@
 <!-- Fontes pelo Bunny Fonts (UE, sem registro de visitante) no lugar do Google Fonts -->
 <link rel="preconnect" href="https://fonts.bunny.net">
 <link rel="stylesheet" href="https://fonts.bunny.net/css?family=big-shoulders-display:700,800|hanken-grotesk:400,500,600|space-mono:400,700&display=swap">
-<link rel="stylesheet" href="css/site.css?v=1119c">
+<link rel="stylesheet" href="css/site.css?v=1119d">
 </head>
 <body>
 <div class="intro" id="intro" aria-hidden="true">
-  <video class="intro-v" id="introV" muted playsinline preload="none" poster="assets/intro/marca_start.jpg" width="720" height="720"></video>
+  <video class="intro-v" id="introV" playsinline preload="auto"></video>
 </div>
 <script>
-/* Abertura: a marca pintada (identidade "tela escura", 17/11) toca uma vez e some. Clique, tecla, rolagem ou toque pulam.
-   Se o vídeo não começa logo (rede lenta, modo economia de energia), mostra a marca parada um instante e segue. */
+/* Abertura (19/11): a assinatura pintada em macro, com som de pincel, termina num glitch que corta para o site.
+   Som só toca se o navegador deixar (sem clique antes, quase sempre fica mudo); aí segue muda.
+   Clique, tecla, rolagem ou toque pulam. Rede lenta: desiste e mostra o site. */
 (function () {
   var root = document.documentElement;
   if (!root.classList.contains('intro-on')) return;
   var box = document.getElementById('intro'), v = document.getElementById('introV');
+  var CUT = 1.667;                                   // fim do glitch no vídeo (assets/intro/marca.json)
+  var tall = window.innerHeight > window.innerWidth;
+  var base = 'assets/intro/marca_' + (tall ? '9x16' : '16x9');
   var done = false, started = false, timers = [];
   var EVTS = ['pointerdown', 'keydown', 'wheel', 'touchstart'];
   function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
-  function finish() {
+  function bye() { try { v.pause(); v.removeAttribute('src'); v.load(); box.parentNode.removeChild(box); } catch (e) {} }
+  function finish(cut) {
     if (done) return;
     done = true;
     timers.forEach(clearTimeout);
-    EVTS.forEach(function (t) { window.removeEventListener(t, finish, true); });
-    box.classList.add('is-out');
+    EVTS.forEach(function (t) { window.removeEventListener(t, skip, true); });
+    box.classList.add(cut === true ? 'is-cut' : 'is-out');
     window.ffIntroDone = true;
     try { document.dispatchEvent(new CustomEvent('ff:intro-done')); } catch (e) {}
-    setTimeout(function () {
+    if (cut === true) {                                   // corte seco do glitch: a cauda do som termina sozinha
       root.classList.remove('intro-on');
-      try { v.pause(); v.removeAttribute('src'); v.load(); box.parentNode.removeChild(box); } catch (e) {}
-    }, 700);
+      v.addEventListener('ended', bye); later(bye, 1500);
+    } else {
+      v.muted = true;
+      setTimeout(function () { root.classList.remove('intro-on'); bye(); }, 700);
+    }
   }
-  function still() { if (done) return; v.poster = 'assets/intro/marca_end.jpg'; later(function () { if (!started) finish(); }, 1300); }   // se o vídeo começar nesse meio-tempo, deixa tocar até o fim
-  EVTS.forEach(function (t) { window.addEventListener(t, finish, { capture: true, passive: true }); });
-  v.addEventListener('playing', function () { started = true; });
-  v.addEventListener('timeupdate', function () { if (v.duration && v.currentTime >= v.duration - 0.5) finish(); });
-  v.addEventListener('ended', finish);
-  v.addEventListener('error', finish);
-  v.src = 'assets/intro/marca.mp4';
+  function skip() { finish(false); }
+  function tick() {
+    if (done) return;
+    if (v.currentTime >= CUT) finish(true); else requestAnimationFrame(tick);
+  }
+  EVTS.forEach(function (t) { window.addEventListener(t, skip, { capture: true, passive: true }); });
+  v.addEventListener('playing', function () { if (!started) { started = true; requestAnimationFrame(tick); } });
+  v.addEventListener('timeupdate', function () { if (v.currentTime >= CUT) finish(true); });   // reserva, se a aba não desenha quadros
+  v.addEventListener('ended', function () { finish(true); });
+  v.addEventListener('error', skip);
+  v.poster = base + '_start.jpg';
+  v.src = base + '.mp4';
+  v.muted = false;                                       // tenta com som
   var p = v.play();
-  if (p && p.catch) p.catch(still);
-  later(function () { if (!started) still(); }, 2500);
-  later(finish, 7000);
+  if (p && p.catch) p.catch(function () {
+    if (done) return;
+    v.muted = true;                                      // navegador bloqueou o som: vai mudo
+    var q = v.play(); if (q && q.catch) q.catch(skip);
+  });
+  later(function () { if (!started) skip(); }, 3000);
+  later(skip, 7000);
 })();
 </script>
 <a class="skip" href="#works">Skip to works</a>
@@ -310,8 +328,8 @@
   </symbol>
 </svg>
 
-<script src="js/analytics.js?v=1119c" defer></script>
-<script src="js/data.js?v=1119c" defer></script>
-<script src="js/site.js?v=1119c" defer></script>
+<script src="js/analytics.js?v=1119d" defer></script>
+<script src="js/data.js?v=1119d" defer></script>
+<script src="js/site.js?v=1119d" defer></script>
 </body>
 </html>

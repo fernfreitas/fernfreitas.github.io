@@ -441,14 +441,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .consent-actions { display: flex; gap: 8px; justify-content: flex-end; }
 .consent-actions .btn { flex: 1; }
 
-/* Abertura: marca animada (assets/intro/marca.mp4) por cima de tudo, só na entrada pela página inicial.
-   As bordas do vídeo somem num degradê para a textura da tela se fundir ao fundo liso (#111113 = média da borda). */
+/* Abertura: assinatura em macro (assets/intro/marca_16x9.mp4 ou _9x16.mp4) em tela cheia, só na entrada pela página inicial.
+   Termina num glitch e corta seco para o site (.is-cut); pular com clique some em fade (.is-out). */
 .intro { display: none; }
 html.intro-on .intro { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; background: #111113; cursor: pointer; opacity: 1; visibility: visible; transition: opacity .6s var(--ease), visibility 0s linear .6s; }
 html.intro-on .intro.is-out { opacity: 0; visibility: hidden; }
-.intro-v { display: block; width: min(82vmin, 640px); height: auto; aspect-ratio: 1 / 1; background: #111113;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent), linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
-  mask-composite: intersect; }
+.intro-v { display: block; width: 100vw; height: 100vh; height: 100dvh; object-fit: cover; background: #111113; }
+html.intro-on .intro.is-cut { opacity: 0; visibility: hidden; transition: none; }
 .foot-links { display: inline-flex; gap: 18px; align-items: center; flex-wrap: wrap; }
