@@ -246,8 +246,8 @@ window.FF_DATA = {
       kind: 'Advertising', role: 'Editor', with: 'Disney+ · Sunsilk · Honda · Kia · Avon · Brastemp · Olympikus +', year: '2018–2023',
       award: '',
       items: [
-        { type: 'youtube', id: 'yh2jBGr-ZK8', label: 'Manu Gavassi — Gracinha (Disney+)', sub: 'Visual album · official trailer · premiered on Disney+, 2021', dur: '1:24' },
-        { type: 'file', id: 'sunsilk', src: 'assets/local-only/sunsilk_sim.mp4', poster: 'assets/thumbs/sunsilk.jpg', label: 'Sunsilk — SIM', sub: 'adam&eveDDB (UK) · Santa Transmedia', dur: '0:30' },
+        { type: 'youtube', id: 'yh2jBGr-ZK8', label: 'Manu Gavassi — Gracinha (Disney+)', sub: 'Visual album · official trailer · premiered on Disney+, 2021 · co-edited (two editors)', dur: '1:24' },
+        { type: 'file', id: 'sunsilk', src: 'assets/local-only/sunsilk_sim.mp4', poster: 'assets/thumbs/sunsilk.jpg', label: 'Sunsilk — SIM', sub: 'adam&eveDDB (UK) · Santa Transmedia · sole editor', dur: '0:30' },
         { type: 'vimeo', id: '340554982', label: 'Honda — PCX: Você no Ritmo da Cidade', sub: 'F.biz · Paranoid · dir. Gotacx', dur: '0:30' },
         { type: 'vimeo', id: '366602926', label: 'Kia — Cerato', sub: 'Mixer', dur: '1:00' },
         { type: 'vimeo', id: '349801727', label: 'Brastemp — Certezas', sub: 'FCB Brasil', dur: '0:30' },
