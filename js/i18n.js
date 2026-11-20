@@ -1,0 +1,216 @@
+/* 20/11: idioma do site todo (EN / PT / ES). O inglês é o texto da página; este arquivo troca
+   os nós de texto pelo par traduzido e observa o que o site.js desenha depois (cards, ficha). */
+(() => {
+  'use strict';
+  const T = [
+    ['Click anywhere · sound on ♪', 'Clique em qualquer lugar · som ligado ♪', 'Haz clic en cualquier sitio · con sonido ♪'],
+    ['Skip to works', 'Pular para os trabalhos', 'Saltar a los trabajos'],
+    ['Works', 'Trabalhos', 'Trabajos'],
+    ['Now playing', 'Passando agora', 'Ahora suena'],
+    ['Sound on', 'Som ligado', 'Con sonido'],
+    ['Sound off', 'Sem som', 'Sin sonido'],
+    ['Pause', 'Pausar', 'Pausa'],
+    ['Play', 'Tocar', 'Reproducir'],
+    ['12 projects · advertising, documentary, music, AI', '12 projetos · publicidade, documentário, música, IA', '12 proyectos · publicidad, documental, música, IA'],
+    ['Generative AI directed on real footage: new camera angles from a single take, elements that interact with the cast, cinematic relighting. Same performance, no reshoot.',
+      'IA generativa dirigida sobre material filmado: novos ângulos de câmera a partir de um único take, elementos que interagem com o elenco, luz de cinema refeita. Mesma atuação, sem refilmar.',
+      'IA generativa dirigida sobre material rodado: nuevos ángulos de cámara a partir de una sola toma, elementos que interactúan con el reparto, luz de cine rehecha. La misma interpretación, sin volver a rodar.'],
+    ['Phone take · midday', 'Take de celular · meio-dia', 'Toma de móvil · mediodía'],
+    ['Relit · AI', 'Luz refeita · IA', 'Reiluminado · IA'],
+    ['From the final cut', 'Do corte final', 'Del montaje final'],
+    ['Butterflies · AI', 'Borboletas · IA', 'Mariposas · IA'],
+    ['New camera · AI', 'Câmera nova · IA', 'Cámara nueva · IA'],
+    ['AI on real footage · demo', 'IA sobre material filmado · demo', 'IA sobre material rodado · demo'],
+    ['One Take. New Light. New Cameras.', 'Um take. Luz nova. Câmeras novas.', 'Una toma. Luz nueva. Cámaras nuevas.'],
+    ['A music video shot on a phone in Paris, one take per moment. No crane, no drone, no second camera, no lighting crew.',
+      'Um clipe filmado com celular em Paris, um take por momento. Sem grua, sem drone, sem segunda câmera, sem equipe de luz.',
+      'Un videoclip rodado con móvil en París, una toma por momento. Sin grúa, sin dron, sin segunda cámara, sin equipo de luces.'],
+    ['The wide shot on the crosswalk was filmed at midday and relit to golden hour: same walk, same face, new sun. A stone column bursts into white butterflies behind her. And from each take I generated new camera angles: aerial, from behind, ground level, macro.',
+      'O plano aberto na faixa de pedestres foi filmado ao meio-dia e ganhou luz de fim de tarde: mesmo andar, mesmo rosto, sol novo. Uma coluna de pedra explode em borboletas brancas atrás dela. E de cada take eu gerei novos ângulos de câmera: aéreo, de costas, do chão, macro.',
+      'El plano general en el paso de cebra se rodó a mediodía y pasó a luz de atardecer: el mismo andar, la misma cara, sol nuevo. Una columna de piedra estalla en mariposas blancas detrás de ella. Y de cada toma generé nuevos ángulos de cámara: aéreo, de espaldas, a ras de suelo, macro.'],
+    ['The performance and the timing stay the ones that were actually filmed; only the light, the set and the camera change.',
+      'A atuação e o tempo continuam os que foram filmados de verdade; só mudam a luz, o cenário e a câmera.',
+      'La interpretación y el ritmo siguen siendo los que se rodaron de verdad; solo cambian la luz, el decorado y la cámara.'],
+    ['Edit & AI direction: Fernando Freitas · Premiere Pro, DaVinci Resolve, Seedance 2.5, Aleph · The video is still unreleased, so demos only.',
+      'Montagem e direção de IA: Fernando Freitas · Premiere Pro, DaVinci Resolve, Seedance 2.5, Aleph · O clipe ainda não foi lançado, por isso só demos.',
+      'Montaje y dirección de IA: Fernando Freitas · Premiere Pro, DaVinci Resolve, Seedance 2.5, Aleph · El vídeo aún no se ha estrenado, así que solo demos.'],
+    ['View the demos & boards', 'Ver as demos e pranchas', 'Ver las demos y láminas'],
+    ['View the demos', 'Ver as demos', 'Ver las demos'],
+    ['Statue → motion', 'Estátua → movimento', 'Estatua → movimiento'],
+    ['Statue → eyes open', 'Estátua → olhos abertos', 'Estatua → ojos abiertos'],
+    ['AI on real footage · music video', 'IA sobre material filmado · clipe', 'IA sobre material rodado · videoclip'],
+    ['Folle de Toi. The Museum Comes Alive.', 'Folle de Toi. O museu ganha vida.', 'Folle de Toi. El museo cobra vida.'],
+    ['For Vitória Maldonado’s “Folle de Toi”, shot on a phone in the museums of Paris, the statues had to come alive.',
+      'Em “Folle de Toi”, de Vitória Maldonado, filmado com celular nos museus de Paris, as estátuas precisavam ganhar vida.',
+      'En “Folle de Toi”, de Vitória Maldonado, rodado con móvil en los museos de París, las estatuas tenían que cobrar vida.'],
+    ['A marble god turns, a seated youth looks up and a bust opens her eyes. The rooms stay exactly as filmed; only the statues move.',
+      'Um deus de mármore se vira, um jovem sentado levanta o olhar e um busto abre os olhos. As salas ficam exatamente como foram filmadas; só as estátuas se mexem.',
+      'Un dios de mármol se gira, un joven sentado levanta la mirada y un busto abre los ojos. Las salas quedan tal como se rodaron; solo se mueven las estatuas.'],
+    ['Artist: Vitória Maldonado · Edit & AI direction: Fernando Freitas', 'Artista: Vitória Maldonado · Montagem e direção de IA: Fernando Freitas', 'Artista: Vitória Maldonado · Montaje y dirección de IA: Fernando Freitas'],
+    ['Archive photo → 360° · AI', 'Foto de arquivo → 360° · IA', 'Foto de archivo → 360° · IA'],
+    ['Photo → crest', 'Foto → escudo', 'Foto → escudo'],
+    ['Photo → gold crest', 'Foto → escudo dourado', 'Foto → escudo dorado'],
+    ['Archive portrait, animated', 'Retrato de arquivo, animado', 'Retrato de archivo, animado'],
+    ['Bicycle kick → logo', 'Bicicleta → logo', 'Chilena → logo'],
+    ['Case film & documentary · Cannes Lions 2026', 'Case e documentário · Cannes Lions 2026', 'Case film y documental · Cannes Lions 2026'],
+    ['When Nike launched Brazil’s kit with a basketball star, Volt answered with another flying icon: Leônidas da Silva, the forgotten legend of the bicycle kick. A jersey line, a documentary and a travelling exhibition.',
+      'Quando a Nike lançou a camisa do Brasil com um astro do basquete, a Volt respondeu com outro ícone que voava: Leônidas da Silva, a lenda esquecida da bicicleta. Uma linha de camisas, um documentário e uma exposição itinerante.',
+      'Cuando Nike lanzó la camiseta de Brasil con una estrella del baloncesto, Volt respondió con otro icono que volaba: Leônidas da Silva, la leyenda olvidada de la chilena. Una línea de camisetas, un documental y una exposición itinerante.'],
+    ['Here my part went well beyond the edit: I contributed to the creative and the research, used AI throughout, and did all the motion, sound and color on both the case film and the documentary. The archive photo of the bicycle kick became a 360° move, and the kick became the crest.',
+      'Aqui minha parte foi muito além da montagem: contribuí na criação e na pesquisa, usei IA do começo ao fim e fiz todo o motion, o som e a cor do case e do documentário. A foto de arquivo da bicicleta virou um movimento de 360°, e o chute virou o escudo.',
+      'Aquí mi parte fue mucho más allá del montaje: aporté a la creatividad y a la investigación, usé IA de principio a fin e hice todo el motion, el sonido y el color del case film y del documental. La foto de archivo de la chilena se convirtió en un movimiento de 360°, y el remate en el escudo.'],
+    ['Agency: Africa Creative · Air_Silva creatives: Thiago Monteiro and team · Edit, motion, sound & color: Fernando Freitas',
+      'Agência: Africa Creative · Criação de Air_Silva: Thiago Monteiro e equipe · Montagem, motion, som e cor: Fernando Freitas',
+      'Agencia: Africa Creative · Creativos de Air_Silva: Thiago Monteiro y equipo · Montaje, motion, sonido y color: Fernando Freitas'],
+    ['Apps & System', 'Apps e sistema', 'Apps y sistema'],
+    ['Besides directing AI on footage, I build my own tools with it. One you can get right now, and the system that runs my edit room.',
+      'Além de dirigir IA sobre material filmado, eu construo minhas próprias ferramentas com ela. Uma você pode baixar agora, e o sistema que toca a minha ilha de edição.',
+      'Además de dirigir IA sobre material rodado, construyo mis propias herramientas con ella. Una la puedes conseguir ahora mismo, y el sistema que lleva mi sala de montaje.'],
+    ['Get it · Mac & Windows · no subscription', 'Baixe · Mac e Windows · sem assinatura', 'Consíguelo · Mac y Windows · sin suscripción'],
+    ['Paste a link, get an edit-ready file. Downloads and converts video straight to ProRes 422 or H.264, with resolution, quality and the final size shown before it runs. Batch, playlists and subtitles included.',
+      'Cole um link, receba um arquivo pronto para editar. Baixa e converte o vídeo direto para ProRes 422 ou H.264, com resolução, qualidade e tamanho final mostrados antes de rodar. Lote, playlists e legendas incluídos.',
+      'Pega un enlace y recibe un archivo listo para montar. Descarga y convierte el vídeo directo a ProRes 422 o H.264, con resolución, calidad y tamaño final a la vista antes de empezar. Incluye lotes, listas y subtítulos.'],
+    ['Built for editors, by an editor: from link to timeline in one click. Runs on your computer.',
+      'Feito para editores, por um editor: do link à timeline em um clique. Roda no seu computador.',
+      'Hecho para montadores, por un montador: del enlace a la línea de tiempo en un clic. Funciona en tu ordenador.'],
+    ['Get VideoGrab ↗', 'Baixar o VideoGrab ↗', 'Conseguir VideoGrab ↗'],
+    ['In-house tool · runs offline', 'Ferramenta própria · roda offline', 'Herramienta propia · funciona sin conexión'],
+    ['Drop an interview, get timed text back. Whisper runs on my own machine, so client footage never leaves the studio and there is no per-minute bill.',
+      'Solte uma entrevista e receba o texto com os tempos. O Whisper roda na minha própria máquina, então o material do cliente nunca sai do estúdio e não existe conta por minuto.',
+      'Suelta una entrevista y recibe el texto con tiempos. Whisper corre en mi propia máquina, así que el material del cliente nunca sale del estudio y no hay factura por minuto.'],
+    ['In-house tool · Premiere / Resolve', 'Ferramenta própria · Premiere / Resolve', 'Herramienta propia · Premiere / Resolve'],
+    ['Finds every cut in a finished film and rebuilds it as an editable timeline (XML / OTIO), so a reference or an old master opens shot by shot in the edit.',
+      'Encontra cada corte de um filme pronto e o remonta como timeline editável (XML / OTIO), para uma referência ou um master antigo abrir plano a plano na edição.',
+      'Encuentra cada corte de una película terminada y la reconstruye como línea de tiempo editable (XML / OTIO), para que una referencia o un máster antiguo se abra plano a plano en el montaje.'],
+    ['How I work · the system', 'Como eu trabalho · o sistema', 'Cómo trabajo · el sistema'],
+    ['An edit room run by agents', 'Uma ilha de edição tocada por agentes', 'Una sala de montaje llevada por agentes'],
+    ['Behind the work there is a system I built: a set of AI agents, each with one job, coordinated by one orchestrator. One reads the Premiere timeline shot by shot; one rebuilds takes with new angles or new light; one opens and organises every job folder; others handle sound, upscale and research.',
+      'Por trás do trabalho existe um sistema que eu construí: um conjunto de agentes de IA, cada um com uma função, coordenados por um orquestrador. Um lê a timeline do Premiere plano a plano; um refaz takes com novos ângulos ou nova luz; um abre e organiza a pasta de cada job; outros cuidam de som, upscale e pesquisa.',
+      'Detrás del trabajo hay un sistema que construí yo: un conjunto de agentes de IA, cada uno con una tarea, coordinados por un orquestador. Uno lee la línea de tiempo de Premiere plano a plano; otro rehace tomas con nuevos ángulos o nueva luz; otro abre y ordena la carpeta de cada proyecto; otros se ocupan del sonido, el upscale y la investigación.'],
+    ['The rule is the cheapest route that does the job well. Drafts and batch work run on open models on my own computer, at zero cost; paid cloud models only come in for the final piece, and every generation is priced before it runs.',
+      'A regra é a rota mais barata que resolve bem. Rascunhos e lotes rodam em modelos abertos no meu próprio computador, a custo zero; modelos pagos na nuvem só entram na peça final, e toda geração tem o custo estimado antes de rodar.',
+      'La regla es la ruta más barata que resuelve bien. Los borradores y los lotes corren en modelos abiertos en mi propio ordenador, a coste cero; los modelos de pago en la nube solo entran en la pieza final, y cada generación se presupuesta antes de lanzarla.'],
+    ['Footage', 'Imagem', 'Imagen'],
+    ['new angles, relight, clean plates, upscale that keeps the film grain', 'novos ângulos, luz refeita, fundos limpos, upscale que mantém o grão', 'nuevos ángulos, reiluminación, fondos limpios, upscale que conserva el grano'],
+    ['Sound', 'Som', 'Sonido'],
+    ['voice and music split from any mix, mastering, sound design', 'voz e trilha separadas de qualquer mix, masterização, sound design', 'voz y música separadas de cualquier mezcla, masterización, diseño de sonido'],
+    ['Edit', 'Montagem', 'Montaje'],
+    ['timeline review, contact sheets, versions and handoff, all inside Premiere', 'revisão de timeline, folhas de contato, versões e entrega, tudo dentro do Premiere', 'revisión de la línea de tiempo, hojas de contacto, versiones y entrega, todo dentro de Premiere'],
+    ['Cost', 'Custo', 'Coste'],
+    ['local first, every paid call estimated and logged', 'local primeiro, toda chamada paga estimada e registrada', 'primero en local, cada llamada de pago estimada y registrada'],
+    ['Built with Claude, open-source models (Whisper, Demucs, Real-ESRGAN, Qwen) and Seedance · Fernando Freitas',
+      'Feito com Claude, modelos de código aberto (Whisper, Demucs, Real-ESRGAN, Qwen) e Seedance · Fernando Freitas',
+      'Hecho con Claude, modelos de código abierto (Whisper, Demucs, Real-ESRGAN, Qwen) y Seedance · Fernando Freitas'],
+    ['Info / València, Spain', 'Info / València, Espanha', 'Info / València, España'],
+    ['Privacy & cookies', 'Privacidade e cookies', 'Privacidad y cookies'],
+    ['Cookie settings', 'Preferências de cookies', 'Ajustes de cookies'],
+    ['Close ✕', 'Fechar ✕', 'Cerrar ✕'],
+    ['⛶ Full screen', '⛶ Tela cheia', '⛶ Pantalla completa'],
+    /* habilidades */
+    ['AI Director', 'Diretor de IA', 'Director de IA'],
+    ['Color grading', 'Cor', 'Etalonaje'],
+    ['Finishing', 'Finalização', 'Finalización'],
+    ['Post-production', 'Pós-produção', 'Postproducción'],
+    ['Senior Editor', 'Editor sênior', 'Montador sénior'],
+    ['Sound design', 'Sound design', 'Diseño de sonido'],
+    ['Illustration', 'Ilustração', 'Ilustración'],
+    ['Creative Director', 'Diretor criativo', 'Director creativo'],
+    /* tipo e função dos projetos */
+    ['AI on real footage', 'IA sobre material filmado', 'IA sobre material rodado'],
+    ['Advertising', 'Publicidade', 'Publicidad'],
+    ['Branded documentary', 'Documentário de marca', 'Documental de marca'],
+    ['Case film', 'Case', 'Case film'],
+    ['Case films', 'Cases', 'Case films'],
+    ['Comics', 'Quadrinhos', 'Cómic'],
+    ['Documentary', 'Documentário', 'Documental'],
+    ['Documentary · motion & AI', 'Documentário · motion e IA', 'Documental · motion e IA'],
+    ['Fashion documentary', 'Documentário de moda', 'Documental de moda'],
+    ['Music video', 'Clipe', 'Videoclip'],
+    ['Music videos', 'Clipes', 'Videoclips'],
+    ['Soundtrack video', 'Vídeo de trilha sonora', 'Vídeo de banda sonora'],
+    ['Commercial', 'Comercial', 'Anuncio'],
+    ['Director & editor', 'Diretor e montador', 'Director y montador'],
+    ['Director, editor & colorist', 'Diretor, montador e colorista', 'Director, montador y colorista'],
+    ['Director, editor & post-production', 'Diretor, montador e pós-produção', 'Director, montador y postproducción'],
+    ['Documentary & trailer editor', 'Montador do documentário e do trailer', 'Montador del documental y del tráiler'],
+    ['Edit, motion, sound, color & AI', 'Montagem, motion, som, cor e IA', 'Montaje, motion, sonido, color e IA'],
+    ['Editor', 'Montador', 'Montador'],
+    ['Editor & AI director', 'Montador e diretor de IA', 'Montador y director de IA'],
+    ['Editor · structure, archive & finishing', 'Montador · estrutura, arquivo e finalização', 'Montador · estructura, archivo y finalización'],
+    ['Motion, AI & editing', 'Motion, IA e montagem', 'Motion, IA y montaje'],
+    ['Script & art', 'Roteiro e arte', 'Guion y dibujo'],
+    ['Sound design & additional editing', 'Sound design e montagem adicional', 'Diseño de sonido y montaje adicional'],
+    /* abertura */
+    ['▶ See the AI Lab', '▶ Ver o AI Lab', '▶ Ver el AI Lab'],
+    ['▶ Watch', '▶ Assistir', '▶ Ver'],
+    ['▶ Watch the case film', '▶ Assistir ao case', '▶ Ver el case film'],
+    ['▶ Watch the spot', '▶ Assistir ao comercial', '▶ Ver el anuncio'],
+    ['▶ Watch the trailer', '▶ Assistir ao trailer', '▶ Ver el tráiler'],
+    ['▶ Watch on YouTube', '▶ Assistir no YouTube', '▶ Ver en YouTube'],
+    ['Case film & documentary for Cannes Lions 2026 · Edit, motion, sound, color & AI · Africa Creative', 'Case e documentário para Cannes Lions 2026 · Montagem, motion, som, cor e IA · Africa Creative', 'Case film y documental para Cannes Lions 2026 · Montaje, motion, sonido, color e IA · Africa Creative'],
+    ['Case film & documentary · Cannes Lions 2026 · Edit, motion, sound, color & AI', 'Case e documentário · Cannes Lions 2026 · Montagem, motion, som, cor e IA', 'Case film y documental · Cannes Lions 2026 · Montaje, motion, sonido, color e IA'],
+    ['Case film · Cannes Lions 2025, Grand Prix SDG · Editor', 'Case · Cannes Lions 2025, Grand Prix SDG · Montador', 'Case film · Cannes Lions 2025, Grand Prix SDG · Montador'],
+    ['Commercial · Editor', 'Comercial · Montador', 'Anuncio · Montador'],
+    ['Documentary series · Wave Festival, Bronze', 'Série documental · Wave Festival, Bronze', 'Serie documental · Wave Festival, Bronce'],
+    ['Documentary · International Emmy 2021 nominee · Editor', 'Documentário · indicado ao Emmy Internacional 2021 · Montador', 'Documental · nominado al Emmy Internacional 2021 · Montador'],
+    ['Documentary · Kaia IFF Türkiye 2025, Best Documentary Direction', 'Documentário · Kaia IFF Türkiye 2025, Melhor Direção de Documentário', 'Documental · Kaia IFF Türkiye 2025, Mejor Dirección de Documental'],
+    ['Generative AI · Seedance & Wan', 'IA generativa · Seedance e Wan', 'IA generativa · Seedance y Wan'],
+    ['Music video (official)', 'Clipe (oficial)', 'Videoclip (oficial)'],
+    ['Music video · Editor', 'Clipe · Montador', 'Videoclip · Montador'],
+    ['Music video · Editor · 13 festival selections & awards', 'Clipe · Montador · 13 seleções e prêmios em festivais', 'Videoclip · Montador · 13 selecciones y premios en festivales'],
+    ['Music video · MTV VMB 2011, Video of the Year', 'Clipe · MTV VMB 2011, Clipe do Ano', 'Videoclip · MTV VMB 2011, Vídeo del Año'],
+    ['Soundtrack video · film nominated for the Academy Awards 2016', 'Vídeo de trilha sonora · filme indicado ao Oscar 2016', 'Vídeo de banda sonora · película nominada al Óscar 2016'],
+    /* itens da ficha */
+    ['Official music video', 'Clipe oficial', 'Videoclip oficial'],
+    ['Official trailer', 'Trailer oficial', 'Tráiler oficial'],
+    ['Documentary cut', 'Corte do documentário', 'Montaje del documental'],
+    ['Documentary · full film', 'Documentário · filme completo', 'Documental · película completa'],
+    ['dir. ANGRY · 13 festival selections & awards', 'dir. ANGRY · 13 seleções e prêmios em festivais', 'dir. ANGRY · 13 selecciones y premios en festivales'],
+    ['Before and after, all takes', 'Antes e depois, todos os takes', 'Antes y después, todas las tomas'],
+    ['Original, then 2 new angles', 'Original, depois 2 ângulos novos', 'Original y luego 2 ángulos nuevos'],
+    ['Original, then 3 new angles', 'Original, depois 3 ângulos novos', 'Original y luego 3 ángulos nuevos'],
+    ['The statues come alive', 'As estátuas ganham vida', 'Las estatuas cobran vida'],
+    ['The marble god moves', 'O deus de mármore se mexe', 'El dios de mármol se mueve'],
+    ['The seated youth looks up', 'O jovem sentado levanta o olhar', 'El joven sentado levanta la mirada'],
+    ['She opens her eyes', 'Ela abre os olhos', 'Ella abre los ojos'],
+    ['A column bursts into butterflies', 'Uma coluna explode em borboletas', 'Una columna estalla en mariposas'],
+    ['One take, nine new shots', 'Um take, nove planos novos', 'Una toma, nueve planos nuevos'],
+    ['Original × new cameras', 'Original × câmeras novas', 'Original × cámaras nuevas'],
+    ['Relight · midday to golden hour', 'Luz refeita · do meio-dia ao fim de tarde', 'Reiluminación · de mediodía a atardecer'],
+    ['4 phone takes · 9 new angles', '4 takes de celular · 9 ângulos novos', '4 tomas de móvil · 9 ángulos nuevos'],
+    ['All on Vimeo', 'Tudo no Vimeo', 'Todo en Vimeo'],
+    ['See the project on Behance', 'Ver o projeto no Behance', 'Ver el proyecto en Behance']
+  ];
+  const IDX = { pt: 1, es: 2 }, MAP = new Map(T.map(r => [r[0], r]));
+  let lang = 'en';
+  const norm = s => s.replace(/\s+/g, ' ').trim();
+  function swap(n) {
+    if (n.ffEn === undefined) {
+      const k = norm(n.nodeValue);
+      if (!k || !(MAP.has(k) || k.split(' · ').some(x => MAP.has(x)))) return;
+      n.ffEn = k;
+    }
+    /* "função · com quem · ano": traduz cada parte que estiver no dicionário */
+    const one = x => (MAP.has(x) ? MAP.get(x)[IDX[lang]] : x);
+    const v = lang === 'en' ? n.ffEn : MAP.has(n.ffEn) ? one(n.ffEn) : n.ffEn.split(' · ').map(one).join(' · ');
+    const raw = n.nodeValue, a = raw.match(/^\s*/)[0], z = raw.match(/\s*$/)[0];
+    if (norm(raw) !== v) n.nodeValue = a + v + z;
+  }
+  function walk(root) {
+    if (root.nodeType === 3) { swap(root); return; }
+    if (root.nodeType !== 1 || root.closest('[data-lang-panel], script, style')) return;
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: n => (n.parentElement && n.parentElement.closest('[data-lang-panel], script, style')) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+    });
+    for (let n = w.nextNode(); n; n = w.nextNode()) swap(n);
+  }
+  window.ffI18n = l => {
+    lang = IDX[l] ? l : 'en';
+    document.documentElement.lang = lang;
+    walk(document.body);
+  };
+  new MutationObserver(ms => {
+    if (lang === 'en') return;
+    ms.forEach(m => m.addedNodes.forEach(walk));
+  }).observe(document.body, { childList: true, subtree: true });
+})();

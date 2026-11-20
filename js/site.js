@@ -324,11 +324,11 @@
 
   /* 20/11: a cor de destaque também troca a cada seleção (passar o mouse, focar ou tocar num item): azul, vermelho, amarelo. */
   (() => {
-    const SEQ = ['0', '2', '1'], SEL = '.card, .awards button, .nav a, .lab-fig, .lab-boards button, .chip, .p-list button, .contact a';
+    const SEQ = ['0', '2', '1'], SEL = '.card, .awards button, .nav a, .lab-fig, .lab-boards button, .p-list button';
     let last = null, k = SEQ.indexOf(root.dataset.tone || '0');
     const pick = e => {
       const t = e.target.closest && e.target.closest(SEL);
-      if (!t || t === last) return;
+      if (!t || t === last || t.closest('#info')) return;   // 20/11: na seção Info a cor fica quieta
       last = t;
       k = (k + 1) % SEQ.length;
       root.dataset.tone = SEQ[k];
@@ -388,20 +388,24 @@
     if (!['en', 'es', 'fr', 'pt'].includes(l)) return;
     hqLang = l;
     $$('.is-hq').forEach(w => w.dispatchEvent(new Event('ff-hq-lang')));
-    if (cur && cur.i18n && dlg.open) fillText(cur);
+    try { if (cur && cur.i18n && dlg.open) fillText(cur); } catch (e) {}   // na carga, a ficha ainda não existe
   }
 
   /* ---------- Sobre: EN / ES ---------- */
   function setLang(lang) {
     $$('[data-lang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
     $$('[data-lang-panel]').forEach(p => { p.hidden = p.dataset.langPanel !== lang; });
-    setHqLang(lang);   // a HQ acompanha o idioma escolhido no Sobre
+    setHqLang(lang);   // a HQ acompanha o idioma escolhido
+    if (window.ffI18n) window.ffI18n(lang);   // 20/11: o site todo troca junto
+    try { localStorage.setItem('ffLang', lang); } catch (e) {}
   }
   $$('[data-lang]').forEach(b => b.addEventListener('click', () => {
     setLang(b.dataset.lang);
     if (window.ffTrack) window.ffTrack('about_lang', { lang: b.dataset.lang });
   }));
-  if ((navigator.language || '').toLowerCase().startsWith('es')) setLang('es');
+  { let l = null; try { l = localStorage.getItem('ffLang'); } catch (e) {}
+    if (!['en', 'pt', 'es'].includes(l)) { const n = (navigator.language || '').toLowerCase(); l = n.startsWith('pt') ? 'pt' : n.startsWith('es') ? 'es' : 'en'; }
+    if (l !== 'en') setLang(l); }
 
   /* ---------- Player ---------- */
   const dlg = $('#player');
