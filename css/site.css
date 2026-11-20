@@ -550,3 +550,10 @@ html.intro-on .intro.is-waiting .intro-hint { display: block; position: absolute
 
 /* 20/11: HQ em seção própria, por último antes das infos */
 .hq { padding-top: clamp(40px, 6vw, 90px); }
+
+/* 20/11: Apps & System em duas frentes — os apps juntos, a IA/sistema junto */
+.apps-two { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .apps-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.app-item { display: grid; gap: 10px; justify-items: start; width: 100%; }
+.app-item + .app-item { padding-top: 18px; border-top: 1px solid var(--line); }
+.app-card--live { gap: 18px; }
