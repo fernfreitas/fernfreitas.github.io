@@ -271,10 +271,29 @@ window.FF_DATA = {
     {
       n: 18, cat: 'cases', cover: 'assets/thumbs/case_itau_camisa.jpg',
       title: 'Case Films — Selected',
-      kind: 'Case film', role: 'Editor', with: 'Itaú', year: '2022–2024',
+      kind: 'Case film', role: 'Editor', with: 'Brahma · Itaú · Spaten · Budweiser · Sadia', year: '2022–2024',
       award: '',
       items: [
-        { type: 'file', id: 'case_itau_camisa', src: 'assets/local-only/case_itau_camisa.mp4', poster: 'assets/thumbs/case_itau_camisa.jpg', label: 'Itaú — Camisa Sem Estrelas', sub: '', dur: '2:14' }
+        { type: 'file', id: 'case_itau_camisa', src: 'assets/local-only/case_itau_camisa.mp4', poster: 'assets/thumbs/case_itau_camisa.jpg', label: 'Itaú — Camisa Sem Estrelas', sub: '', dur: '2:14' },
+        { type: 'file', id: 'case_brahma_exiled', src: 'assets/local-only/case_brahma_exiled.mp4', poster: 'assets/thumbs/case_brahma_exiled.jpg', label: 'Brahma — Exiled Team', sub: '', dur: '2:15' },
+        { type: 'file', id: 'case_brahma_barbosa', src: 'assets/local-only/case_brahma_barbosa.mp4', poster: 'assets/thumbs/case_brahma_barbosa.jpg', label: 'Brahma — The Barbosa Clause', sub: '', dur: '2:42' },
+        { type: 'file', id: 'case_brahma_chameleon', src: 'assets/local-only/case_brahma_chameleon.mp4', poster: 'assets/thumbs/case_brahma_chameleon.jpg', label: 'Brahma — Chameleon Flag', sub: '', dur: '2:13' },
+        { type: 'file', id: 'case_brahma_medical', src: 'assets/local-only/case_brahma_medical.mp4', poster: 'assets/thumbs/case_brahma_medical.jpg', label: 'Brahma — Medical Department', sub: '', dur: '2:13' },
+        { type: 'file', id: 'case_brahma_chopp', src: 'assets/local-only/case_brahma_chopp.mp4', poster: 'assets/thumbs/case_brahma_chopp.jpg', label: 'Brahma — Chopp na Lata', sub: '', dur: '1:57' },
+        { type: 'file', id: 'case_brahma_brahmeira', src: 'assets/local-only/case_brahma_brahmeira.mp4', poster: 'assets/thumbs/case_brahma_brahmeira.jpg', label: 'Brahma — Brahmeira', sub: '', dur: '2:39' },
+        { type: 'file', id: 'case_brahma_spotlight', src: 'assets/local-only/case_brahma_spotlight.mp4', poster: 'assets/thumbs/case_brahma_spotlight.jpg', label: 'Brahma Duplo Malte — Spotlight', sub: '', dur: '1:55' },
+        { type: 'file', id: 'case_carnaval', src: 'assets/local-only/case_carnaval.mp4', poster: 'assets/thumbs/case_carnaval.jpg', label: 'Brahma — Carnaval', sub: '', dur: '2:15' },
+        { type: 'file', id: 'case_bud_baile', src: 'assets/local-only/case_bud_baile.mp4', poster: 'assets/thumbs/case_bud_baile.jpg', label: 'Budweiser — Atura o Baile', sub: '', dur: '2:15' },
+        { type: 'file', id: 'case_unbreakable', src: 'assets/local-only/case_unbreakable.mp4', poster: 'assets/thumbs/case_unbreakable.jpg', label: 'Unbreakable Courts', sub: '', dur: '2:15' },
+        { type: 'file', id: 'case_itau_credito', src: 'assets/local-only/case_itau_credito.mp4', poster: 'assets/thumbs/case_itau_credito.jpg', label: 'Itaú — Crédito', sub: '', dur: '2:00' },
+        { type: 'file', id: 'case_itau_golpes', src: 'assets/local-only/case_itau_golpes.mp4', poster: 'assets/thumbs/case_itau_golpes.jpg', label: 'Itaú — Golpes e Fraudes', sub: '', dur: '3:17' },
+        { type: 'file', id: 'case_ze_bbb', src: 'assets/local-only/case_ze_bbb.mp4', poster: 'assets/thumbs/case_ze_bbb.jpg', label: 'Zé Delivery × BBB', sub: '', dur: '1:47' },
+        { type: 'file', id: 'case_spaten_mons', src: 'assets/local-only/case_spaten_mons.mp4', poster: 'assets/thumbs/case_spaten_mons.jpg', label: 'Spaten — Mons', sub: '', dur: '2:50' },
+        { type: 'file', id: 'case_spaten_mug', src: 'assets/local-only/case_spaten_mug.mp4', poster: 'assets/thumbs/case_spaten_mug.jpg', label: 'Spaten — Mug', sub: '', dur: '1:40' },
+        { type: 'file', id: 'case_spaten_suave', src: 'assets/local-only/case_spaten_suave.mp4', poster: 'assets/thumbs/case_spaten_suave.jpg', label: 'Spaten — Lado Suave', sub: '', dur: '2:00' },
+        { type: 'file', id: 'case_sadia', src: 'assets/local-only/case_sadia.mp4', poster: 'assets/thumbs/case_sadia.jpg', label: 'Sadia — BRF', sub: '', dur: '4:06' },
+        { type: 'file', id: 'case_outros_mcs', src: 'assets/local-only/case_outros_mcs.mp4', poster: 'assets/thumbs/case_outros_mcs.jpg', label: 'Outros MCs', sub: '', dur: '2:01' },
+        { type: 'file', id: 'case_heinz_tweets', src: 'assets/local-only/case_heinz_tweets.mp4', poster: 'assets/thumbs/case_heinz_tweets.jpg', label: 'Heinz — Tweets', sub: '', dur: '0:12' }
       ],
       desc: ['Case films I edited for award shows and client presentations.'],
       credits: 'Editor: Fernando Freitas',
@@ -418,7 +437,7 @@ window.FF_DATA = {
       kind: 'AI on real footage', role: 'Editor & AI director', with: 'Vitória Maldonado', year: '2026',
       award: '',
       items: [
-        { type: 'file', src: 'assets/ailab/folle_alive.mp4', poster: 'assets/ailab/folle_alive.jpg', loop: true, label: 'The statues come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:08' },
+        { type: 'file', src: 'assets/ailab/folle_alive2.mp4', poster: 'assets/ailab/folle_alive2.jpg', loop: true, label: 'The statues come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:10' },
         { type: 'file', src: 'assets/ailab/folle_kiss.mp4', poster: 'assets/ailab/folle_kiss.jpg', loop: true, label: 'The Kiss, from marble to skin', sub: 'Statue → skin · silent demo', dur: '0:05' },
         { type: 'file', src: 'assets/ailab/folle_hall.mp4', poster: 'assets/ailab/folle_hall.jpg', loop: true, label: 'Golden light in the hall', sub: 'Interior relit with AI · silent demo', dur: '0:05' },
         { type: 'file', src: 'assets/ailab/folle_garden.mp4', poster: 'assets/ailab/folle_garden.jpg', loop: true, label: 'The garden at golden hour', sub: 'Grey sky → golden hour · silent demo', dur: '0:05' }

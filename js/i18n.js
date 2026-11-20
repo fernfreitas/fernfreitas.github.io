@@ -145,6 +145,7 @@
     ['Case Films — Selected', 'Cases — seleção', 'Cases — selección'],
     ['Case films I edited for award shows and client presentations.', 'Cases que montei para festivais e apresentações a clientes.', 'Cases que monté para festivales y presentaciones a clientes.'],
     ['Official video', 'Clipe oficial', 'Videoclip oficial'],
+    ['Air_Silva — archive photo to 360°', 'Air_Silva — foto de arquivo em 360°', 'Air_Silva — foto de archivo en 360°'],
     ['Advertising', 'Publicidade', 'Publicidad'],
     ['Branded documentary', 'Documentário de marca', 'Documental de marca'],
     ['Case film', 'Case', 'Case film'],

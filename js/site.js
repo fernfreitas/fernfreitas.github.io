@@ -76,13 +76,22 @@
       gridList.push({ n: p.n, item: i, spot: true, cat: serie ? 'series' : p.cat, cover: 'assets/thumbs/' + it.id + '.jpg', prev: it.noprev ? '' : 'assets/prev/' + it.id + '.mp4', title: it.label,
         kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : p.n === 18 ? 'Case film' : 'Music video', role: 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
     });
+    else if (p.cat === 'ai') p.items.forEach((it, i) => {   // 20/11: AI Lab em cards padrão, um por demo em vídeo; clicar abre maior
+      if (it.type !== 'file') return;
+      gridList.push({ n: p.n, item: i, spot: true, cat: 'ai', cover: it.poster, prev: it.src, title: it.label,
+        kind: 'AI on real footage', role: '', with: p.n === 4 ? 'One Take, New Cameras' : 'Folle de Toi', year: '', award: '', items: [it] });
+    });
     else gridList.push(p);
   });
+  gridList.push({ n: 3, item: 0, spot: true, cat: 'ai', cover: 'assets/ailab/silva_360.jpg', prev: 'assets/ailab/silva_360.mp4', title: 'Air_Silva — archive photo to 360°',
+    kind: 'AI on real footage', role: '', with: 'Volt', year: '', award: '', items: [{ type: 'file' }] });
   gridList.forEach((p, i) => { p.ord = i; });
   gridList.sort((a, b) => catIdx(a.cat) - catIdx(b.cat) || a.ord - b.ord);
   let lastCat = null;
+  const labGrid = $('#labGrid'), hqGrid = $('#hqGrid');
   gridList.forEach(p => {
-    if (p.cat !== lastCat) {
+    const grid = (p.cat === 'ai' && labGrid) || (p.cat === 'comics' && hqGrid) || $('#grid');   // IA vai para o AI Lab; a HQ fica por último, antes das infos
+    if (p.cat !== lastCat && p.cat !== 'ai') {
       lastCat = p.cat;
       const sec = document.createElement('li');
       sec.className = 'grid-sec';

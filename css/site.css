@@ -547,3 +547,6 @@ html.intro-on .intro.is-waiting .intro-hint { display: block; position: absolute
   .nav-lang { margin-left: 2px; padding-left: 5px; gap: 0; }
   .nav-lang button { padding: 6px 3px; font-size: 10.5px; letter-spacing: .02em; }
 }
+
+/* 20/11: HQ em seção própria, por último antes das infos */
+.hq { padding-top: clamp(40px, 6vw, 90px); }
