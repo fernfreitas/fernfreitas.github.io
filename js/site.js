@@ -74,7 +74,7 @@
       if (it.id === 'velas') return;
       const serie = p.n === 10 && i === 0;
       gridList.push({ n: p.n, item: i, spot: true, cat: serie ? 'series' : p.cat, cover: 'assets/thumbs/' + it.id + '.jpg', prev: it.noprev ? '' : 'assets/prev/' + it.id + '.mp4', title: it.label,
-        kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : p.n === 18 ? 'Case film' : 'Music video', role: 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
+        kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : p.n === 18 ? 'Case film' : 'Music video', role: p.n === 18 ? 'Editor & motion' : 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
     });
     else if (p.cat === 'ai') return;   // AI Lab: seis cards escolhidos pelo Fernando (20/11), montados abaixo
     else gridList.push(p);

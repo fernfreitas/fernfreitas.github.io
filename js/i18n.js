@@ -157,6 +157,8 @@
     ['Opening sequence', 'Abertura', 'Secuencia de apertura'],
     ['The first documentary about Leônidas da Silva, released with the Air_Silva collection. My work: motion and AI-generated sequences.', 'O primeiro documentário sobre Leônidas da Silva, lançado com a coleção Air_Silva. Meu trabalho: motion e sequências geradas com IA.', 'El primer documental sobre Leônidas da Silva, lanzado con la colección Air_Silva. Mi trabajo: motion y secuencias generadas con IA.'],
     ['A feature documentary about the public school Antônio Alves Cruz, in São Paulo, threatened with closure in 1999–2000, told by its students, teachers and alumni.', 'Documentário sobre a escola pública Antônio Alves Cruz, em São Paulo, ameaçada de fechar em 1999–2000, contada por alunos, professores e ex-alunos.', 'Documental sobre la escuela pública Antônio Alves Cruz, en São Paulo, amenazada de cierre en 1999–2000, contada por alumnos, profesores y exalumnos.'],
+    ['Editor & motion', 'Montagem e motion', 'Montaje y motion'],
+    ['Editing & motion: Fernando Freitas', 'Montagem e motion: Fernando Freitas', 'Montaje y motion: Fernando Freitas'],
     ['Air_Silva — archive photo to 360°', 'Air_Silva — foto de arquivo em 360°', 'Air_Silva — foto de archivo en 360°'],
     ['Advertising', 'Publicidade', 'Publicidad'],
     ['Branded documentary', 'Documentário de marca', 'Documental de marca'],

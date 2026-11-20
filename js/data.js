@@ -277,7 +277,7 @@ window.FF_DATA = {
     {
       n: 18, cat: 'cases', cover: 'assets/thumbs/case_brahma_exiled.jpg',
       title: 'Case Films — Selected',
-      kind: 'Case film', role: 'Editor', with: 'Brahma · Spaten · Budweiser · McDonald’s · Zé Delivery · Sadia', year: '2022–2024',
+      kind: 'Case film', role: 'Editor & motion', with: 'Brahma · Spaten · Budweiser · McDonald’s · Zé Delivery · Sadia · Heinz', year: '2022–2024',
       award: '',
       items: [
         { type: 'file', id: 'case_brahma_exiled', src: 'assets/local-only/case_brahma_exiled.mp4', poster: 'assets/thumbs/case_brahma_exiled.jpg', label: 'Brahma — Exiled Team', sub: '', dur: '2:15' },
@@ -293,11 +293,10 @@ window.FF_DATA = {
         { type: 'file', id: 'case_spaten_mug', src: 'assets/local-only/case_spaten_mug.mp4', poster: 'assets/thumbs/case_spaten_mug.jpg', label: 'Spaten — Mug', sub: '', dur: '1:40' },
         { type: 'file', id: 'case_spaten_suave', src: 'assets/local-only/case_spaten_suave.mp4', poster: 'assets/thumbs/case_spaten_suave.jpg', label: 'Spaten — Lado Suave', sub: '', dur: '2:00' },
         { type: 'file', id: 'case_sadia', src: 'assets/local-only/case_sadia.mp4', poster: 'assets/thumbs/case_sadia.jpg', label: 'Sadia — BRF', sub: '', dur: '4:06' },
-        { type: 'file', id: 'case_outros_mcs', src: 'assets/local-only/case_outros_mcs.mp4', poster: 'assets/thumbs/case_outros_mcs.jpg', label: 'Outros MCs', sub: '', dur: '2:01' },
-        { type: 'file', id: 'case_heinz_tweets', src: 'assets/local-only/case_heinz_tweets.mp4', poster: 'assets/thumbs/case_heinz_tweets.jpg', label: 'Heinz — Tweets', sub: '', dur: '0:12' }
+        { type: 'file', id: 'case_outros_mcs', src: 'assets/local-only/case_outros_mcs.mp4', poster: 'assets/thumbs/case_outros_mcs.jpg', label: 'Heinz — Outros MCs', sub: '', dur: '2:01' }
       ],
       desc: ['Case films I edited for award shows and client presentations.'],
-      credits: 'Editor: Fernando Freitas',
+      credits: 'Editing & motion: Fernando Freitas',
       links: []
     },
     {
