@@ -373,7 +373,7 @@ window.FF_DATA = {
       title: 'Shawlin — Coração',
       kind: 'Music video', role: 'Director & editor', with: 'Shawlin', year: '2011',
       award: '',
-      items: [{ type: 'youtube', id: 'U7MI1iaNMG0', label: 'Shawlin — Coração', sub: 'Official video · YouTube' }],
+      items: [{ type: 'file', src: 'assets/local-only/shawlin_coracao_cor.mp4', poster: 'assets/covers/14_shawlin_coracao.jpg', label: 'Shawlin — Coração', sub: 'Official video', dur: '3:35' }],
       buy: '',
       desc: [],
       credits: '',

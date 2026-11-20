@@ -144,6 +144,7 @@
     ['Director & editor: Fernando Freitas', 'Direção e montagem: Fernando Freitas', 'Dirección y montaje: Fernando Freitas'],
     ['Case Films — Selected', 'Cases — seleção', 'Cases — selección'],
     ['Case films I edited for award shows and client presentations.', 'Cases que montei para festivais e apresentações a clientes.', 'Cases que monté para festivales y presentaciones a clientes.'],
+    ['Official video', 'Clipe oficial', 'Videoclip oficial'],
     ['Advertising', 'Publicidade', 'Publicidad'],
     ['Branded documentary', 'Documentário de marca', 'Documental de marca'],
     ['Case film', 'Case', 'Case film'],
