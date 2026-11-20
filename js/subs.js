@@ -17,7 +17,9 @@
       pt: 'Assumimos o compromisso de comprar 100% da produção da comunidade.', es: 'Nos comprometemos a comprar el 100 % de la producción de la comunidad.' },
     { a: 18.15, b: 21.4, src: 'en', o: '…empowered local communities to become entrepreneurs.',
       pt: '…deu às comunidades locais condições de empreender.', es: '…dio a las comunidades locales las herramientas para emprender.' },
-    { a: 22.05, b: 28.0, src: 'yo', o: '', en: '', pt: '', es: '' },   // Avon Afrofuturo: verso em iorubá (texto original pendente)
+    /* Avon Afrofuturo: fala em iorubá. Tradução = a legenda oficial em português do próprio filme. Falta o texto em iorubá ("o"). */
+    { a: 22.05, b: 26.45, src: 'yo', o: '', pt: 'Meu povo ascendeu, prosperou, se multiplicou.', en: 'My people rose, prospered, multiplied.', es: 'Mi pueblo ascendió, prosperó, se multiplicó.' },
+    { a: 26.5, b: 28.05, src: 'yo', o: '', pt: 'Somos tão plurais quanto individuais.', en: 'We are as plural as we are individual.', es: 'Somos tan plurales como individuales.' },
     { a: 30.25, b: 33.5, src: 'pt', o: 'Outras músicas já contam a minha realidade, mas essa eu acho que resume a total…',
       en: 'Other songs already tell my reality, but this one, I think, sums it all up…', es: 'Otras canciones ya cuentan mi realidad, pero esta creo que la resume entera…' },
     { a: 42.6, b: 45.1, src: 'en', burn: 1, o: 'Presenting Air Silva.', pt: 'Apresentando: Air Silva.', es: 'Presentamos Air Silva.' },
@@ -39,8 +41,10 @@
     { a: 174.55, b: 177.2, src: 'pt', o: 'Tipo ter certeza do amor da sua vida.',
       en: 'Like being sure about the love of your life.', es: 'Como tener la certeza del amor de tu vida.' },
     { a: 183.25, b: 185.4, src: 'en', burn: 1, o: '…with its own icons.', pt: '…com seus próprios ícones.', es: '…con sus propios iconos.' },
-    { a: 189.4, b: 193.3, src: 'gn', o: '', en: '', pt: '', es: '' },   // OWERÁ — Xondaro Ka’aguy Reguá (texto original pendente)
-    { a: 196.0, b: 197.8, src: 'gn', o: '', en: '', pt: '', es: '' },
+    /* OWERÁ — Xondaro Ka’aguy Reguá: verso em guarani. Sentido conferido na legenda oficial do clipe (PT/EN), dito com outras palavras. Falta o texto em guarani ("o"). */
+    { a: 189.4, b: 190.7, src: 'gn', o: '', pt: 'Tomaram as nossas terras…', en: 'They took our land…', es: 'Tomaron nuestras tierras…' },
+    { a: 190.7, b: 193.3, src: 'gn', o: '', pt: 'Para nós, a floresta sempre foi sagrada.', en: 'To us, the forest was always sacred.', es: 'Para nosotros, el bosque siempre fue sagrado.' },
+    { a: 196.0, b: 197.8, src: 'gn', o: '', pt: 'Aí o branco chegou e destruiu o que Deus criou.', en: 'Then the white man came and destroyed what God had made.', es: 'Entonces llegó el blanco y destruyó lo que Dios creó.' },
     { a: 197.85, b: 200.4, src: 'pt', o: 'Não conseguiria de maneira alguma fazer propaganda…',
       en: 'There is no way I could ever do advertising…', es: 'No podría de ninguna manera hacer publicidad…' },
     { a: 202.65, b: 204.3, src: 'pt', o: 'Ele é global sendo local.', en: 'He is global by being local.', es: 'Es global siendo local.' },
