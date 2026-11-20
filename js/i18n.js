@@ -141,7 +141,7 @@
     ['The garden at golden hour', 'O jardim no fim de tarde', 'El jardín al atardecer'],
     ['Campaign film', 'Filme de campanha', 'Película de campaña'],
     ['Official music video', 'Clipe oficial', 'Videoclip oficial'],
-    ['Prod. MAT · official music video', 'Prod. MAT · clipe oficial', 'Prod. MAT · videoclip oficial'],
+    ['Director & editor: Fernando Freitas', 'Direção e montagem: Fernando Freitas', 'Dirección y montaje: Fernando Freitas'],
     ['Case Films — Selected', 'Cases — seleção', 'Cases — selección'],
     ['Case films I edited for award shows and client presentations.', 'Cases que montei para festivais e apresentações a clientes.', 'Cases que monté para festivales y presentaciones a clientes.'],
     ['Advertising', 'Publicidade', 'Publicidad'],

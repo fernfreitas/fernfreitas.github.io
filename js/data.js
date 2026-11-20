@@ -114,7 +114,7 @@ window.FF_DATA = {
     {
       n: 2, cat: 'documentaries', cover: 'assets/covers/02_amarelo_netflix.jpg',
       title: 'Netflix — AmarElo: É Tudo Pra Ontem',
-      kind: 'Documentary', role: 'Editor · structure, archive & finishing', with: 'LabFantasma · dir. Fred Ouro Preto', year: '2020',
+      kind: 'Documentary', role: 'Editor · structure, archive & finishing', with: 'LabFantasma', year: '2020',
       award: 'International Emmy 2021 · Nominee',
       items: [
         { type: 'vimeo', id: '503183790', label: 'Netflix — AmarElo: É Tudo Pra Ontem', sub: 'Trailer', dur: '1:50' },
@@ -125,7 +125,7 @@ window.FF_DATA = {
         'I was brought in for the final month, after four months of editing, to find the film’s shape. I connected the blocks into a single through-line, dug up rare archive of early samba and other key historical images, animated the stills, polished the sound and also cut the concert film, AmarElo – Ao Vivo.',
         'The documentary was nominated for the International Emmy Award in Arts Programming in 2021.'
       ],
-      credits: 'Netflix · A LabFantasma film · Director: Fred Ouro Preto · Producer: Evandro Fióti · Research: Felipe Choco · Editor: Fernando Freitas',
+      credits: 'Netflix · A LabFantasma film · Producer: Evandro Fióti · Research: Felipe Choco · Editor: Fernando Freitas',
       links: [
         { label: 'Netflix', href: 'https://www.netflix.com/title/81306298' },
         { label: 'Vimeo', href: 'https://vimeo.com/503183790' }
@@ -177,7 +177,7 @@ window.FF_DATA = {
     {
       n: 5, cat: 'music-videos', cover: 'assets/covers/05_emicida_entao_toma.jpg',
       title: 'Emicida — Então Toma',
-      kind: 'Music video', role: 'Sound design & additional editing', with: 'dir. Fred Ouro Preto', year: '2011',
+      kind: 'Music video', role: 'Sound design & additional editing', with: '', year: '2011',
       award: 'MTV VMB 2011 · Video of the Year',
       /* O dono do vídeo não permite embed fora do YouTube (testado em 13/nov): abre em outra aba. */
       items: [{ type: 'link', href: 'https://www.youtube.com/watch?v=7QnXzVjck6M', cta: '▶ Watch on YouTube', label: 'Emicida — Então Toma', sub: 'Official video · YouTube' }],
@@ -185,7 +185,7 @@ window.FF_DATA = {
         'Official music video for Emicida’s “Então Toma”. I created the sound design and helped cut it.',
         'It won Video of the Year at MTV’s Video Music Brasil 2011, the night Emicida was also named Artist of the Year.'
       ],
-      credits: 'Artist: Emicida · Director: Fred Ouro Preto · Sound design & additional editing: Fernando Freitas',
+      credits: 'Artist: Emicida · Sound design & additional editing: Fernando Freitas',
       links: [{ label: 'YouTube', href: 'https://www.youtube.com/watch?v=7QnXzVjck6M' }]
     },
     {
@@ -260,9 +260,9 @@ window.FF_DATA = {
         { type: 'vimeo', id: '826733811', label: 'Riachuelo', sub: 'Gripe · Santa Transmedia', dur: '0:30' },
         { type: 'vimeo', id: '299111488', label: 'Leite Moça — Lei de Moça', sub: 'FCB Brasil · dir. Rodrigo Resende', dur: '1:00' },
         { type: 'vimeo', id: '296058639', label: 'Olympikus — Libere a Brincadeira', sub: 'J. Walter Thompson Brasil · Delicatessen Filmes · dir. Nixon Freire', dur: '3:34' },
-        { type: 'youtube', id: 'uqCuRio5Bh4', noprev: true, label: 'Salon Line — #todecacho feat. IZA', sub: 'Campaign film', dur: '' },
-        { type: 'vimeo', id: '826281229', label: 'Facebook — More Together', sub: 'dir. Thati Almeida', dur: '0:53' },
-        { type: 'vimeo', id: '826282530', label: 'YouTube Shorts — #DaUmGame', sub: 'dir. Thati Almeida', dur: '0:59' }
+        { type: 'vimeo', id: '826281229', label: 'Facebook — More Together', sub: 'dir. Sabothati', dur: '0:53' },
+        { type: 'vimeo', id: '826282530', label: 'YouTube Shorts — #DaUmGame', sub: 'dir. Thati Almeida', dur: '0:59' },
+        { type: 'youtube', id: 'uqCuRio5Bh4', noprev: true, label: 'Salon Line — #todecacho feat. IZA', sub: 'Campaign film', dur: '' }
       ],
       desc: ['Spots I edited for brands in Brazil. Agency, production company and director are listed per spot.'],
       credits: 'Editor: Fernando Freitas',
@@ -291,11 +291,10 @@ window.FF_DATA = {
         { type: 'vimeo', id: '296058871', label: 'Xenia França — Pra Que Me Chamas?', sub: '', dur: '6:14' },
         { type: 'vimeo', id: '1152083262', label: 'Garena Free Fire — T.R.A.P.: I’m on Fire', sub: 'feat. BJRNCK, Awich, Krawk, Faruz Feet · Vetor Zero · 2026', dur: '2:48' },
         { type: 'file', id: 'velas', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
-        { type: 'file', id: 'malokero', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' },
         { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' },
         { type: 'youtube', id: 'ol2vecSCgGY', noprev: true, label: 'Negra Li, Paula Lima & Pathy Dejesus — Cabelo', sub: 'Official music video', dur: '' },
-        { type: 'youtube', id: 'iaaIxzroynE', noprev: true, label: 'AJULIACOSTA — Não Foi do Nada', sub: 'Prod. MAT · official music video', dur: '' },
-        { type: 'file', id: 'xondaro', src: 'assets/local-only/owera_xondaro.mp4', poster: 'assets/thumbs/xondaro.jpg', label: 'OWERÁ — Xondaro Ka’aguy Reguá', sub: 'dir. ANGRY · 13 festival selections & awards', dur: '3:09', laurels: true }
+        { type: 'file', id: 'xondaro', src: 'assets/local-only/owera_xondaro.mp4', poster: 'assets/thumbs/xondaro.jpg', label: 'OWERÁ — Xondaro Ka’aguy Reguá', sub: 'dir. ANGRY · 13 festival selections & awards', dur: '3:09', laurels: true },
+        { type: 'youtube', id: 'iaaIxzroynE', noprev: true, label: 'AJULIACOSTA — Não Foi do Nada', sub: 'MOOC · Prod. MAT', dur: '' }
       ],
       desc: [
         'Music videos that helped shape Brazilian pop culture.',
@@ -400,6 +399,17 @@ window.FF_DATA = {
       buy: '',
       desc: ['Official music video for Família 7 Velas, “Clack Bum!”.'],
       credits: 'Direction & edit: Fernando Freitas',
+      links: []
+    },
+    {
+      n: 19, cat: 'direction', cover: 'assets/covers/14_malokero_sin_city.jpg',
+      title: 'Malokero Anônimo — Sin City',
+      kind: 'Music video', role: 'Director & editor', with: 'Malokero Anônimo', year: '',
+      award: '',
+      items: [{ type: 'file', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' }],
+      buy: '',
+      desc: [],
+      credits: 'Director & editor: Fernando Freitas',
       links: []
     },
     {

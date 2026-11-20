@@ -105,7 +105,7 @@
     const hasVideo = p.items.some(i => i.type !== 'image' && i.type !== 'pages');
     fig.append(img);
     if (p.spot) { if (p.prev) fig.append(prevVideo(p.prev)); }   // vídeo só no YouTube: fica a capa
-    else if (p.n !== 12) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + (p.n === 17 ? 'b' : '') + '.mp4'));   // 17b: prévia refeita sem a pintura (nome novo fura o cache) · 12 (HQ) não tem prévia em vídeo; a do 14 (Shawlin) entrou em 20/11
+    else if (p.n !== 12) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + ({ 17: 'b', 5: 'c', 3: 'd', 13: 'd' }[p.n] || '') + '.mp4'));   // 17b: prévia refeita sem a pintura (nome novo fura o cache) · 12 (HQ) não tem prévia em vídeo; a do 14 (Shawlin) entrou em 20/11
     fig.append(h('span', 'card-play', hasVideo ? '▶ Play' : 'View'));
 
     const cap = h('span', 'card-cap');
