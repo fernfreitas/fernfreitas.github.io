@@ -280,12 +280,12 @@ window.FF_DATA = {
       kind: 'Case film', role: 'Editor & motion', with: 'Brahma · Spaten · Budweiser · McDonald’s · Zé Delivery · Sadia · Heinz', year: '2022–2024',
       award: '',
       items: [
-        { type: 'file', id: 'case_brahma_exiled', src: 'assets/local-only/case_brahma_exiled.mp4', poster: 'assets/thumbs/case_brahma_exiled.jpg', label: 'Brahma — Exiled Team', sub: '', dur: '2:15' },
+        { type: 'file', id: 'case_brahma_exiled', src: 'assets/local-only/case_brahma_exiled.mp4', poster: 'assets/thumbs/case_brahma_exiled.jpg', label: 'Brahma — Exiled Team', sub: 'Cannes Lions 2023 · Shortlist', dur: '2:15' },
         { type: 'file', id: 'case_brahma_barbosa', src: 'assets/local-only/case_brahma_barbosa2.mp4', poster: 'assets/thumbs/case_brahma_barbosa.jpg', label: 'Brahma — The Barbosa Clause', sub: '', dur: '2:30' },
-        { type: 'file', id: 'case_brahma_chameleon', src: 'assets/local-only/case_brahma_chameleon.mp4', poster: 'assets/thumbs/case_brahma_chameleon.jpg', label: 'Brahma — Chameleon Flag', sub: '', dur: '2:13' },
+        { type: 'file', id: 'case_brahma_chameleon', src: 'assets/local-only/case_brahma_chameleon.mp4', poster: 'assets/thumbs/case_brahma_chameleon.jpg', label: 'Brahma — Chameleon Flag', sub: 'Cannes Lions 2023 · Shortlist', dur: '2:13' },
         { type: 'file', id: 'case_carnaval', src: 'assets/local-only/case_carnaval.mp4', poster: 'assets/thumbs/case_carnaval.jpg', label: 'Brahma — Carnaval', sub: '', dur: '2:15' },
-        { type: 'file', id: 'case_bud_baile', src: 'assets/local-only/case_bud_baile.mp4', poster: 'assets/thumbs/case_bud_baile.jpg', label: 'Budweiser — Atura o Baile', sub: '', dur: '2:15' },
-        { type: 'file', id: 'case_unbreakable', src: 'assets/local-only/case_unbreakable.mp4', poster: 'assets/thumbs/case_unbreakable.jpg', label: 'Unbreakable Courts', sub: '', dur: '2:15' },
+        { type: 'file', id: 'case_bud_baile', src: 'assets/local-only/case_bud_baile.mp4', poster: 'assets/thumbs/case_bud_baile.jpg', label: 'Budweiser — Atura o Baile', sub: 'Cannes Lions · Bronze', dur: '2:15' },
+        { type: 'file', id: 'case_unbreakable', src: 'assets/local-only/case_unbreakable.mp4', poster: 'assets/thumbs/case_unbreakable.jpg', label: 'Unbreakable Courts', sub: 'D&AD 2023 · Graphite Pencil', dur: '2:15' },
         { type: 'file', id: 'case_ze_bbb', src: 'assets/local-only/case_ze_bbb.mp4', poster: 'assets/thumbs/case_ze_bbb.jpg', label: 'Zé Delivery × BBB', sub: '', dur: '1:47' },
         { type: 'file', id: 'case_ze_nicknaming', src: 'assets/local-only/case_ze_nicknaming.mp4', poster: 'assets/thumbs/case_ze_nicknaming.jpg', label: 'Zé Delivery — Nicknaming Rights', sub: '', dur: '1:15' },
         { type: 'file', id: 'case_mcd_perimore', src: 'assets/local-only/case_mcd_perimore.mp4', poster: 'assets/thumbs/case_mcd_perimore.jpg', label: 'McDonald’s — Perimore (Méqui at Lolla)', sub: '', dur: '2:11' },
@@ -293,7 +293,7 @@ window.FF_DATA = {
         { type: 'file', id: 'case_spaten_mug', src: 'assets/local-only/case_spaten_mug.mp4', poster: 'assets/thumbs/case_spaten_mug.jpg', label: 'Spaten — Mug', sub: '', dur: '1:40' },
         { type: 'file', id: 'case_spaten_suave', src: 'assets/local-only/case_spaten_suave.mp4', poster: 'assets/thumbs/case_spaten_suave.jpg', label: 'Spaten — Lado Suave', sub: '', dur: '2:00' },
         { type: 'file', id: 'case_sadia', src: 'assets/local-only/case_sadia.mp4', poster: 'assets/thumbs/case_sadia.jpg', label: 'Sadia — BRF', sub: '', dur: '4:06' },
-        { type: 'file', id: 'case_outros_mcs', src: 'assets/local-only/case_outros_mcs.mp4', poster: 'assets/thumbs/case_outros_mcs.jpg', label: 'Heinz — Outros MCs', sub: '', dur: '2:01' }
+        { type: 'file', id: 'case_outros_mcs', src: 'assets/local-only/case_outros_mcs.mp4', poster: 'assets/thumbs/case_outros_mcs.jpg', label: 'Heinz — Outros MCs', sub: 'Cannes Lions · Bronze', dur: '2:01' }
       ],
       desc: ['Case films I edited for award shows and client presentations.'],
       credits: 'Editing & motion: Fernando Freitas',
