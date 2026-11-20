@@ -99,7 +99,7 @@
     const hasVideo = p.items.some(i => i.type !== 'image' && i.type !== 'pages');
     fig.append(img);
     if (p.spot) fig.append(prevVideo(p.prev));
-    else if (p.n !== 12 && p.n !== 14) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + '.mp4'));   // 12 (HQ) e 14 (só YouTube) não têm prévia em vídeo
+    else if (p.n !== 12) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + (p.n === 17 ? 'b' : '') + '.mp4'));   // 17b: prévia refeita sem a pintura (nome novo fura o cache) · 12 (HQ) não tem prévia em vídeo; a do 14 (Shawlin) entrou em 20/11
     fig.append(h('span', 'card-play', hasVideo ? '▶ Play' : 'View'));
 
     const cap = h('span', 'card-cap');

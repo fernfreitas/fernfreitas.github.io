@@ -388,13 +388,12 @@ window.FF_DATA = {
       links: []
     },
     {
-      n: 17, cat: 'cases', cover: 'assets/covers/17_folle_de_toi_ai.jpg',
+      n: 17, cat: 'cases', cover: 'assets/covers/17_folle_de_toi_ai.jpg?v=2',
       title: 'Folle de Toi — Statues Come Alive',
       kind: 'AI on real footage', role: 'Editor & AI director', with: 'Vitória Maldonado', year: '2026',
       award: '',
       items: [
-        { type: 'file', src: 'assets/ailab/folle_marble.mp4', poster: 'assets/ailab/folle_marble.jpg', loop: true, label: 'The statues come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:10' },
-        { type: 'file', src: 'assets/ailab/folle_torso.mp4', poster: 'assets/ailab/folle_torso.jpg', loop: true, label: 'The marble breathes', sub: 'Statue → motion · silent demo', dur: '0:02' },
+        { type: 'file', src: 'assets/ailab/folle_alive.mp4', poster: 'assets/ailab/folle_alive.jpg', loop: true, label: 'The statues come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:08' },
         { type: 'file', src: 'assets/ailab/folle_neptune.mp4', poster: 'assets/ailab/folle_neptune.jpg', loop: true, label: 'The marble god moves', sub: 'Statue → motion · silent demo', dur: '0:02' },
         { type: 'file', src: 'assets/ailab/folle_youth.mp4', poster: 'assets/ailab/folle_youth.jpg', loop: true, label: 'The seated youth looks up', sub: 'Statue → motion · silent demo', dur: '0:03' },
         { type: 'file', src: 'assets/ailab/folle_bust.mp4', poster: 'assets/ailab/folle_bust.jpg', loop: true, label: 'She opens her eyes', sub: 'Statue → motion · silent demo', dur: '0:04' }
@@ -402,7 +401,7 @@ window.FF_DATA = {
       buy: '',
       desc: [
         'For Vitória Maldonado’s music video “Folle de Toi”, shot on a phone in the museums of Paris, the statues were meant to come alive.',
-        'Marble breathes, a god turns, a seated youth looks up and a bust opens her eyes and turns to the camera. The museum stays exactly as filmed; only the statues move.'
+        'A marble god turns, a seated youth looks up and a bust opens her eyes and turns to the camera. The museum stays exactly as filmed; only the statues move.'
       ],
       credits: 'Artist: Vitória Maldonado · Edit & AI direction: Fernando Freitas',
       links: []
