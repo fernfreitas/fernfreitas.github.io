@@ -260,6 +260,7 @@ window.FF_DATA = {
         { type: 'vimeo', id: '826733811', label: 'Riachuelo', sub: 'Gripe · Santa Transmedia', dur: '0:30' },
         { type: 'vimeo', id: '299111488', label: 'Leite Moça — Lei de Moça', sub: 'FCB Brasil · dir. Rodrigo Resende', dur: '1:00' },
         { type: 'vimeo', id: '296058639', label: 'Olympikus — Libere a Brincadeira', sub: 'J. Walter Thompson Brasil · Delicatessen Filmes · dir. Nixon Freire', dur: '3:34' },
+        { type: 'youtube', id: 'uqCuRio5Bh4', noprev: true, label: 'Salon Line — #todecacho feat. IZA', sub: 'Campaign film', dur: '' },
         { type: 'vimeo', id: '826281229', label: 'Facebook — More Together', sub: 'dir. Thati Almeida', dur: '0:53' },
         { type: 'vimeo', id: '826282530', label: 'YouTube Shorts — #DaUmGame', sub: 'dir. Thati Almeida', dur: '0:59' }
       ],
@@ -280,6 +281,8 @@ window.FF_DATA = {
         { type: 'file', id: 'velas', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
         { type: 'file', id: 'malokero', src: 'assets/local-only/malokero_sin_city.mp4', poster: 'assets/covers/14_malokero_sin_city.jpg', label: 'Malokero Anônimo — Sin City', sub: 'Music video (official)', dur: '2:42' },
         { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' },
+        { type: 'youtube', id: 'ol2vecSCgGY', noprev: true, label: 'Negra Li, Paula Lima & Pathy Dejesus — Cabelo', sub: 'Official music video', dur: '' },
+        { type: 'youtube', id: 'iaaIxzroynE', noprev: true, label: 'AJULIACOSTA — Não Foi do Nada', sub: 'Prod. MAT · official music video', dur: '' },
         { type: 'file', id: 'xondaro', src: 'assets/local-only/owera_xondaro.mp4', poster: 'assets/thumbs/xondaro.jpg', label: 'OWERÁ — Xondaro Ka’aguy Reguá', sub: 'dir. ANGRY · 13 festival selections & awards', dur: '3:09', laurels: true }
       ],
       desc: [

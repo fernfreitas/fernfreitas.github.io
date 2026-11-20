@@ -73,7 +73,7 @@
     if (p.n === 10 || p.n === 11) p.items.forEach((it, i) => {
       if (it.id === 'velas') return;
       const serie = p.n === 10 && i === 0;
-      gridList.push({ n: p.n, item: i, spot: true, cat: serie ? 'series' : p.cat, cover: 'assets/thumbs/' + it.id + '.jpg', prev: 'assets/prev/' + it.id + '.mp4', title: it.label,
+      gridList.push({ n: p.n, item: i, spot: true, cat: serie ? 'series' : p.cat, cover: 'assets/thumbs/' + it.id + '.jpg', prev: it.noprev ? '' : 'assets/prev/' + it.id + '.mp4', title: it.label,
         kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : 'Music video', role: 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
     });
     else gridList.push(p);
@@ -104,7 +104,7 @@
     img.src = p.cover;
     const hasVideo = p.items.some(i => i.type !== 'image' && i.type !== 'pages');
     fig.append(img);
-    if (p.spot) fig.append(prevVideo(p.prev));
+    if (p.spot) { if (p.prev) fig.append(prevVideo(p.prev)); }   // vídeo só no YouTube: fica a capa
     else if (p.n !== 12) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + (p.n === 17 ? 'b' : '') + '.mp4'));   // 17b: prévia refeita sem a pintura (nome novo fura o cache) · 12 (HQ) não tem prévia em vídeo; a do 14 (Shawlin) entrou em 20/11
     fig.append(h('span', 'card-play', hasVideo ? '▶ Play' : 'View'));
 
