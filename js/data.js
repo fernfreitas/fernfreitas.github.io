@@ -267,7 +267,6 @@ window.FF_DATA = {
         { type: 'vimeo', id: '826281229', label: 'Facebook — More Together', sub: 'dir. Sabothati', dur: '0:53' },
         { type: 'vimeo', id: '826282530', label: 'YouTube Shorts — #DaUmGame', sub: 'dir. Thati Almeida', dur: '0:59' },
         { type: 'youtube', id: 'uqCuRio5Bh4', label: 'Salon Line — #todecacho feat. IZA', sub: 'Campaign film', dur: '' },
-        { type: 'file', id: 'meli_mion', src: 'assets/local-only/meli_mion.mp4', poster: 'assets/thumbs/meli_mion.jpg', label: 'Mercado Livre — Marcos Mion', sub: 'GUT', dur: '1:23' },
         { type: 'file', id: 'amaro', src: 'assets/local-only/amaro.mp4', poster: 'assets/thumbs/amaro.jpg', label: 'AMARO', sub: 'Kumite', dur: '0:59' },
         { type: 'file', id: 'tnt_crias', src: 'assets/local-only/tnt_crias.mp4', poster: 'assets/thumbs/tnt_crias.jpg', label: 'TNT — Crias da Rua', sub: 'Y&R · LabFantasma', dur: '0:51' }
       ],
