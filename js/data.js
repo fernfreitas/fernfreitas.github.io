@@ -384,7 +384,7 @@ window.FF_DATA = {
       award: '',
       items: [
         { type: 'youtube', id: 'k5EUmVx6aNc', label: 'Documentário Leônidas da Silva', sub: 'Full documentary · YouTube', dur: '' },
-        { type: 'file', src: 'assets/local-only/airsilva_doc_trecho.mp4', poster: 'assets/covers/13_leonidas_doc.jpg', label: 'The documentary in the case film', sub: 'Excerpt from the Air_Silva case film', dur: '0:14' },
+        { type: 'file', src: 'assets/local-only/airsilva_doc_trecho.mp4', poster: 'assets/covers/13_leonidas_doc.jpg', label: 'Leônidas da Silva — excerpt', sub: 'Excerpt from the documentary', dur: '0:40' },
         { type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI · silent', dur: '0:12' }
       ],
       buy: '',
