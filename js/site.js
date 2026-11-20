@@ -64,16 +64,22 @@
 
   /* ---------- Grade de projetos ---------- */
   const grid = $('#grid');
-  const CATS = [['cases', 'Cases'], ['documentaries', 'Documentaries'], ['advertising', 'Advertising'], ['music-videos', 'Music videos'], ['direction', 'Direction'], ['other', 'Other']];
+  /* 20/11 (tarde): ordem pedida — publicidade, cases, documentário, séries, clipes, dirigidos por mim; no fim IA e a HQ.
+     Cada comercial e cada clipe é um card (sem a lista repetida embaixo). Gracinha vai para séries; 7 Velas só em "Directed by me". */
+  const CATS = [['advertising', 'Advertising'], ['cases', 'Cases'], ['documentaries', 'Documentaries'], ['series', 'Series'], ['music-videos', 'Music videos'], ['direction', 'Directed by me'], ['ai', 'AI'], ['comics', 'Graphic novel']];
   const catIdx = c => { const i = CATS.findIndex(x => x[0] === c); return i < 0 ? 99 : i; };
-  D.projects.sort((a, b) => catIdx(a.cat) - catIdx(b.cat));
-  /* 20/11: em Advertising cada spot é um card próprio (antes era uma janela só com tudo dentro). */
   const gridList = [];
   D.projects.forEach(p => {
-    if (p.n === 10) p.items.forEach((it, i) => gridList.push({ n: 10, item: i, spot: true, cat: p.cat, cover: 'assets/thumbs/' + it.id + '.jpg',
-      prev: 'assets/prev/' + it.id + '.mp4', title: it.label, kind: 'Commercial', role: 'Editor', with: it.sub, year: '', award: '', items: [it] }));
+    if (p.n === 10 || p.n === 11) p.items.forEach((it, i) => {
+      if (it.id === 'velas') return;
+      const serie = p.n === 10 && i === 0;
+      gridList.push({ n: p.n, item: i, spot: true, cat: serie ? 'series' : p.cat, cover: 'assets/thumbs/' + it.id + '.jpg', prev: 'assets/prev/' + it.id + '.mp4', title: it.label,
+        kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : 'Music video', role: 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
+    });
     else gridList.push(p);
   });
+  gridList.forEach((p, i) => { p.ord = i; });
+  gridList.sort((a, b) => catIdx(a.cat) - catIdx(b.cat) || a.ord - b.ord);
   let lastCat = null;
   gridList.forEach(p => {
     if (p.cat !== lastCat) {
@@ -112,34 +118,6 @@
     b.append(fig, cap);
     li.append(b);
     grid.append(li);
-  });
-
-  /* ---------- Comerciais e clipes: um por um ---------- */
-  const selects = $('#selects');
-  [10, 11].forEach(n => {
-    const p = byN(n);
-    if (!selects || !p) return;
-    const box = h('section', 'selects');
-    box.append(h('h3', 'selects-title', n === 10 ? 'Commercials' : 'Music videos'));
-    const ul = h('ul', 'selects-grid');
-    p.items.forEach((it, i) => {
-      const li = h('li');
-      const b = h('button', 'tile');
-      b.type = 'button';
-      b.dataset.open = n;
-      b.dataset.item = i;
-      const fig = h('span', 'tile-img');
-      const img = new Image();
-      img.alt = ''; img.loading = 'lazy'; img.decoding = 'async'; img.width = 800; img.height = 450;
-      img.src = 'assets/thumbs/' + it.id + '.jpg';
-      fig.append(img, prevVideo('assets/prev/' + it.id + '.mp4'), h('span', 'card-play', '▶ ' + (it.dur || 'Play')));
-      b.append(fig, h('span', 'tile-label', it.label));
-      if (it.sub) b.append(h('span', 'tile-sub', it.sub));
-      li.append(b);
-      ul.append(li);
-    });
-    box.append(ul);
-    selects.append(box);
   });
 
   /* ---------- AI Lab: miniaturas das pranchas ---------- */

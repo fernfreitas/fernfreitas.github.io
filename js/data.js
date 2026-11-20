@@ -150,7 +150,7 @@ window.FF_DATA = {
       links: [{ label: 'Greenventory on Vimeo', href: 'https://vimeo.com/1115603278' }]
     },
     {
-      n: 4, cat: 'cases', cover: 'assets/covers/04_um_take_novos_planos_ia.jpg',
+      n: 4, cat: 'ai', cover: 'assets/covers/04_um_take_novos_planos_ia.jpg',
       title: 'One Take, New Cameras — AI on Real Footage',
       kind: 'AI on real footage', role: 'Editor & AI director', with: 'Unreleased music video', year: '2026',
       award: '',
@@ -230,7 +230,7 @@ window.FF_DATA = {
       links: [{ label: 'Vimeo', href: 'https://vimeo.com/1121859316' }]
     },
     {
-      n: 9, cat: 'documentaries', cover: 'assets/covers/09_vivo_game_changers.jpg',
+      n: 9, cat: 'series', cover: 'assets/covers/09_vivo_game_changers.jpg',
       title: 'Vivo — Game Changers',
       kind: 'Branded documentary', role: 'Editor', with: 'Ginga · VICE', year: '2017',
       award: 'Wave Festival · Bronze, Branded Content',
@@ -290,7 +290,7 @@ window.FF_DATA = {
       links: [{ label: 'All on Vimeo', href: 'https://vimeo.com/fernstorm' }]
     },
     {
-      n: 12, cat: 'other', cover: 'assets/covers/12_assombramento_hq.jpg',
+      n: 12, cat: 'comics', cover: 'assets/covers/12_assombramento_hq.jpg',
       title: 'ASSOMBRAMENTO — Graphic Novel',
       kind: 'Comics', role: 'Script & art', with: 'After Afonso Arinos · adapted by Daniela Prado', year: '2026',
       award: '',
@@ -388,20 +388,20 @@ window.FF_DATA = {
       links: []
     },
     {
-      n: 17, cat: 'cases', cover: 'assets/covers/17_folle_de_toi_ai.jpg?v=2',
-      title: 'Folle de Toi — Statues Come Alive',
+      n: 17, cat: 'ai', cover: 'assets/covers/17_folle_de_toi_ai.jpg?v=2',
+      title: 'Folle de Toi — The Museum Comes Alive',
       kind: 'AI on real footage', role: 'Editor & AI director', with: 'Vitória Maldonado', year: '2026',
       award: '',
       items: [
         { type: 'file', src: 'assets/ailab/folle_alive.mp4', poster: 'assets/ailab/folle_alive.jpg', loop: true, label: 'The statues come alive', sub: 'Phone footage from the museum, animated with AI · silent demo', dur: '0:08' },
-        { type: 'file', src: 'assets/ailab/folle_neptune.mp4', poster: 'assets/ailab/folle_neptune.jpg', loop: true, label: 'The marble god moves', sub: 'Statue → motion · silent demo', dur: '0:02' },
-        { type: 'file', src: 'assets/ailab/folle_youth.mp4', poster: 'assets/ailab/folle_youth.jpg', loop: true, label: 'The seated youth looks up', sub: 'Statue → motion · silent demo', dur: '0:03' },
-        { type: 'file', src: 'assets/ailab/folle_bust.mp4', poster: 'assets/ailab/folle_bust.jpg', loop: true, label: 'She opens her eyes', sub: 'Statue → motion · silent demo', dur: '0:04' }
+        { type: 'file', src: 'assets/ailab/folle_kiss.mp4', poster: 'assets/ailab/folle_kiss.jpg', loop: true, label: 'The Kiss, from marble to skin', sub: 'Statue → skin · silent demo', dur: '0:05' },
+        { type: 'file', src: 'assets/ailab/folle_hall.mp4', poster: 'assets/ailab/folle_hall.jpg', loop: true, label: 'Golden light in the hall', sub: 'Interior relit with AI · silent demo', dur: '0:05' },
+        { type: 'file', src: 'assets/ailab/folle_garden.mp4', poster: 'assets/ailab/folle_garden.jpg', loop: true, label: 'The garden at golden hour', sub: 'Grey sky → golden hour · silent demo', dur: '0:05' }
       ],
       buy: '',
       desc: [
-        'For Vitória Maldonado’s music video “Folle de Toi”, shot on a phone in the museums of Paris, the statues were meant to come alive.',
-        'A marble god turns, a seated youth looks up and a bust opens her eyes and turns to the camera. The museum stays exactly as filmed; only the statues move.'
+        'For Vitória Maldonado’s music video “Folle de Toi”, shot on a phone in the museums and gardens of Paris, the place itself was meant to come alive.',
+        'Rodin’s Kiss turns from marble to skin, golden light sweeps an empty hall, the statues move and a grey afternoon in the garden becomes golden hour. The takes are the ones filmed on the phone; AI changes the light and wakes the marble.'
       ],
       credits: 'Artist: Vitória Maldonado · Edit & AI direction: Fernando Freitas',
       links: []
