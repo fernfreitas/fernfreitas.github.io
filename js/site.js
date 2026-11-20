@@ -76,15 +76,15 @@
       gridList.push({ n: p.n, item: i, spot: true, cat: serie ? 'series' : p.cat, cover: 'assets/thumbs/' + it.id + '.jpg', prev: it.noprev ? '' : 'assets/prev/' + it.id + '.mp4', title: it.label,
         kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : p.n === 18 ? 'Case film' : 'Music video', role: 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
     });
-    else if (p.cat === 'ai') p.items.forEach((it, i) => {   // 20/11: AI Lab em cards padrão, um por demo em vídeo; clicar abre maior
-      if (it.type !== 'file') return;
-      gridList.push({ n: p.n, item: i, spot: true, cat: 'ai', cover: it.poster, prev: it.src, title: it.label,
-        kind: 'AI on real footage', role: '', with: p.n === 4 ? 'One Take, New Cameras' : 'Folle de Toi', year: '', award: '', items: [it] });
-    });
+    else if (p.cat === 'ai') return;   // AI Lab: seis cards escolhidos pelo Fernando (20/11), montados abaixo
     else gridList.push(p);
   });
-  gridList.push({ n: 3, item: 0, spot: true, cat: 'ai', cover: 'assets/ailab/silva_360.jpg', prev: 'assets/ailab/silva_360.mp4', title: 'Air_Silva — archive photo to 360°',
-    kind: 'AI on real footage', role: '', with: 'Volt', year: '', award: '', items: [{ type: 'file' }] });
+  // AI Lab: 3 do Air_Silva (logo na camisa ×2, foto em 360°) e 3 da Vitória (estátuas, parede, luz). Clicar abre o trecho maior.
+  [[3, 'silva_a1', 'Air_Silva'], [3, 'silva_a2', 'Air_Silva'], [3, 'silva_360', 'Air_Silva'],
+   [17, 'folle_alive2', 'Folle de Toi'], [4, 'vitoria_roses', 'One Take, New Cameras'], [4, 'vitoria_relight', 'One Take, New Cameras']].forEach(([n, f, w]) => {
+    const P = byN(n), i = P.items.findIndex(it => (it.src || '').includes('/' + f + '.mp4')), it = P.items[i];
+    if (it) gridList.push({ n, item: i, spot: true, cat: 'ai', cover: it.poster, prev: it.src, title: it.label, kind: 'AI on real footage', role: '', with: w, year: '', award: '', items: [it] });
+  });
   gridList.forEach((p, i) => { p.ord = i; });
   gridList.sort((a, b) => catIdx(a.cat) - catIdx(b.cat) || a.ord - b.ord);
   let lastCat = null;
@@ -114,7 +114,7 @@
     const hasVideo = p.items.some(i => i.type !== 'image' && i.type !== 'pages');
     fig.append(img);
     if (p.spot) { if (p.prev) fig.append(prevVideo(p.prev)); }   // vídeo só no YouTube: fica a capa
-    else if (p.n !== 12) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + ({ 17: 'b', 5: 'c', 3: 'd', 13: 'd', 14: 'b' }[p.n] || '') + '.mp4'));   // 17b: prévia refeita sem a pintura (nome novo fura o cache) · 12 (HQ) não tem prévia em vídeo; a do 14 (Shawlin) entrou em 20/11
+    else if (p.n !== 12) fig.append(prevVideo('assets/prev/p' + pad2(p.n) + ({ 17: 'b', 5: 'c', 3: 'd', 13: 'e', 14: 'b' }[p.n] || '') + '.mp4'));   // 17b: prévia refeita sem a pintura (nome novo fura o cache) · 12 (HQ) não tem prévia em vídeo; a do 14 (Shawlin) entrou em 20/11
     fig.append(h('span', 'card-play', hasVideo ? '▶ Play' : 'View'));
 
     const cap = h('span', 'card-cap');

@@ -139,7 +139,10 @@ window.FF_DATA = {
       items: [
         { type: 'file', src: 'assets/local-only/airsilva_case_720.mp4', poster: 'assets/ailab/airsilva_2.jpg', label: 'Volt — Air_Silva', sub: 'Case film', dur: '2:13' },
         { type: 'vimeo', id: '1115603278', label: 'Natura — The Amazon Greenventory', sub: 'Case film · Grand Prix SDG', dur: '2:15' },
-        { type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI · silent', dur: '0:12' }   // item 0 tem de ser o case film: o "Watch the case film" do hero abre o item 0
+        { type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI · silent', dur: '0:12' },
+        { type: 'file', src: 'assets/ailab/silva_a1.mp4', poster: 'assets/ailab/silva_a1.jpg', loop: true, label: 'Air_Silva — the kick becomes the crest', sub: 'Archive photo animated with AI · silent demo', dur: '0:04' },
+        { type: 'file', src: 'assets/ailab/silva_a2.mp4', poster: 'assets/ailab/silva_a2.jpg', loop: true, label: 'Air_Silva — from the photo to the jersey', sub: 'Archive photo animated with AI · silent demo', dur: '0:04' },
+        { type: 'file', src: 'assets/ailab/silva_360.mp4', poster: 'assets/ailab/silva_360.jpg', loop: true, label: 'Air_Silva — archive photo to 360°', sub: 'Archive photo animated with AI · silent demo', dur: '0:08' }   // item 0 tem de ser o case film: o "Watch the case film" do hero abre o item 0
       ],
       desc: [
         'Two case films for Cannes Lions, made with Africa Creative.',
@@ -163,7 +166,8 @@ window.FF_DATA = {
         { type: 'image', src: 'assets/ailab/onetake_take_1.jpg', label: 'Take 1 · Garden walk', sub: 'Original, then 3 new angles' },
         { type: 'image', src: 'assets/ailab/onetake_take_2.jpg', label: 'Take 2 · Running', sub: 'Original, then 2 new angles' },
         { type: 'image', src: 'assets/ailab/onetake_take_3.jpg', label: 'Take 3 · Crosswalk', sub: 'Original, then 2 new angles' },
-        { type: 'image', src: 'assets/ailab/onetake_take_4.jpg', label: 'Take 4 · Garden chair', sub: 'Original, then 2 new angles' }
+        { type: 'image', src: 'assets/ailab/onetake_take_4.jpg', label: 'Take 4 · Garden chair', sub: 'Original, then 2 new angles' },
+        { type: 'file', src: 'assets/ailab/vitoria_roses.mp4', poster: 'assets/ailab/vitoria_roses.jpg', loop: true, label: 'A wall turns into roses', sub: 'Left: phone take · right: wall changed with AI · silent demo', dur: '0:04' }
       ],
       desc: [
         'A music video shot on a phone in Paris, one take per moment. No crane, no drone, no second camera.',
@@ -376,13 +380,17 @@ window.FF_DATA = {
       }
     },
     {
-      n: 13, cat: 'documentaries', cover: 'assets/ailab/motion_silva_ai_poster.jpg',
-      title: 'Leônidas Silva — AI motion (Air_Silva)',
+      n: 13, cat: 'documentaries', cover: 'assets/covers/13_leonidas_doc.jpg',
+      title: 'Leônidas da Silva — Documentary (Air_Silva)',
       kind: 'Documentary · motion & AI', role: 'Motion, AI & editing', with: 'Volt · Africa Creative', year: '2026',
       award: '',
-      items: [{ type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI · silent', dur: '0:12' }],
+      items: [
+        { type: 'youtube', id: 'k5EUmVx6aNc', label: 'Documentário Leônidas da Silva', sub: 'Full documentary · YouTube', dur: '' },
+        { type: 'file', src: 'assets/local-only/airsilva_doc_trecho.mp4', poster: 'assets/covers/13_leonidas_doc.jpg', label: 'The documentary in the case film', sub: 'Excerpt from the Air_Silva case film', dur: '0:14' },
+        { type: 'file', src: 'assets/local-only/motion_silva_ai.mp4', poster: 'assets/ailab/motion_silva_ai_poster.jpg', label: 'Leônidas — motion & AI', sub: 'Motion · AI · silent', dur: '0:12' }
+      ],
       buy: '',
-      desc: ['Motion and AI-generated sequence from the Air_Silva documentary work.'],
+      desc: ['The first documentary about Leônidas da Silva, released with the Air_Silva collection. My work: motion and AI-generated sequences.'],
       credits: '',
       links: []
     },
@@ -406,6 +414,17 @@ window.FF_DATA = {
       buy: '',
       desc: ['A documentary about Carlos Motta, the Brazilian furniture designer, and the two lives that shaped his work: surfing and wood.'],
       credits: 'Editor: Fernando Freitas',
+      links: []
+    },
+    {
+      n: 20, cat: 'documentaries', cover: 'assets/covers/20_cores_cordas_tambores.jpg',
+      title: 'Cores, Cordas e Tambores',
+      kind: 'Documentary', role: 'Editor', with: 'Spray Filmes', year: '',
+      award: '',
+      items: [{ type: 'file', src: 'assets/local-only/cores_cordas_abertura.mp4', poster: 'assets/covers/20_cores_cordas_tambores.jpg', label: 'Cores, Cordas e Tambores', sub: 'Opening sequence', dur: '1:43' }],
+      buy: '',
+      desc: ['A feature documentary about the public school Antônio Alves Cruz, in São Paulo, threatened with closure in 1999–2000, told by its students, teachers and alumni.'],
+      credits: 'Editing: Fernando Faria Freitas, Raoni Mota · Production: Spray Filmes',
       links: []
     },
     {
