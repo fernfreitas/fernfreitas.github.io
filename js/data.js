@@ -263,19 +263,20 @@ window.FF_DATA = {
         { type: 'vimeo', id: '826281229', label: 'Facebook — More Together', sub: 'dir. Sabothati', dur: '0:53' },
         { type: 'vimeo', id: '826282530', label: 'YouTube Shorts — #DaUmGame', sub: 'dir. Thati Almeida', dur: '0:59' },
         { type: 'youtube', id: 'uqCuRio5Bh4', label: 'Salon Line — #todecacho feat. IZA', sub: 'Campaign film', dur: '' },
-        { type: 'file', id: 'meli_mion', src: 'assets/local-only/meli_mion.mp4', poster: 'assets/thumbs/meli_mion.jpg', label: 'Mercado Livre — Marcos Mion', sub: 'GUT', dur: '1:23' }
+        { type: 'file', id: 'meli_mion', src: 'assets/local-only/meli_mion.mp4', poster: 'assets/thumbs/meli_mion.jpg', label: 'Mercado Livre — Marcos Mion', sub: 'GUT', dur: '1:23' },
+        { type: 'file', id: 'amaro', src: 'assets/local-only/amaro.mp4', poster: 'assets/thumbs/amaro.jpg', label: 'AMARO', sub: 'Kumite', dur: '0:59' },
+        { type: 'file', id: 'tnt_crias', src: 'assets/local-only/tnt_crias.mp4', poster: 'assets/thumbs/tnt_crias.jpg', label: 'TNT — Crias da Rua', sub: 'Y&R · LabFantasma', dur: '0:51' }
       ],
       desc: ['Spots I edited for brands in Brazil. Agency, production company and director are listed per spot.'],
       credits: 'Editor: Fernando Freitas',
       links: [{ label: 'All on Vimeo', href: 'https://vimeo.com/fernstorm' }]
     },
     {
-      n: 18, cat: 'cases', cover: 'assets/thumbs/case_itau_camisa.jpg',
+      n: 18, cat: 'cases', cover: 'assets/thumbs/case_brahma_exiled.jpg',
       title: 'Case Films — Selected',
       kind: 'Case film', role: 'Editor', with: 'Brahma · Itaú · Spaten · Budweiser · McDonald’s · Zé Delivery · Sadia', year: '2022–2024',
       award: '',
       items: [
-        { type: 'file', id: 'case_itau_camisa', src: 'assets/local-only/case_itau_camisa.mp4', poster: 'assets/thumbs/case_itau_camisa.jpg', label: 'Itaú — Camisa Sem Estrelas', sub: '', dur: '2:14' },
         { type: 'file', id: 'case_brahma_exiled', src: 'assets/local-only/case_brahma_exiled.mp4', poster: 'assets/thumbs/case_brahma_exiled.jpg', label: 'Brahma — Exiled Team', sub: '', dur: '2:15' },
         { type: 'file', id: 'case_brahma_barbosa', src: 'assets/local-only/case_brahma_barbosa2.mp4', poster: 'assets/thumbs/case_brahma_barbosa.jpg', label: 'Brahma — The Barbosa Clause', sub: '', dur: '2:30' },
         { type: 'file', id: 'case_brahma_chameleon', src: 'assets/local-only/case_brahma_chameleon.mp4', poster: 'assets/thumbs/case_brahma_chameleon.jpg', label: 'Brahma — Chameleon Flag', sub: '', dur: '2:13' },
@@ -317,7 +318,8 @@ window.FF_DATA = {
         { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' },
         { type: 'youtube', id: 'ol2vecSCgGY', label: 'Negra Li, Paula Lima & Pathy Dejesus — Cabelo', sub: 'Official music video', dur: '' },
         { type: 'file', id: 'xondaro', src: 'assets/local-only/owera_xondaro.mp4', poster: 'assets/thumbs/xondaro.jpg', label: 'OWERÁ — Xondaro Ka’aguy Reguá', sub: 'dir. ANGRY · 13 festival selections & awards', dur: '3:09', laurels: true },
-        { type: 'youtube', id: 'iaaIxzroynE', label: 'AJULIACOSTA — Não Foi do Nada', sub: 'MOOC · Prod. MAT', dur: '' }
+        { type: 'youtube', id: 'iaaIxzroynE', label: 'AJULIACOSTA — Não Foi do Nada', sub: 'MOOC · Prod. MAT', dur: '' },
+        { type: 'file', id: 'resenha', src: 'assets/local-only/resenha.mp4', poster: 'assets/thumbs/resenha.jpg', label: 'Rincon Sapiência, Rael & Karol Conka — Resenha de Futebol', sub: 'Official music video', dur: '3:38' }
       ],
       desc: [
         'Music videos that helped shape Brazilian pop culture.',
