@@ -420,7 +420,7 @@ window.FF_DATA = {
       title: 'Cores, Cordas e Tambores',
       kind: 'Documentary', role: 'Editor', with: 'Spray Filmes', year: '',
       award: '',
-      items: [{ type: 'file', src: 'assets/local-only/cores_cordas_abertura.mp4', poster: 'assets/covers/20_cores_cordas_tambores.jpg', label: 'Cores, Cordas e Tambores', sub: 'Opening sequence', dur: '1:43' }],
+      items: [{ type: 'youtube', id: 'E9DWnYY-Btg', label: 'Cores, Cordas e Tambores', sub: 'Documentary · full film', dur: '57:48' }],
       buy: '',
       desc: ['A feature documentary about the public school Antônio Alves Cruz, in São Paulo, threatened with closure in 1999–2000, told by its students, teachers and alumni.'],
       credits: 'Editing: Fernando Faria Freitas, Raoni Mota · Production: Spray Filmes',
