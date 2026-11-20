@@ -262,7 +262,8 @@ window.FF_DATA = {
         { type: 'vimeo', id: '296058639', label: 'Olympikus — Libere a Brincadeira', sub: 'J. Walter Thompson Brasil · Delicatessen Filmes · dir. Nixon Freire', dur: '3:34' },
         { type: 'vimeo', id: '826281229', label: 'Facebook — More Together', sub: 'dir. Sabothati', dur: '0:53' },
         { type: 'vimeo', id: '826282530', label: 'YouTube Shorts — #DaUmGame', sub: 'dir. Thati Almeida', dur: '0:59' },
-        { type: 'youtube', id: 'uqCuRio5Bh4', noprev: true, label: 'Salon Line — #todecacho feat. IZA', sub: 'Campaign film', dur: '' }
+        { type: 'youtube', id: 'uqCuRio5Bh4', label: 'Salon Line — #todecacho feat. IZA', sub: 'Campaign film', dur: '' },
+        { type: 'file', id: 'meli_mion', src: 'assets/local-only/meli_mion.mp4', poster: 'assets/thumbs/meli_mion.jpg', label: 'Mercado Livre — Marcos Mion', sub: 'GUT', dur: '1:23' }
       ],
       desc: ['Spots I edited for brands in Brazil. Agency, production company and director are listed per spot.'],
       credits: 'Editor: Fernando Freitas',
@@ -271,12 +272,12 @@ window.FF_DATA = {
     {
       n: 18, cat: 'cases', cover: 'assets/thumbs/case_itau_camisa.jpg',
       title: 'Case Films — Selected',
-      kind: 'Case film', role: 'Editor', with: 'Brahma · Itaú · Spaten · Budweiser · Sadia', year: '2022–2024',
+      kind: 'Case film', role: 'Editor', with: 'Brahma · Itaú · Spaten · Budweiser · McDonald’s · Zé Delivery · Sadia', year: '2022–2024',
       award: '',
       items: [
         { type: 'file', id: 'case_itau_camisa', src: 'assets/local-only/case_itau_camisa.mp4', poster: 'assets/thumbs/case_itau_camisa.jpg', label: 'Itaú — Camisa Sem Estrelas', sub: '', dur: '2:14' },
         { type: 'file', id: 'case_brahma_exiled', src: 'assets/local-only/case_brahma_exiled.mp4', poster: 'assets/thumbs/case_brahma_exiled.jpg', label: 'Brahma — Exiled Team', sub: '', dur: '2:15' },
-        { type: 'file', id: 'case_brahma_barbosa', src: 'assets/local-only/case_brahma_barbosa.mp4', poster: 'assets/thumbs/case_brahma_barbosa.jpg', label: 'Brahma — The Barbosa Clause', sub: '', dur: '2:42' },
+        { type: 'file', id: 'case_brahma_barbosa', src: 'assets/local-only/case_brahma_barbosa2.mp4', poster: 'assets/thumbs/case_brahma_barbosa.jpg', label: 'Brahma — The Barbosa Clause', sub: '', dur: '2:30' },
         { type: 'file', id: 'case_brahma_chameleon', src: 'assets/local-only/case_brahma_chameleon.mp4', poster: 'assets/thumbs/case_brahma_chameleon.jpg', label: 'Brahma — Chameleon Flag', sub: '', dur: '2:13' },
         { type: 'file', id: 'case_brahma_medical', src: 'assets/local-only/case_brahma_medical.mp4', poster: 'assets/thumbs/case_brahma_medical.jpg', label: 'Brahma — Medical Department', sub: '', dur: '2:13' },
         { type: 'file', id: 'case_brahma_chopp', src: 'assets/local-only/case_brahma_chopp.mp4', poster: 'assets/thumbs/case_brahma_chopp.jpg', label: 'Brahma — Chopp na Lata', sub: '', dur: '1:57' },
@@ -288,6 +289,9 @@ window.FF_DATA = {
         { type: 'file', id: 'case_itau_credito', src: 'assets/local-only/case_itau_credito.mp4', poster: 'assets/thumbs/case_itau_credito.jpg', label: 'Itaú — Crédito', sub: '', dur: '2:00' },
         { type: 'file', id: 'case_itau_golpes', src: 'assets/local-only/case_itau_golpes.mp4', poster: 'assets/thumbs/case_itau_golpes.jpg', label: 'Itaú — Golpes e Fraudes', sub: '', dur: '3:17' },
         { type: 'file', id: 'case_ze_bbb', src: 'assets/local-only/case_ze_bbb.mp4', poster: 'assets/thumbs/case_ze_bbb.jpg', label: 'Zé Delivery × BBB', sub: '', dur: '1:47' },
+        { type: 'file', id: 'case_ze_nicknaming', src: 'assets/local-only/case_ze_nicknaming.mp4', poster: 'assets/thumbs/case_ze_nicknaming.jpg', label: 'Zé Delivery — Nicknaming Rights', sub: '', dur: '1:15' },
+        { type: 'file', id: 'case_mcd_perimore', src: 'assets/local-only/case_mcd_perimore.mp4', poster: 'assets/thumbs/case_mcd_perimore.jpg', label: 'McDonald’s — Perimore (Méqui at Lolla)', sub: '', dur: '2:11' },
+        { type: 'file', id: 'case_mcd_bigtasty', src: 'assets/local-only/case_mcd_bigtasty.mp4', poster: 'assets/thumbs/case_mcd_bigtasty.jpg', label: 'McDonald’s — Big Tasty', sub: '', dur: '1:12' },
         { type: 'file', id: 'case_spaten_mons', src: 'assets/local-only/case_spaten_mons.mp4', poster: 'assets/thumbs/case_spaten_mons.jpg', label: 'Spaten — Mons', sub: '', dur: '2:50' },
         { type: 'file', id: 'case_spaten_mug', src: 'assets/local-only/case_spaten_mug.mp4', poster: 'assets/thumbs/case_spaten_mug.jpg', label: 'Spaten — Mug', sub: '', dur: '1:40' },
         { type: 'file', id: 'case_spaten_suave', src: 'assets/local-only/case_spaten_suave.mp4', poster: 'assets/thumbs/case_spaten_suave.jpg', label: 'Spaten — Lado Suave', sub: '', dur: '2:00' },
@@ -311,9 +315,9 @@ window.FF_DATA = {
         { type: 'vimeo', id: '1152083262', label: 'Garena Free Fire — T.R.A.P.: I’m on Fire', sub: 'feat. BJRNCK, Awich, Krawk, Faruz Feet · Vetor Zero · 2026', dur: '2:48' },
         { type: 'file', id: 'velas', src: 'assets/local-only/familia_7_velas_clack_bum_cor_leve.mp4', poster: 'assets/covers/13_familia_7_velas.jpg', label: 'Família 7 Velas — Clack Bum!', sub: 'Music video (official)', dur: '3:45' },
         { type: 'vimeo', id: '331998307', label: 'Anitta feat. Swae Lee — Poquito', sub: 'Official music video', dur: '2:56' },
-        { type: 'youtube', id: 'ol2vecSCgGY', noprev: true, label: 'Negra Li, Paula Lima & Pathy Dejesus — Cabelo', sub: 'Official music video', dur: '' },
+        { type: 'youtube', id: 'ol2vecSCgGY', label: 'Negra Li, Paula Lima & Pathy Dejesus — Cabelo', sub: 'Official music video', dur: '' },
         { type: 'file', id: 'xondaro', src: 'assets/local-only/owera_xondaro.mp4', poster: 'assets/thumbs/xondaro.jpg', label: 'OWERÁ — Xondaro Ka’aguy Reguá', sub: 'dir. ANGRY · 13 festival selections & awards', dur: '3:09', laurels: true },
-        { type: 'youtube', id: 'iaaIxzroynE', noprev: true, label: 'AJULIACOSTA — Não Foi do Nada', sub: 'MOOC · Prod. MAT', dur: '' }
+        { type: 'youtube', id: 'iaaIxzroynE', label: 'AJULIACOSTA — Não Foi do Nada', sub: 'MOOC · Prod. MAT', dur: '' }
       ],
       desc: [
         'Music videos that helped shape Brazilian pop culture.',
