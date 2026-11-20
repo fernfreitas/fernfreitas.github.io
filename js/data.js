@@ -448,6 +448,19 @@ window.FF_DATA = {
       links: []
     },
     {
+      n: 21, cat: 'direction', cover: 'assets/covers/21_pueril.jpg',
+      title: 'Pueril',
+      kind: 'Short documentary', role: 'Director', with: 'Oficinas Kinoforum', year: '',
+      award: '',
+      items: [{ type: 'youtube', id: 'fbcSH0obGO4', label: 'Pueril', sub: 'Oficinas Kinoforum · YouTube', dur: '12:04' }],
+      desc: [
+        'A day inside a daycare centre in São Paulo, at the height of the children’s eyes. Made at a Kinoforum film workshop.',
+        'I directed the shoot. The film’s end credits list me as assistant director.'
+      ],
+      credits: 'Screenplay: Sabrina Santos · Cinematography: Rafael Ferreira · Production: Juliana Borges, Paula Schinaider · Editing: Yoná Matiello, Renata Agudo · Produced by Associação Cultural Kinoforum',
+      links: [{ label: 'YouTube', href: 'https://www.youtube.com/watch?v=fbcSH0obGO4' }]
+    },
+    {
       n: 17, cat: 'ai', cover: 'assets/covers/17_folle_de_toi_ai.jpg?v=2',
       title: 'Folle de Toi — The Museum Comes Alive',
       kind: 'AI on real footage', role: 'Editor & AI director', with: 'Vitória Maldonado', year: '2026',
