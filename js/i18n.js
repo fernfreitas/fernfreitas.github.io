@@ -177,6 +177,7 @@
     ['Commercial', 'Comercial', 'Anuncio'],
     ['Director & editor', 'Diretor e montador', 'Director y montador'],
     ['Short documentary', 'Documentário curto', 'Documental corto'],
+    ['Director', 'Diretor', 'Director'],
     ['Oficinas Kinoforum · YouTube', 'Oficinas Kinoforum · YouTube', 'Oficinas Kinoforum · YouTube'],
     ['A day inside a daycare centre in São Paulo, at the height of the children’s eyes. Made at a Kinoforum film workshop.', 'Um dia dentro de uma creche em São Paulo, na altura dos olhos das crianças. Feito numa oficina de cinema do Kinoforum.', 'Un día dentro de una guardería en São Paulo, a la altura de los ojos de los niños. Hecho en un taller de cine de Kinoforum.'],
     ['I directed the shoot. The film’s end credits list me as assistant director.', 'Dirigi a filmagem. Nos créditos finais do filme apareço como assistente de direção.', 'Dirigí el rodaje. En los créditos finales de la película figuro como ayudante de dirección.'],
