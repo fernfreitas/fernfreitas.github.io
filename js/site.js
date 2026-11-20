@@ -70,11 +70,11 @@
   const catIdx = c => { const i = CATS.findIndex(x => x[0] === c); return i < 0 ? 99 : i; };
   const gridList = [];
   D.projects.forEach(p => {
-    if (p.n === 10 || p.n === 11) p.items.forEach((it, i) => {
+    if (p.n === 10 || p.n === 11 || p.n === 18) p.items.forEach((it, i) => {   // 18: cases, um card por filme
       if (it.id === 'velas') return;
       const serie = p.n === 10 && i === 0;
       gridList.push({ n: p.n, item: i, spot: true, cat: serie ? 'series' : p.cat, cover: 'assets/thumbs/' + it.id + '.jpg', prev: it.noprev ? '' : 'assets/prev/' + it.id + '.mp4', title: it.label,
-        kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : 'Music video', role: 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
+        kind: serie ? 'Visual album' : p.n === 10 ? 'Commercial' : p.n === 18 ? 'Case film' : 'Music video', role: 'Editor', with: serie ? 'Disney+ · 2021 · co-edited' : it.sub, year: '', award: '', items: [it] });
     });
     else gridList.push(p);
   });

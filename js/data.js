@@ -269,6 +269,18 @@ window.FF_DATA = {
       links: [{ label: 'All on Vimeo', href: 'https://vimeo.com/fernstorm' }]
     },
     {
+      n: 18, cat: 'cases', cover: 'assets/thumbs/case_itau_camisa.jpg',
+      title: 'Case Films — Selected',
+      kind: 'Case film', role: 'Editor', with: 'Itaú', year: '2022–2024',
+      award: '',
+      items: [
+        { type: 'file', id: 'case_itau_camisa', src: 'assets/local-only/case_itau_camisa.mp4', poster: 'assets/thumbs/case_itau_camisa.jpg', label: 'Itaú — Camisa Sem Estrelas', sub: '', dur: '2:14' }
+      ],
+      desc: ['Case films I edited for award shows and client presentations.'],
+      credits: 'Editor: Fernando Freitas',
+      links: []
+    },
+    {
       n: 11, cat: 'music-videos', cover: 'assets/covers/11_music_video_selects.jpg',
       title: 'Music Videos — Selected Work',
       kind: 'Music videos', role: 'Editor', with: 'MC Guimê & Emicida · Don L · Xenia França · T.R.A.P. · OWERÁ', year: '2013–2026',
