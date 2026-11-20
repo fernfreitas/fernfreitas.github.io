@@ -114,7 +114,7 @@ window.FF_DATA = {
     {
       n: 2, cat: 'documentaries', cover: 'assets/covers/02_amarelo_netflix.jpg',
       title: 'Netflix — AmarElo: É Tudo Pra Ontem',
-      kind: 'Documentary', role: 'Editor · structure, archive & finishing', with: 'LabFantasma', year: '2020',
+      kind: 'Documentary', role: 'Editor · research, creative direction & finishing', with: 'LabFantasma', year: '2020',
       award: 'International Emmy 2021 · Nominee',
       items: [
         { type: 'vimeo', id: '503183790', label: 'Netflix — AmarElo: É Tudo Pra Ontem', sub: 'Trailer', dur: '1:50' },
@@ -222,7 +222,7 @@ window.FF_DATA = {
     {
       n: 8, cat: 'documentaries', cover: 'assets/covers/08_seu_estilo_seu_impacto.jpg',
       title: 'Seu Estilo, Seu Impacto — Documentary & Trailer',
-      kind: 'Fashion documentary', role: 'Documentary & trailer editor', with: '', year: '2024',
+      kind: 'Fashion documentary', role: 'Editor · research & creative direction', with: '', year: '2024',
       award: 'KAIA IFF Türkiye 2025 · Best Documentary Direction',
       items: [{ type: 'vimeo', id: '1121859316', label: 'Seu Estilo, Seu Impacto', sub: 'Trailer', dur: '1:00' }],
       desc: [
@@ -230,7 +230,7 @@ window.FF_DATA = {
         'I edited the film and its trailer in a single week, in close partnership with the director, structuring the story around its characters and the “small big gestures” they set against fast fashion.',
         'The film won Best Documentary Direction at the KAIA International Film Festival (Türkiye) in 2025.'
       ],
-      credits: 'Documentary & trailer editor: Fernando Freitas',
+      credits: 'Editing, research & creative direction: Fernando Freitas',
       links: [{ label: 'Vimeo', href: 'https://vimeo.com/1121859316' }]
     },
     {
