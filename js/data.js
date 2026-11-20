@@ -313,7 +313,8 @@ window.FF_DATA = {
         { type: 'youtube', id: 'ol2vecSCgGY', label: 'Negra Li, Paula Lima & Pathy Dejesus — Cabelo', sub: 'Official music video', dur: '' },
         { type: 'file', id: 'xondaro', src: 'assets/local-only/owera_xondaro.mp4', poster: 'assets/thumbs/xondaro.jpg', label: 'OWERÁ — Xondaro Ka’aguy Reguá', sub: 'dir. ANGRY · 13 festival selections & awards', dur: '3:09', laurels: true },
         { type: 'youtube', id: 'iaaIxzroynE', label: 'AJULIACOSTA — Não Foi do Nada', sub: 'MOOC · Prod. MAT', dur: '' },
-        { type: 'file', id: 'resenha', src: 'assets/local-only/resenha.mp4', poster: 'assets/thumbs/resenha.jpg', label: 'Rincon Sapiência, Rael & Karol Conka — Resenha de Futebol', sub: 'Official music video', dur: '3:38' }
+        { type: 'file', id: 'resenha', src: 'assets/local-only/resenha.mp4', poster: 'assets/thumbs/resenha.jpg', label: 'Rincon Sapiência, Rael & Karol Conka — Resenha de Futebol', sub: 'Official music video', dur: '3:38' },
+        { type: 'file', id: 'pulele', src: 'assets/local-only/pulele.mp4', poster: 'assets/thumbs/pulele.jpg', label: 'Monkey Jhayam feat. Gaby Amarantos — Pulele', sub: 'Official music video', dur: '4:03' }
       ],
       desc: [
         'Music videos that helped shape Brazilian pop culture.',
