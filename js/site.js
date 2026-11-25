@@ -432,7 +432,7 @@
     } else if (it.type === 'youtube') {
       node = h('iframe');
       node.referrerPolicy = 'strict-origin-when-cross-origin';
-      node.src = 'https://www.youtube-nocookie.com/embed/' + it.id + '?autoplay=1&rel=0&playsinline=1';
+      node.src = 'https://www.youtube.com/embed/' + it.id + '?autoplay=1&rel=0&playsinline=1';
       node.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
       node.title = it.label;
     } else if (it.type === 'file') {
